@@ -68,6 +68,8 @@ El service worker precarga la lista fija de archivos de la aplicación bajo un n
 
 El paquete inicial no pasa por la caché del service worker. Se descarga una vez con `fetch`, se importa a IndexedDB y no se vuelve a solicitar.
 
+Ajustes ofrece "Buscar actualizaciones": consulta `version.js` en el servidor, compara con la instalada, pide la actualización al service worker y muestra el estado (buscando, descargando con barra de actividad, lista) y un botón "Reiniciar ahora" que activa la versión nueva mediante el mensaje `SKIP_WAITING`. Si la aplicación detecta una versión nueva al abrirse con internet, la pestaña Ajustes muestra un punto de aviso. El registro del service worker usa `updateViaCache: 'none'`.
+
 ### 3.3 Almacenamiento
 
 IndexedDB a través de Dexie. Tras la carga inicial se llama a `navigator.storage.persist()`. En Android con Chrome, una PWA instalada obtiene el permiso sin diálogo, y el sistema no borra sus datos por falta de espacio. Los datos se pierden solo si la usuaria borra los datos de Chrome o desinstala la aplicación, y por eso la pantalla de ajustes muestra la fecha del último respaldo y avisa cuando pasan más de 30 días.

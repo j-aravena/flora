@@ -33,6 +33,7 @@ legend { font-weight: 600; color: var(--texto-suave); }
 .barra { position: fixed; left: 0; right: 0; bottom: 0; height: var(--barra); display: flex; background: var(--tarjeta); border-top: 1px solid var(--borde); padding-bottom: env(safe-area-inset-bottom); z-index: 10; }
 .barra a { flex: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--gris); font-weight: 600; }
 .barra a.activa { color: var(--verde); border-top: 3px solid var(--verde); }
+.barra a.con-aviso::after { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--falta); margin-left: 6px; vertical-align: super; }
 .cabecera { position: relative; margin-bottom: 8px; }
 .cabecera.con-color { padding: 8px 12px 8px 20px; border-radius: 10px; }
 .cabecera .banda { left: 6px; }
@@ -74,6 +75,7 @@ legend { font-weight: 600; color: var(--texto-suave); }
 .calificar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
 .cuadricula { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .avance progress { width: 100%; height: 10px; }
+progress.actividad { width: 100%; height: 10px; }
 .galeria-estudio img { height: 50vh; max-width: 92vw; }
 .indicador { text-align: center; color: var(--texto-suave); }
 .pista { text-align: center; }

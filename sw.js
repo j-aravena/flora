@@ -4,7 +4,7 @@
 importScripts('./version.js');
 const VERSION = 'flora-v' + self.FLORA_VERSION;
 const ARCHIVOS = [
-  './', './index.html', './styles.css', './version.js', './app.js', './db.js', './study.js', './images.js',
+  './', './index.html', './styles.css', './version.js', './app.js', './actualizacion.js', './db.js', './study.js', './images.js',
   './ui/dom.js', './ui/lista.js', './ui/ficha.js', './ui/editar.js', './ui/estudio.js', './ui/ajustes.js',
   './vendor/dexie.mjs', './vendor/jszip.min.js',
   './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png',
@@ -24,7 +24,14 @@ self.addEventListener('activate', evento => {
 
 self.addEventListener('fetch', evento => {
   if (evento.request.method !== 'GET') return;
-  if (new URL(evento.request.url).pathname.endsWith('semilla.zip')) return;
+  const url = new URL(evento.request.url);
+  if (url.pathname.endsWith('semilla.zip')) return;
+  // La búsqueda de actualizaciones pide version.js con una marca de tiempo en la URL para evitar
+  // la caché HTTP; se deja pasar sin tocar la caché del service worker (que si no, respondería con
+  // ignoreSearch la copia vieja) para que llegue de verdad al servidor.
+  if (url.pathname.endsWith('version.js') && url.search) return;
   evento.respondWith(
     caches.match(evento.request, { ignoreSearch: true }).then(respuesta => respuesta || fetch(evento.request)));
 });
+
+self.addEventListener('message', evento => { if (evento.data && evento.data.type === 'SKIP_WAITING') self.skipWaiting(); });

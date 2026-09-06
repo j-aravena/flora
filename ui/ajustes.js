@@ -1,5 +1,6 @@
 import { exportarRespaldo, importarRespaldo, leerManifest, contar, leerMeta, escribirMeta } from '../db.js';
 import { el, aviso, fechaCorta } from './dom.js';
+import { versionPublicada, buscarActualizacion, reiniciarConNueva } from '../actualizacion.js';
 
 const DIAS_AVISO = 30;
 const LIMITE_COMPARTIR = 45 * 1024 * 1024;
@@ -111,6 +112,63 @@ export async function render(cont, ctx) {
     }
   }
 
+  // Actualizaciones: busca una versión nueva en el servidor y, si el service worker ya la
+  // descargó, ofrece activarla. registroAct guarda el ServiceWorkerRegistration para poder
+  // pedirle que active la versión en espera.
+  const estadoAct = el('p', { class: 'estado' });
+  const barraAct = el('progress', { class: 'actividad', hidden: true });
+  let registroAct = null;
+
+  const btnReiniciar = el('button', { class: 'btn primario', hidden: true,
+    onclick: () => reiniciarConNueva(registroAct) }, 'Reiniciar ahora');
+
+  function mostrarLista(versionNueva) {
+    estadoAct.textContent = versionNueva ? `Actualización lista (versión ${versionNueva})` : 'Actualización lista';
+    barraAct.hidden = true;
+    btnReiniciar.hidden = false;
+  }
+
+  const btnBuscar = el('button', { class: 'btn primario', onclick: buscarAhora }, 'Buscar actualizaciones');
+
+  async function buscarAhora() {
+    if (!navigator.onLine) { estadoAct.textContent = 'No hay conexión. Inténtalo cuando tengas internet.'; return; }
+    btnBuscar.disabled = true;
+    estadoAct.textContent = 'Buscando...';
+    let versionNueva;
+    try {
+      versionNueva = await versionPublicada();
+    } catch (err) {
+      estadoAct.textContent = err instanceof TypeError ? 'No hay conexión. Inténtalo cuando tengas internet.' : err.message;
+      btnBuscar.disabled = false;
+      return;
+    }
+    if (versionNueva === VERSION) {
+      estadoAct.textContent = `Ya tienes la última versión (${VERSION})`;
+      // Igual se consulta al service worker en silencio, por si ya dejó una versión esperando activarse.
+      try {
+        registroAct = await buscarActualizacion(estadoSw => { if (estadoSw === 'lista') mostrarLista(versionNueva); });
+      } catch { /* la aplicación no está instalada como PWA: no hay nada más que hacer aquí */ }
+      btnBuscar.disabled = false;
+      return;
+    }
+    estadoAct.textContent = `Instalada ${VERSION} · Disponible ${versionNueva}`;
+    try {
+      registroAct = await buscarActualizacion(estadoSw => {
+        if (estadoSw === 'descargando') { estadoAct.textContent = 'Descargando la versión nueva...'; barraAct.hidden = false; }
+        else if (estadoSw === 'lista') mostrarLista(versionNueva);
+        else if (estadoSw === 'error') { estadoAct.textContent = 'No se pudo instalar la actualización.'; barraAct.hidden = true; }
+      });
+    } catch (err) {
+      estadoAct.textContent = err.message;
+    }
+    btnBuscar.disabled = false;
+  }
+
+  if (ctx.actualizacion?.lista) {
+    registroAct = await navigator.serviceWorker.getRegistration();
+    mostrarLista(await versionPublicada().catch(() => null));
+  }
+
   const dias = diasDesde(ultimoRespaldo);
   cont.append(
     el('header', { class: 'cabecera' }, el('h1', {}, 'Ajustes')),
@@ -126,5 +184,8 @@ export async function render(cont, ctx) {
       el('p', {}, `${n.especies} especies, ${n.fotos} fotos`),
       uso ? el('p', {}, `Espacio usado: ${Math.round(uso.usage / 1e6)} MB de ${Math.round(uso.quota / 1e6)} MB disponibles`) : null,
       el('div', { class: 'acciones' }, el('button', { class: 'btn peligro', onclick: recargarSemilla }, 'Volver a cargar el paquete inicial'))),
-    el('section', {}, el('h2', {}, 'Aplicación'), el('p', {}, `Versión ${VERSION}`)));
+    el('section', {}, el('h2', {}, 'Actualizaciones'),
+      el('p', {}, `Versión instalada ${VERSION}`),
+      el('div', { class: 'acciones' }, btnBuscar, btnReiniciar),
+      estadoAct, barraAct));
 }

@@ -17,6 +17,7 @@ const ctx = {
   VERSION,
   navegar: ruta => { location.hash = ruta; },
   cargarSemilla,
+  actualizacion: { lista: false },
 };
 
 const rutas = [
@@ -95,7 +96,24 @@ async function iniciar() {
   if (versionAnterior && versionAnterior !== VERSION) aviso('Aplicación actualizada a la versión ' + VERSION);
   await escribirMeta(db, 'versionApp', VERSION);
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
+    // updateViaCache: 'none' evita que el navegador use su propia caché HTTP para sw.js y version.js;
+    // GitHub Pages cachea version.js diez minutos, así que sin esto una búsqueda de actualización podría
+    // consultar una copia vieja.
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(registro => {
+      function marcarListo(conAviso) {
+        ctx.actualizacion.lista = true;
+        document.querySelector('.barra a[data-ruta="ajustes"]')?.classList.add('con-aviso');
+        if (conAviso) aviso('Actualización lista: revisa Ajustes');
+      }
+      if (registro.waiting) marcarListo(false);
+      registro.addEventListener('updatefound', () => {
+        const nuevo = registro.installing;
+        if (!nuevo) return;
+        nuevo.addEventListener('statechange', () => {
+          if (nuevo.state === 'installed' && navigator.serviceWorker.controller) marcarListo(true);
+        });
+      });
+    }).catch(() => {});
   }
 }
 
