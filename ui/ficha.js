@@ -46,7 +46,7 @@ export async function render(cont, ctx, id) {
   const banda = estiloColor(e.colorFlor);
   const tinte = tinteFondo(e.colorFlor);
   cont.append(...[
-    el('header', { class: 'cabecera', style: tinte ? `background: ${tinte}` : null },
+    el('header', { class: tinte ? 'cabecera con-color' : 'cabecera', style: tinte ? `background: ${tinte}` : null },
       banda ? el('span', { class: 'banda', style: `background: ${banda}`, 'aria-hidden': 'true' }) : null,
       el('h1', {}, el('i', {}, e.nombre)), el('p', {}, e.familia || '')),
     fotos.length ? galeria : el('p', { class: 'estado' }, 'Sin fotos. Agrega una desde Editar.'),

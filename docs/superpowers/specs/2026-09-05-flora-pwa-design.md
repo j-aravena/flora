@@ -161,13 +161,21 @@ Mismo formulario para crear y editar. Campos con lista cerrada (origen, hábito,
 
 ### 6.4 Estudio
 
-Pantalla de inicio con la selección del ejercicio y un filtro opcional por sitio. Muestra cuántas especies quedan en cada estado.
+Pantalla de inicio con selectores de ejercicio (foto a nombre, nombre a foto, repasar), sitio, alcance de especies (todas, me falta y no la sé, sin evaluar) y cantidad de preguntas (10, 20 o todas). Muestra cuántas especies quedan en cada estado de aprendizaje. Al pulsar "Comenzar" se arma una cola de especies según la sección 7, sin repetir ninguna dentro de la sesión; si no hay especies para la selección elegida, se avisa y se permanece en el inicio. Para el ejercicio B se requieren al menos cuatro candidatas en total.
 
-**Ejercicio A, foto a nombre.** Se muestra una foto al azar de la especie elegida. La usuaria intenta recordar el nombre, pulsa "Mostrar" y aparece el nombre y la familia. Se califica con tres botones, "La sé", "Me falta" y "No la sé", que fijan `aprendizaje` en `se`, `falta` o `no` respectivamente.
+Cada pregunta muestra un contador "Pregunta i de N" con una barra de avance (en el modo Repasar, "Especie i de N").
 
-**Ejercicio B, nombre a foto.** Se muestra el nombre y cuatro fotos de especies distintas en cuadrícula de dos por dos. Al elegir, se marca la correcta en verde y la elegida en rojo si difiere, y se muestra el nombre de la especie de cada foto. La respuesta se registra según la sección 7.
+**Ejercicio A, foto a nombre.** Galería horizontal deslizable con todas las fotos de la especie, con un indicador "k de m" de la foto visible. Un botón "Pista" muestra la familia y el hábito antes de revelar el nombre, y se deshabilita después de usarse. Al pulsar "Mostrar nombre" aparecen el nombre, la familia y tres botones de calificación, "La sé", "Me falta" y "No la sé", que fijan `aprendizaje` en `se`, `falta` o `no` respectivamente. "Saltar" registra la pregunta como saltada y avanza de inmediato. Tras calificar aparecen "Ver ficha" (abre la ficha de la especie) y "Siguiente".
 
-En ambos ejercicios un botón "Siguiente" avanza. El fondo de la pantalla de estudio es claro y sin distracciones.
+**Ejercicio B, nombre a foto.** Se muestra el nombre y cuatro fotos de especies distintas en cuadrícula de dos por dos, elegidas entre todas las candidatas del filtro de sitio y no solo entre las de la cola. Al elegir, se marca la correcta en verde y la elegida en rojo si difiere, y se muestra el nombre de la especie de cada foto. Tras responder, tocar una foto la abre a pantalla completa. La respuesta se registra según la sección 7 y luego aparecen "Ver ficha" y "Siguiente".
+
+**Repasar.** Recorre la cola mostrando la galería de fotos junto con el nombre, la familia y el hábito visibles, sin calificar ni escribir en la base. Se navega con "Anterior" y "Siguiente".
+
+**Fin de sesión.** Al completar la cola se muestra "Sesión terminada" con los conteos de aciertos, fallos y saltadas, y la lista de especies marcadas "No la sé" o falladas en el ejercicio B, con miniatura y enlace a su ficha. Botones "Repetir las falladas" (arma una nueva cola solo con esas especies, en el mismo ejercicio), "Nueva sesión" (vuelve al inicio) e "Ir a la lista".
+
+La ruta `#/estudio?especie=<id>` abre una sesión de una sola pregunta en el ejercicio A con esa especie; al calificar o saltar vuelve directamente a la ficha, sin pantalla de resumen.
+
+El fondo de la pantalla de estudio es claro y sin distracciones.
 
 ### 6.5 Ajustes
 
@@ -180,6 +188,8 @@ Todas las reglas viven en `study.js` como funciones puras que reciben la lista d
 **Candidatas.** Especies con al menos una foto que cumplen el filtro de sitio. Para el ejercicio B se requieren al menos cuatro candidatas.
 
 **Peso de selección.** Según `aprendizaje`: `no` pesa 4, `falta` pesa 3, nulo pesa 2, `se` pesa 1. Se elige por sorteo ponderado, excluyendo los cinco últimos `especieId` guardados en `meta.ultimaPregunta` cuando hay más de seis candidatas.
+
+**Cola de sesión.** Sorteo ponderado sin reposición hasta la cantidad elegida; sin exclusión de recientes porque no hay repeticiones.
 
 **Distractores del ejercicio B.** Tres especies distintas de la correcta. Se prefieren las de la misma familia; si no alcanzan, las del mismo hábito; el resto al azar. Cada distractor aporta una foto al azar. Las cuatro posiciones se barajan.
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   peso, candidatas, elegirPonderado, siguienteEspecie, distractores, calificarA, registrarB,
-  actualizarRecientes, barajar, rngSemilla,
+  actualizarRecientes, barajar, rngSemilla, armarSesion, resumenSesion,
 } from '../study.js';
 
 const esp = (id, extra = {}) => ({ id, nombre: id, familia: '', habito: '', sitios: ['STP'], aprendizaje: null, aciertos: 0, fallos: 0, rachaAciertos: 0, ...extra });
@@ -112,5 +112,68 @@ describe('registro de respuestas', () => {
     expect(actualizarRecientes(['a', 'b', 'c', 'd', 'e'], 'f')).toEqual(['b', 'c', 'd', 'e', 'f']);
     expect(actualizarRecientes(['a', 'b'], 'a')).toEqual(['b', 'a']);
     expect(actualizarRecientes([], 'a')).toEqual(['a']);
+  });
+});
+
+describe('armarSesion', () => {
+  const ocho = 'abcdefgh'.split('').map(id => esp(id));
+
+  it('no repite ninguna especie y respeta la cantidad pedida', () => {
+    const cola5 = armarSesion(ocho, { n: 5, rng: rngSemilla(1) });
+    expect(cola5).toHaveLength(5);
+    expect(new Set(cola5.map(e => e.id)).size).toBe(5);
+    const cola20 = armarSesion(ocho, { n: 20, rng: rngSemilla(1) });
+    expect(cola20).toHaveLength(8);
+    expect(new Set(cola20.map(e => e.id)).size).toBe(8);
+  });
+
+  it('con estados solo entran las candidatas de esos valores de aprendizaje', () => {
+    const variadas = [
+      esp('a', { aprendizaje: 'no' }), esp('b', { aprendizaje: 'falta' }),
+      esp('c', { aprendizaje: null }), esp('d', { aprendizaje: 'se' }),
+    ];
+    const cola = armarSesion(variadas, { n: 20, estados: ['no', 'sin'], rng: rngSemilla(2) });
+    expect(cola.map(e => e.id).sort()).toEqual(['a', 'c']);
+  });
+
+  it('con rng determinista el orden es reproducible', () => {
+    const cola1 = armarSesion(ocho, { n: 8, rng: rngSemilla(9) }).map(e => e.id);
+    const cola2 = armarSesion(ocho, { n: 8, rng: rngSemilla(9) }).map(e => e.id);
+    expect(cola1).toEqual(cola2);
+  });
+
+  it('las candidatas de mayor peso tienden a salir primero', () => {
+    const pesadas = [
+      esp('a', { aprendizaje: 'no' }), esp('b', { aprendizaje: 'no' }),
+      esp('c', { aprendizaje: null }), esp('d', { aprendizaje: null }),
+      esp('e', { aprendizaje: 'falta' }), esp('f', { aprendizaje: 'falta' }),
+      esp('g', { aprendizaje: 'se' }), esp('h', { aprendizaje: 'se' }),
+    ];
+    let primerasPesadas = 0;
+    for (let semilla = 0; semilla < 50; semilla++) {
+      const primera = armarSesion(pesadas, { n: 8, rng: rngSemilla(semilla) })[0];
+      if (['no', 'sin'].includes(primera.aprendizaje ?? 'sin')) primerasPesadas++;
+    }
+    expect(primerasPesadas).toBeGreaterThan(25);
+  });
+});
+
+describe('resumenSesion', () => {
+  it('cuenta aciertos, fallos y saltadas, y deduplica falladas', () => {
+    const respuestas = [
+      { id: 'a', resultado: 'se' }, { id: 'b', resultado: 'acierto' },
+      { id: 'c', resultado: 'falta' }, { id: 'd', resultado: 'no' },
+      { id: 'e', resultado: 'fallo' }, { id: 'e', resultado: 'fallo' },
+      { id: 'f', resultado: 'saltada' },
+    ];
+    const r = resumenSesion(respuestas);
+    expect(r.aciertos).toBe(2);
+    expect(r.fallos).toBe(4);
+    expect(r.saltadas).toBe(1);
+    expect(r.falladas).toEqual(['c', 'd', 'e']);
+  });
+
+  it('con lista vacía devuelve todo en cero', () => {
+    expect(resumenSesion([])).toEqual({ aciertos: 0, fallos: 0, saltadas: 0, falladas: [] });
   });
 });

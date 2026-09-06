@@ -82,6 +82,32 @@ export function actualizarRecientes(recientes, id, max = MAX_RECIENTES) {
   return [...recientes.filter(x => x !== id), id].slice(-max);
 }
 
+// Cola de la sesión: sorteo ponderado SIN reposición (no se repite ninguna especie), hasta n.
+// estados: null (todas) o lista de valores de aprendizaje; 'sin' representa null.
+export function armarSesion(cands, { n = 20, estados = null, rng = Math.random } = {}) {
+  const filtradas = estados ? cands.filter(e => estados.includes(e.aprendizaje ?? 'sin')) : cands.slice();
+  const restantes = filtradas.slice();
+  const cola = [];
+  while (restantes.length && cola.length < n) {
+    const elegida = elegirPonderado(restantes, peso, rng);
+    cola.push(elegida);
+    restantes.splice(restantes.indexOf(elegida), 1);
+  }
+  return cola;
+}
+
+// respuestas: lista de { id, resultado } con resultado en 'se' | 'falta' | 'no' | 'acierto' | 'fallo' | 'saltada'.
+export function resumenSesion(respuestas) {
+  const cuenta = { aciertos: 0, fallos: 0, saltadas: 0, falladas: [] };
+  for (const r of respuestas) {
+    if (r.resultado === 'se' || r.resultado === 'acierto') cuenta.aciertos++;
+    else if (r.resultado === 'saltada') cuenta.saltadas++;
+    else { cuenta.fallos++; cuenta.falladas.push(r.id); }
+  }
+  cuenta.falladas = [...new Set(cuenta.falladas)];
+  return cuenta;
+}
+
 // mulberry32: generador pequeño y determinista para pruebas.
 export function rngSemilla(semilla) {
   let a = semilla >>> 0;
