@@ -1,0 +1,17 @@
+{
+  "name": "flora-pwa",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "vendor": "cp node_modules/dexie/dist/dexie.mjs vendor/dexie.mjs && cp node_modules/jszip/dist/jszip.min.js vendor/jszip.min.js && sed -i '' '/sourceMappingURL/d' vendor/dexie.mjs",
+    "servir": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "dexie": "4.4.5",
+    "fake-indexeddb": "6.2.5",
+    "jszip": "3.10.1",
+    "vitest": "5.0.0"
+  }
+}

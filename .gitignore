@@ -1,0 +1,8 @@
+# Planillas de origen (784 MB) y artefactos generados por el pipeline
+data/source/
+data/cache/
+data/build/
+node_modules/
+__pycache__/
+.venv/
+.DS_Store
