@@ -7,7 +7,7 @@ from pathlib import Path
 import requests
 
 API = "https://api.inaturalist.org/v1"
-CABECERAS = {"User-Agent": "flora-pwa-migracion/1.0 (+https://github.com/j-aravena/flora-pwa)"}
+CABECERAS = {"User-Agent": "flora-pwa-migracion/1.0 (+https://github.com/j-aravena/flora)"}
 LICENCIAS = {"cc0", "cc-by", "cc-by-sa", "cc-by-nc", "cc-by-nc-sa", "cc-by-nd", "cc-by-nc-nd"}
 RANGOS = {"especie": {"species"}, "genero": {"genus", "subgenus", "section"}, "familia": {"family"}}
 _ORDEN_RANGOS = ["species", "genus", "subgenus", "section", "family"]

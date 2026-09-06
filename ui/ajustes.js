@@ -24,18 +24,22 @@ export async function render(cont, ctx) {
 
   function mostrarListo(archivo) {
     const mb = (archivo.size / (1024 * 1024)).toFixed(1);
-    const descargar = el('a', {
-      class: 'btn primario', href: URL.createObjectURL(archivo), download: archivo.name,
-      onclick: () => {
-        escribirMeta(db, 'ultimoRespaldo', new Date().toISOString());
-        setTimeout(() => URL.revokeObjectURL(descargar.href), 60000);
-      },
-    }, 'Descargar');
+    const descargar = el('button', { class: 'btn primario', onclick: async () => {
+      const url = URL.createObjectURL(archivo);
+      const enlace = el('a', { href: url, download: archivo.name });
+      document.body.append(enlace);
+      enlace.click();
+      enlace.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+      await escribirMeta(db, 'ultimoRespaldo', new Date().toISOString());
+      repintar();
+    } }, 'Descargar');
     const puedeCompartir = Boolean(navigator.canShare?.({ files: [archivo] })) && archivo.size <= LIMITE_COMPARTIR;
     const compartir = el('button', { class: 'btn', hidden: !puedeCompartir, onclick: async () => {
       try {
         await navigator.share({ files: [archivo], title: 'Respaldo flora' });
         await escribirMeta(db, 'ultimoRespaldo', new Date().toISOString());
+        repintar();
       } catch (err) {
         if (err.name !== 'AbortError') aviso(`No se pudo compartir: ${err.message}. Usa "Descargar".`, 4000);
       }

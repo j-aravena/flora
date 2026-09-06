@@ -234,7 +234,7 @@ El pipeline termina con una comprobación que falla si no se cumple cualquiera d
 
 ## 9. Publicación e instalación
 
-**Repositorio.** `j-aravena/flora-pwa` en GitHub, público, con GitHub Pages sirviendo la rama `main` desde la raíz. El paquete inicial se versiona en el repositorio (estimado 60 MB, bajo el límite de 100 MB por archivo). Regenerarlo agrega ese tamaño al historial, de modo que se regenera solo cuando cambia el pipeline y no para correcciones menores, que se hacen desde la aplicación.
+**Repositorio.** `j-aravena/flora` en GitHub, público, con GitHub Pages sirviendo la rama `main` desde la raíz. El paquete inicial se versiona en el repositorio (estimado 60 MB, bajo el límite de 100 MB por archivo). Regenerarlo agrega ese tamaño al historial, de modo que se regenera solo cuando cambia el pipeline y no para correcciones menores, que se hacen desde la aplicación.
 
 **Contenido publicado.** El paquete incluye las notas personales de la usuaria. La URL no se indexa ni se difunde, y esa exposición se aceptó en el diseño.
 

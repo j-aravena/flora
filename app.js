@@ -31,8 +31,6 @@ function marcarNav(seccion) {
   document.querySelectorAll('.barra a').forEach(a => a.classList.toggle('activa', a.dataset.ruta === seccion));
 }
 
-let navegacion = 0;
-
 async function enrutar() {
   document.querySelectorAll('.capa').forEach(c => c.remove());
   const hash = location.hash || '#/lista';
@@ -41,13 +39,11 @@ async function enrutar() {
     const m = hash.match(patron);
     if (!m) continue;
     liberarUrls();
-    const n = ++navegacion;
     const sec = el('section', { class: 'pantalla' });
     pantalla.replaceChildren(sec);
     window.scrollTo(0, 0);
     marcarNav(seccion);
     await render(sec, ctx, m[1]);
-    if (n !== navegacion) return;
     return;
   }
   location.hash = '#/lista';
