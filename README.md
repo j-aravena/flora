@@ -12,7 +12,7 @@ Excel original. Los datos y las fotos viven en el teléfono; GitHub solo sirve p
 
 ## Uso
 
-- **Lista.** Buscar por nombre o familia y filtrar por sitio, origen, hábito, aprendizaje, color de flor y pétalos. El botón "+" crea una especie.
+- **Lista.** Buscar por nombre o familia y filtrar por sitio (Las Tórtolas, STP, Prefactibilidad, Nevado Tres Cruces), origen, hábito, aprendizaje, color de flor y pétalos. El botón "+" crea una especie.
 - **Ficha.** Fotos, campos y notas. "Editar" permite cambiar cualquier campo (incluidos el color de flor y el número de pétalos) y agregar fotos con la cámara o la galería.
 - **Estudio.** Dos ejercicios. "Foto a nombre" muestra una foto y pide recordar el nombre; "Nombre a foto" muestra el nombre y cuatro fotos. Las respuestas actualizan el estado de aprendizaje.
 - **Ajustes.** Exportar un respaldo ZIP con todo (enviarlo a Drive o guardarlo fuera del teléfono) e importarlo en otro teléfono o después de reinstalar.
@@ -25,6 +25,7 @@ Si se borran los datos de Chrome o se desinstala la aplicación, se pierde todo 
 - `source .venv/bin/activate && pytest -q` para las pruebas del pipeline de migración (57 pruebas).
 - `npm run servir` y abrir `http://localhost:8080/`.
 - El paquete inicial `semilla/semilla.zip` lo genera `tools/migrar.py` (ver `docs/superpowers/plans/2026-09-05-flora-pipeline.md`).
+- Los listados de sitio posteriores (por ahora Nevado Tres Cruces) los genera `tools/agregar_listado.py` como `semilla/<sitio>.zip`. La aplicación los descarga y aplica una sola vez, en `aplicarListados` de `app.js`. Solo agregan: a las especies que ya están en el teléfono, identificadas por id o por nombre, les suman el sitio y no tocan su avance, sus notas ni sus fotos.
 - Al publicar un cambio de código, sube `FLORA_VERSION` en `version.js` y `version` en `package.json`.
 - Especificación: `docs/superpowers/specs/2026-09-05-flora-pwa-design.md`.
 

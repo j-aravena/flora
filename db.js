@@ -2,7 +2,7 @@
 import Dexie from './vendor/dexie.mjs';
 
 export const FORMATO = 1;
-export const SITIOS = ['Las Tórtolas', 'STP', 'Prefactibilidad'];
+export const SITIOS = ['Las Tórtolas', 'STP', 'Prefactibilidad', 'Nevado Tres Cruces'];
 export const ORIGENES = ['Nativa', 'Endémica', 'Introducida'];
 export const HABITOS = ['Hierba anual', 'Hierba perenne', 'Arbusto', 'Árbol', 'Suculenta'];
 export const CICLOS = ['Anual', 'Perenne', 'Bienal', 'Anual o bienal'];
@@ -193,6 +193,45 @@ export async function importarRespaldo(db, JSZip, datos, modo = 'reemplazar', on
     onProgreso(Math.min(i + LOTE, fotosMeta.length), fotosMeta.length);
   }
   return { especies: especies.length, fotos: fotosMeta.length };
+}
+
+// Aplica un paquete de listado de sitio sin reemplazar nada: a las especies que ya están en el
+// teléfono (mismo id, o mismo nombre sin distinguir tildes ni mayúsculas, como las creadas a mano)
+// solo les suma el sitio; las demás se agregan con sus fotos. Avance, notas, ediciones y fotos
+// propias quedan intactos, y aplicarlo dos veces no cambia nada.
+export async function agregarListado(db, JSZip, datos, sitio) {
+  await leerManifest(JSZip, datos);
+  const zip = await JSZip.loadAsync(datos);
+  const especies = JSON.parse(await zip.file('especies.json').async('string'));
+  const fotosMeta = JSON.parse(await zip.file('fotos.json').async('string'));
+  const actuales = await db.especies.toArray();
+  const porId = new Map(actuales.map(e => [e.id, e]));
+  const porNombre = new Map(actuales.map(e => [normalizar(e.nombre), e]));
+  const nuevas = [];
+  const conSitio = [];
+  for (const e of especies) {
+    const existente = porId.get(e.id) ?? porNombre.get(normalizar(e.nombre));
+    if (!existente) {
+      nuevas.push(e);
+      porNombre.set(normalizar(e.nombre), e);
+    } else if (!existente.sitios.includes(sitio)) {
+      conSitio.push({ ...existente, sitios: [...existente.sitios, sitio] });
+    }
+  }
+  const idsNuevas = new Set(nuevas.map(e => e.id));
+  const fotos = [];
+  for (const m of fotosMeta.filter(f => idsNuevas.has(f.especieId))) {
+    const tipo = m.tipo || 'image/webp';
+    const blob = new Blob([await zip.file(`fotos/${m.id}.webp`).async('arraybuffer')], { type: tipo });
+    const miniatura = new Blob([await zip.file(`miniaturas/${m.id}.webp`).async('arraybuffer')], { type: tipo });
+    fotos.push({ ...m, tipo, blob, miniatura });
+  }
+  await db.transaction('rw', db.especies, db.fotos, async () => {
+    await db.especies.bulkAdd(nuevas);
+    await db.especies.bulkPut(conSitio);
+    await db.fotos.bulkAdd(fotos);
+  });
+  return { nuevas: nuevas.length, conSitio: conSitio.length, fotos: fotos.length };
 }
 
 function ordenPetalos(v) {

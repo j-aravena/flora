@@ -12,9 +12,10 @@ LICENCIAS = {"cc0", "cc-by", "cc-by-sa", "cc-by-nc", "cc-by-nc-sa", "cc-by-nd", 
 RANGOS = {"especie": {"species"}, "genero": {"genus", "subgenus", "section"}, "familia": {"family"}}
 _ORDEN_RANGOS = ["species", "genus", "subgenus", "section", "family"]
 CHILE = 7182
+REINTENTOS = 3
 # Nombre en la base -> nombre a consultar en iNaturalist, cuando la base usa un nombre
 # que iNaturalist no reconoce bajo ninguna sinonimia resoluble por matched_term.
-NOMBRES_CONSULTA = {"Pentaphorus foliolosus": "Gochnatia foliolosa"}
+NOMBRES_CONSULTA = {"Pentaphorus foliolosus": "Gochnatia foliolosa", "Oxychloë andina": "Oxychloe andina"}
 
 
 def _rank_consulta(nivel: str) -> str:
@@ -40,9 +41,17 @@ class Cliente:
         espera = self.pausa - (time.time() - self._ultimo)
         if espera > 0:
             time.sleep(espera)
-        r = self.sesion.get(url, params=params, headers=CABECERAS, timeout=30)
+        for intento in range(REINTENTOS):
+            try:
+                r = self.sesion.get(url, params=params, headers=CABECERAS, timeout=30)
+                r.raise_for_status()
+                break
+            except requests.ConnectionError:
+                # Cortes de conexión pasajeros: se reintenta con espera creciente.
+                if intento == REINTENTOS - 1:
+                    raise
+                time.sleep(self.pausa * 5 * (intento + 1))
         self._ultimo = time.time()
-        r.raise_for_status()
         ruta.write_bytes(r.content)
         return r.content
 
@@ -102,4 +111,25 @@ def fotos_para(cliente, taxon_id: int, maximo: int = 6) -> list[dict]:
     fotos = seleccionar_fotos(cliente.json("/observations", base | {"place_id": CHILE})["results"], maximo)
     if not fotos:
         fotos = seleccionar_fotos(cliente.json("/observations", base)["results"], maximo)
+    if not fotos:
+        fotos = fotos_del_taxon(cliente, taxon_id, maximo)
     return fotos
+
+
+def fotos_del_taxon(cliente, taxon_id: int, maximo: int = 6) -> list[dict]:
+    """Fotos que iNaturalist asocia directamente al taxón (las de su ficha). Se usan cuando la
+    especie no tiene observaciones de grado de investigación con fotos con licencia."""
+    resultados = cliente.json(f"/taxa/{taxon_id}", {})["results"]
+    salida = []
+    for tp in (resultados[0].get("taxon_photos", []) if resultados else []):
+        foto = tp.get("photo", {})
+        if foto.get("license_code") in LICENCIAS:
+            salida.append({
+                "url_media": foto["url"].replace("square", "medium"),
+                "autor": foto.get("attribution", ""),
+                "licencia": foto["license_code"],
+                "url": f"https://www.inaturalist.org/photos/{foto['id']}",
+            })
+        if len(salida) >= maximo:
+            break
+    return salida

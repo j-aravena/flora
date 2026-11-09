@@ -1,5 +1,5 @@
 // Arranque, enrutador por fragmento, carga inicial del paquete y service worker.
-import { crearDb, leerMeta, escribirMeta, importarRespaldo } from './db.js';
+import { crearDb, leerMeta, escribirMeta, importarRespaldo, agregarListado } from './db.js';
 import { el, aviso, liberarUrls } from './ui/dom.js';
 import * as lista from './ui/lista.js';
 import * as ficha from './ui/ficha.js';
@@ -9,6 +9,9 @@ import * as ajustes from './ui/ajustes.js';
 
 export const VERSION = globalThis.FLORA_VERSION;
 const RUTA_SEMILLA = 'semilla/semilla.zip';
+// Listados de sitio que llegan después del paquete inicial. Cada uno se aplica una sola vez y solo
+// agrega: no reemplaza especies, avance ni fotos que ya estén en el teléfono.
+const LISTADOS = [{ sitio: 'Nevado Tres Cruces', ruta: 'semilla/nevado-tres-cruces.zip' }];
 
 const db = crearDb();
 const ctx = {
@@ -17,6 +20,7 @@ const ctx = {
   VERSION,
   navegar: ruta => { location.hash = ruta; },
   cargarSemilla,
+  aplicarListados,
   actualizacion: { lista: false },
 };
 
@@ -73,8 +77,36 @@ export async function cargarSemilla(pantalla) {
   const r = await importarRespaldo(db, ctx.JSZip, datos, 'reemplazar', (n, t) => { barra.value = 50 + 50 * n / t; });
   await escribirMeta(db, 'semillaCargada', new Date().toISOString());
   await escribirMeta(db, 'versionDatos', 1);
+  // El paquete inicial reemplazó todo: los listados deben volver a aplicarse.
+  await escribirMeta(db, 'listadosAplicados', []);
   if (navigator.storage?.persist) await navigator.storage.persist();
   aviso(`Datos cargados: ${r.especies} especies, ${r.fotos} fotos`);
+  estado.textContent = 'Agregando listados de sitio...';
+  await aplicarListados();
+}
+
+// Descarga y aplica los listados pendientes. Sin conexión no hace nada y se reintenta en la
+// próxima apertura. Devuelve cuántas especies nuevas agregó.
+export async function aplicarListados() {
+  const aplicados = await leerMeta(db, 'listadosAplicados', []);
+  let total = 0;
+  for (const { sitio, ruta } of LISTADOS) {
+    if (aplicados.includes(sitio)) continue;
+    let datos;
+    try {
+      const respuesta = await fetch(ruta, { cache: 'no-store' });
+      if (!respuesta.ok) continue;
+      datos = await respuesta.arrayBuffer();
+    } catch {
+      continue;
+    }
+    const r = await agregarListado(db, ctx.JSZip, datos, sitio);
+    aplicados.push(sitio);
+    await escribirMeta(db, 'listadosAplicados', aplicados);
+    total += r.nuevas;
+    aviso(`Listado ${sitio} agregado: ${r.nuevas} especies nuevas y ${r.conSitio} ya existentes marcadas`, 5000);
+  }
+  return total;
 }
 
 async function iniciar() {
@@ -92,6 +124,9 @@ async function iniciar() {
   }
   window.addEventListener('hashchange', enrutar);
   await enrutar();
+  aplicarListados()
+    .then(nuevas => { if (nuevas && location.hash.startsWith('#/lista')) enrutar(); })
+    .catch(err => aviso(`No se pudo agregar un listado: ${err.message}`, 5000));
   const versionAnterior = await leerMeta(db, 'versionApp');
   if (versionAnterior && versionAnterior !== VERSION) aviso('Aplicación actualizada a la versión ' + VERSION);
   await escribirMeta(db, 'versionApp', VERSION);

@@ -75,6 +75,20 @@ def test_fotos_para_reintenta_sin_chile():
     assert c.llamadas[0][1]["quality_grade"] == "research"
 
 
+def test_fotos_para_usa_las_fotos_del_taxon_si_no_hay_observaciones():
+    c = ClienteFalso({
+        ("/observations", 7182): {"results": []},
+        ("/observations", None): {"results": []},
+        ("/taxa/99", None): {"results": [{"taxon_photos": [
+            {"photo": {"id": 1, "url": "https://x/photos/1/square.jpg", "license_code": None}},
+            {"photo": {"id": 2, "url": "https://x/photos/2/square.jpg", "license_code": "cc-by-nc", "attribution": "(c) a"}},
+        ]}]},
+    })
+    fotos = fotos_para(c, 99)
+    assert fotos == [{"url_media": "https://x/photos/2/medium.jpg", "autor": "(c) a", "licencia": "cc-by-nc",
+                      "url": "https://www.inaturalist.org/photos/2"}]
+
+
 def test_nombre_consulta_usa_el_mapa_o_el_nombre_original():
     assert nombre_consulta("Pentaphorus foliolosus") == "Gochnatia foliolosa"
     assert nombre_consulta("Cordia decandra") == "Cordia decandra"

@@ -5,7 +5,7 @@ import {
   crearDb, nuevaEspecie, guardarEspecie, obtenerEspecie, borrarEspecie, listarEspecies,
   normalizar, leerMeta, escribirMeta, contar,
   fotosDe, agregarFoto, borrarFoto, moverFoto, miniaturasPrimeras, especiesConFoto,
-  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos,
+  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos, agregarListado,
 } from '../db.js';
 
 let db;
@@ -208,3 +208,50 @@ describe('respaldo', () => {
   }, 180000);
 });
 
+describe('agregarListado', () => {
+  // Arma un paquete de listado con el mismo formato que un respaldo, desde una base aparte.
+  async function paquete(especies, fotos = []) {
+    const origen = crearDb('paquete-' + Math.random());
+    await origen.especies.bulkPut(especies);
+    for (const f of fotos) await agregarFoto(origen, f);
+    return exportarRespaldo(origen, JSZip);
+  }
+
+  it('suma el sitio a las existentes (por id o por nombre) sin tocar su avance y agrega las nuevas con fotos', async () => {
+    const semilla = await guardarEspecie(db, nuevaEspecie({
+      nombre: 'Adesmia hystrix', sitios: ['STP'], aprendizaje: 'se', aciertos: 4, notas: 'mía', familia: 'Editada',
+    }));
+    await agregarFoto(db, { especieId: semilla.id, blob: blob(5), miniatura: blob(1), ancho: 1, alto: 1 });
+    const manual = await guardarEspecie(db, nuevaEspecie({ nombre: 'Viola gelida', aprendizaje: 'falta', fallos: 2 }));
+
+    const enPaquete = [
+      nuevaEspecie({ id: semilla.id, nombre: 'Adesmia hystrix', sitios: ['Nevado Tres Cruces'] }),
+      nuevaEspecie({ nombre: 'viola  GÉLIDA', sitios: ['Nevado Tres Cruces'], familia: 'Violaceae' }),
+      nuevaEspecie({ nombre: 'Nueva especie', sitios: ['Nevado Tres Cruces'], familia: 'Asteraceae' }),
+    ];
+    const zip = await paquete(enPaquete, [
+      { especieId: enPaquete[1].id, blob: blob(7), miniatura: blob(2), ancho: 1, alto: 1 },
+      { especieId: enPaquete[2].id, blob: blob(8), miniatura: blob(3), ancho: 1, alto: 1 },
+      { especieId: enPaquete[2].id, blob: blob(9), miniatura: blob(3), ancho: 1, alto: 1 },
+    ]);
+
+    const r = await agregarListado(db, JSZip, zip, 'Nevado Tres Cruces');
+    expect(r).toEqual({ nuevas: 1, conSitio: 2, fotos: 2 });
+
+    const s = await obtenerEspecie(db, semilla.id);
+    expect(s).toMatchObject({ sitios: ['STP', 'Nevado Tres Cruces'], aprendizaje: 'se', aciertos: 4, notas: 'mía', familia: 'Editada' });
+    expect((await fotosDe(db, semilla.id)).length).toBe(1);
+    const m = await obtenerEspecie(db, manual.id);
+    expect(m).toMatchObject({ nombre: 'Viola gelida', sitios: ['Nevado Tres Cruces'], aprendizaje: 'falta', fallos: 2, familia: '' });
+    expect((await fotosDe(db, manual.id)).length).toBe(0);
+    expect(await obtenerEspecie(db, enPaquete[1].id)).toBeUndefined();
+    const nueva = await obtenerEspecie(db, enPaquete[2].id);
+    expect(nueva).toMatchObject({ nombre: 'Nueva especie', sitios: ['Nevado Tres Cruces'], familia: 'Asteraceae' });
+    expect((await fotosDe(db, nueva.id)).map(f => f.blob.size)).toEqual([8, 9]);
+
+    // Aplicarlo de nuevo no cambia nada.
+    expect(await agregarListado(db, JSZip, zip, 'Nevado Tres Cruces')).toEqual({ nuevas: 0, conSitio: 0, fotos: 0 });
+    expect(await contar(db)).toEqual({ especies: 3, fotos: 3 });
+    expect((await obtenerEspecie(db, semilla.id)).sitios).toEqual(['STP', 'Nevado Tres Cruces']);
+  });
+});

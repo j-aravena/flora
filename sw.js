@@ -1,6 +1,6 @@
 // Service worker: precarga la aplicación y la sirve desde caché. Al subir FLORA_VERSION en version.js se
-// instala una caché nueva que se activa en la siguiente apertura y borra la anterior. El paquete inicial
-// no pasa por aquí.
+// instala una caché nueva que se activa en la siguiente apertura y borra la anterior. Los paquetes de
+// datos (semilla/*.zip) no pasan por aquí.
 importScripts('./version.js');
 const VERSION = 'flora-v' + self.FLORA_VERSION;
 const ARCHIVOS = [
@@ -25,7 +25,7 @@ self.addEventListener('activate', evento => {
 self.addEventListener('fetch', evento => {
   if (evento.request.method !== 'GET') return;
   const url = new URL(evento.request.url);
-  if (url.pathname.endsWith('semilla.zip')) return;
+  if (url.pathname.includes('/semilla/') && url.pathname.endsWith('.zip')) return;
   // La búsqueda de actualizaciones pide version.js con una marca de tiempo en la URL para evitar
   // la caché HTTP; se deja pasar sin tocar la caché del service worker (que si no, respondería con
   // ignoreSearch la copia vieja) para que llegue de verdad al servidor.

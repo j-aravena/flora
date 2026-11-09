@@ -86,6 +86,11 @@ export async function render(cont, ctx) {
       const r = await importarRespaldo(db, JSZip, await archivo.arrayBuffer(), modo,
         (i, t) => { estado.textContent = `Importando fotos ${i} de ${t}...`; });
       aviso(`Importadas ${r.especies} especies y ${r.fotos} fotos`);
+      if (modo === 'reemplazar') {
+        // Un respaldo anterior a un listado lo dejaría fuera: se vuelve a aplicar (solo agrega).
+        await escribirMeta(db, 'listadosAplicados', []);
+        await ctx.aplicarListados();
+      }
       repintar();
     } catch (err) {
       aviso(`No se pudo importar: ${err.message}`, 4000);
