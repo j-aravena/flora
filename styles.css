@@ -96,6 +96,8 @@ progress.actividad { width: 100%; height: 10px; }
 .aviso { position: fixed; left: 50%; bottom: calc(var(--barra) + 16px); transform: translateX(-50%); background: #1c2419; color: #fff; padding: 12px 18px; border-radius: 10px; z-index: 30; max-width: 90vw; }
 [hidden] { display: none !important; }
 
+.filtros-principales { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.filtros-principales select.activo { border-color: var(--verde); background: #e7f0e4; font-weight: 600; }
 .barra-filtros { display: grid; grid-template-columns: auto 1fr; gap: 8px; margin-top: 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .chips:empty { display: none; }

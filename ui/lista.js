@@ -12,10 +12,12 @@ const TITULOS = {
   petalos: 'Pétalos', categoria: 'Conservación', origen: 'Origen', hidrofila: 'Hidrófila o de humedal',
   registroAI: 'Registrada antes en el AI', sitio: 'Sitio', aprendizaje: 'Aprendizaje', foto: 'Fotos',
 };
+// Los filtros más usados en terreno quedan a la vista sobre la lista; el resto, en la hoja "Más filtros".
+const PRINCIPALES = ['sitio', 'familia', 'habito', 'categoria'];
 const SECCIONES = [
-  ['Identificación', ['grupo', 'familia', 'habito', 'formaVida', 'colorFlor', 'petalos']],
-  ['Evaluación ambiental', ['categoria', 'origen', 'hidrofila', 'registroAI']],
-  ['Estudio', ['sitio', 'aprendizaje', 'foto']],
+  ['Identificación', ['grupo', 'formaVida', 'colorFlor', 'petalos']],
+  ['Evaluación ambiental', ['origen', 'hidrofila', 'registroAI']],
+  ['Estudio', ['aprendizaje', 'foto']],
 ];
 
 function etiquetaPetalos(v) {
@@ -44,8 +46,24 @@ export async function render(cont, ctx) {
   const etiqueta = (clave, valor) => (OPCIONES[clave].find(([v]) => v === valor) ?? [valor, valor])[1];
   const visible = clave => clave !== 'registroAI' || memoria.estado().filtro.sitio === SITIO_AI;
 
+  // Selector de un filtro con el conteo de cada opción; las que dejarían la lista vacía quedan deshabilitadas.
+  // vacio: texto de la opción sin filtro ('Todas' en la hoja; el nombre del filtro sobre la lista).
+  function selectorFiltro(clave, vacio, alCambiar) {
+    const { filtro } = memoria.estado();
+    const ops = OPCIONES[clave];
+    const n = conteos(todas, filtro, clave, ops.map(([v]) => v), ctxFiltro);
+    return el('select', {
+      'aria-label': TITULOS[clave], class: filtro[clave] ? 'activo' : null,
+      onchange: ev => { cambiar({ filtro: { [clave]: ev.target.value } }); alCambiar?.(); },
+    }, el('option', { value: '' }, vacio),
+    ...ops.map(([v, t]) => el('option', {
+      value: v, selected: filtro[clave] === v, disabled: n.get(v) === 0 && filtro[clave] !== v,
+    }, `${t} (${n.get(v)})`)));
+  }
+
   const contador = el('p', { class: 'contador', 'aria-live': 'polite' });
   const chips = el('div', { class: 'chips' });
+  const principales = el('div', { class: 'filtros-principales' });
   const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
   const selectorOrden = el('select', { 'aria-label': 'Orden', onchange: ev => cambiar({ orden: ev.target.value }) });
   const ul = el('ul', { class: 'lista' });
@@ -62,7 +80,9 @@ export async function render(cont, ctx) {
   function pintarControles() {
     const { filtro, orden } = memoria.estado();
     const activos = filtrosActivos(filtro);
-    botonFiltros.textContent = activos.length ? `Filtros (${activos.length})` : 'Filtros';
+    const otros = activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).length;
+    botonFiltros.textContent = otros ? `Más filtros (${otros})` : 'Más filtros';
+    principales.replaceChildren(...PRINCIPALES.map(clave => selectorFiltro(clave, TITULOS[clave])));
     const ordenes = ORDENES.filter(([v]) => v !== 'listado' || hayOrdenListado(todas, filtro.sitio));
     selectorOrden.replaceChildren(...ordenes.map(([v, t]) => el('option', { value: v, selected: v === orden }, t)));
     chips.replaceChildren(
@@ -127,19 +147,10 @@ export async function render(cont, ctx) {
       const { filtro } = memoria.estado();
       const total = filtrar(todas, filtro, ctxFiltro).length;
       dialogo.replaceChildren(
-        el('div', { class: 'hoja-cabecera' }, el('h2', {}, 'Filtros'),
+        el('div', { class: 'hoja-cabecera' }, el('h2', {}, 'Más filtros'),
           el('button', { type: 'button', class: 'btn chico', onclick: () => { const texto = memoria.estado().filtro.texto; memoria.limpiarFiltros(); cambiar({ filtro: { texto } }); pintarHoja(); } }, 'Limpiar todo')),
         ...SECCIONES.map(([titulo, claves]) => el('section', { class: 'hoja-seccion' }, el('h3', {}, titulo),
-          ...claves.filter(visible).map(clave => {
-            const ops = OPCIONES[clave];
-            const n = conteos(todas, filtro, clave, ops.map(([v]) => v), ctxFiltro);
-            return el('label', {}, TITULOS[clave], el('select', {
-              onchange: ev => { cambiar({ filtro: { [clave]: ev.target.value } }); pintarHoja(); },
-            }, el('option', { value: '' }, 'Todas'),
-            ...ops.map(([v, t]) => el('option', {
-              value: v, selected: filtro[clave] === v, disabled: n.get(v) === 0 && filtro[clave] !== v,
-            }, `${t} (${n.get(v)})`))));
-          }))),
+          ...claves.filter(visible).map(clave => el('label', {}, TITULOS[clave], selectorFiltro(clave, 'Todas', pintarHoja))))),
         el('div', { class: 'hoja-pie' },
           el('button', { type: 'button', class: 'btn primario', onclick: () => dialogo.close() }, `Ver ${total} especies`)));
     }
@@ -161,7 +172,7 @@ export async function render(cont, ctx) {
     oninput: ev => cambiar({ filtro: { texto: ev.target.value } }),
   });
   cont.append(
-    el('header', { class: 'cabecera' }, buscador,
+    el('header', { class: 'cabecera' }, buscador, principales,
       el('div', { class: 'barra-filtros' }, botonFiltros, selectorOrden), chips, contador),
     ul,
     el('a', { class: 'flotante', href: '#/editar/', 'aria-label': 'Nueva especie' }, '+'));
