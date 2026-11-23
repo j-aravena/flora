@@ -3,3 +3,4 @@ Pillow==12.2.0
 numpy==2.4.4
 requests==2.32.5
 pytest==9.0.2
+pymupdf==2.1

@@ -1,6 +1,10 @@
+from pathlib import Path
+
 import pytest
+from PIL import Image
 
 from flora.presentacion import (
+    es_ilustracion,
     leer_habito, leer_registro_ai, limpiar_nombre, normalizar_familia, registro_desde_pagina,
     separar_nombre_y_categoria,
 )
@@ -132,3 +136,35 @@ def test_registro_con_dos_siglas_hidrofila_y_span_diminuto():
 def test_pagina_sin_nombre_devuelve_none():
     r, avisos = registro_desde_pagina([span("Metodología", flags=16)], 3, "Chacao Chonchi", AHORA)
     assert r is None
+
+
+PDF = Path("data/source/chacao-chonchi.pdf")
+
+
+def test_es_ilustracion():
+    dibujo = Image.new("RGB", (300, 300), "white")
+    for x in range(0, 300, 10):
+        for y in range(300):
+            dibujo.putpixel((x, y), (20, 20, 20))
+    foto = Image.new("RGB", (300, 300), (40, 120, 30))
+    assert es_ilustracion(dibujo) is True
+    assert es_ilustracion(foto) is False
+
+
+@pytest.mark.skipif(not PDF.exists(), reason="sin el PDF de la presentación")
+@pytest.mark.parametrize("pagina, nombre, familia, habito, categoria, ai", [
+    (18, "Carex erinacea", "Cyperaceae", "Hierba perenne", "", "si"),
+    (47, "Fascicularia bicolor", "Bromeliaceae", "Hierba perenne", "", "si"),
+    (58, "Aextoxicon punctatum", "Aextoxicaceae", "Árbol", "Preocupación Menor", "si"),
+    (79, "Berberidopsis corallina", "Berberidopsidaceae", "Arbusto", "En peligro", "no"),
+    (188, "Hymenophyllum falklandicum", "Hymenophyllaceae", "Hierba perenne", "Preocupación Menor", "duda"),
+])
+def test_paginas_reales(pagina, nombre, familia, habito, categoria, ai):
+    import pymupdf
+    from flora.presentacion import imagenes_de_pagina, spans_de_pagina
+    doc = pymupdf.open(PDF)
+    r, _ = registro_desde_pagina(spans_de_pagina(doc[pagina - 1]), pagina, "Chacao Chonchi", AHORA)
+    assert (r["nombre"], r["familia"], r["habito"], r["categoriaMMA"], r["registroAI"]) == (nombre, familia, habito, categoria, ai)
+    imagenes = imagenes_de_pagina(doc, doc[pagina - 1], set())
+    assert len(imagenes) >= 2
+    assert not es_ilustracion(imagenes[0])  # la miniatura es una foto

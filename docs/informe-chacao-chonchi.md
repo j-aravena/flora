@@ -1,0 +1,302 @@
+# Informe de migración
+
+## Nombres limpiados (59)
+
+- Agrostis capillaris L. → Agrostis capillaris
+- Agrostis stolonifera L. var. stolonifera → Agrostis stolonifera var. stolonifera
+- Aira caryophyllea L. → Aira caryophyllea
+- Aira praecox L. → Aira praecox
+- Alopecurus pratensis L. → Alopecurus pratensis
+- Bromus catharticus Vahl var. catharticus. → Bromus catharticus var. catharticus
+- Dactylis glomerata L. → Dactylis glomerata
+- Holcus lanatus L. → Holcus lanatus
+- Poa annua L. → Poa annua
+- Aextoxicon punctatum – LC (D.S. N° 79/2018) → Aextoxicon punctatum
+- Berberis empetrifolia Lam. → Berberis empetrifolia
+- Berberis microphylla G. Forst. → Berberis microphylla
+- Berberidopsis corallina – EP y R (D.S. N° 151/2007) → Berberidopsis corallina
+- Empetrum rubrum Vahl ex Willd. → Empetrum rubrum
+- Gaultheria antarctica Hook. f. → Gaultheria antarctica
+- Gaultheria pumila var. pumila. → Gaultheria pumila var. pumila
+- Luma chequen – (LC D.S. 10/2023) → Luma chequen
+- Rumex acetosella L. → Rumex acetosella
+- Rumex crispus L. → Rumex crispus
+- Galium aparine L. → Galium aparine
+- Drimys winteri – LC (D.S. N° 6/2017) → Drimys winteri
+- Fitzroya cupressoides – EP (D.S. N° 51/2008) → Fitzroya cupressoides
+- Austrolycopodium magellanicum (LC D.S. N°13/2013) → Austrolycopodium magellanicum
+- Asplenium dareoides – LC (D.S. N° 19/2012) → Asplenium dareoides
+- Asplenium trilobum – LC (D.S. N° 19/2012) → Asplenium trilobum
+- Austroblechnum leyboldtianum - (LC D.S. N°19/2012) → Austroblechnum leyboldtianum
+- Austroblechnum corralense (VU D.S. N°52/2014) → Austroblechnum corralense
+- Blechnum hastatum - (LC D.S. N°19/2012) → Blechnum hastatum
+- Parablechnum chilense – LC (D.S. N° 19/2012) → Parablechnum chilense
+- Hypolepis poeppigii – (LC D.S. N°52/2014) → Hypolepis poeppigii
+- Lophosoria quadripinnata – LC (D.S. N° 19/2012) → Lophosoria quadripinnata
+- Megalastrum spectabile – (LC D.S. N°13/2013) → Megalastrum spectabile
+- Elaphoglossum gayanum (NT D.S. N°13/2013) → Elaphoglossum gayanum
+- Sticherus quadripartitus (LC D.S. N°19/2012) → Sticherus quadripartitus
+- Sticherus squamulosus (LC D.S. N°19/2012) → Sticherus squamulosus
+- Hymenoglossum cruentum – LC (D.S. N° 19/2012) → Hymenoglossum cruentum
+- Hymenophyllum caespitosum – LC (D.S. N° 52/2014) → Hymenophyllum caespitosum
+- Hymenophyllum dentatum – LC (D.S. N° 52/2014) → Hymenophyllum dentatum
+- Hymenophyllum ferrugineum – LC (D.S. N° 52/2014) → Hymenophyllum ferrugineum
+- Hymenophyllum caudatum – LC (D.S. N° 19/2012) → Hymenophyllum caudatum
+- Hymenophyllum fuciforme – LC (D.S. N° 38/2015) → Hymenophyllum fuciforme
+- Hymenophyllum cuneatum – LC (D.S. N° 52/2014) → Hymenophyllum cuneatum
+- Hymenophyllum darwinii – LC (D.S. N° 38/2015) → Hymenophyllum darwinii
+- Hymenophyllum dicranotrichum – LC (D.S. N° 38/2015) → Hymenophyllum dicranotrichum
+- Hymenophyllum pectinatum – LC (D.S. N° 52/2014) → Hymenophyllum pectinatum
+- Hymenophyllum falklandicum – LC (D.S. N° 52/2014) → Hymenophyllum falklandicum
+- Hymenophyllum secundum– LC (D.S. N° 52/2014) → Hymenophyllum secundum
+- Hymenophyllum peltatum– LC (D.S. N° 13/2013) → Hymenophyllum peltatum
+- Hymenophyllum umbratile – VU (D.S. N° 52/2014) → Hymenophyllum umbratile
+- Hymenophyllum asperulum – LC (D.S. N° 19/2012) → Hymenophyllum asperulum
+- Hymenophyllum nahuelhuapiense – DD (D.S. N° 52/2014) → Hymenophyllum nahuelhuapiense
+- Hymenophyllum plicatum – LC (D.S. N° 13/2013) → Hymenophyllum plicatum
+- Hymenophyllum krauseanum – LC (D.S. N° 38/2015) → Hymenophyllum krauseanum
+- Hymenophyllum magellanicum– LC (D.S. N° 38/2015) → Hymenophyllum magellanicum
+- Hymenophyllum tortuosum – LC (D.S. N° 52/2014) → Hymenophyllum tortuosum
+- Polyphlebium exsectum – VU (D.S. N° 52/2014) → Polyphlebium exsectum
+- Notogrammitis angustifolia (LC D.S. N° 52/2014) → Notogrammitis angustifolia
+- Adiantum chilense– LC (D.S. N° 19/2012) → Adiantum chilense
+- Microschizaea fistulosa (LC D.S. N° 52/2014) → Microschizaea fistulosa
+
+## Avisos de lectura (20)
+
+- p. 42: Dactylis glomerata sin hábito
+- p. 47: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 48: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 49: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 50: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 84: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 110: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 111: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 112: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 113: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 115: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 119: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 122: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 124: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 140: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 143: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 153: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 182: Hymenophyllum caudatum sin hábito
+- p. 199: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+- p. 200: se ignora la categoría fuera de la línea del nombre: NT (DS 33/2011)
+
+## Familias inferidas (3)
+
+- Eryngium coquimbanum: Apiaceae
+- Nolana rostrata: Solanaceae
+- Hymenophyllum caudatum: Hymenophyllaceae
+
+## Ya estaban en la aplicación (se suman sitio, fotos y datos faltantes) (15)
+
+- Cyperus eragrostis → Cyperus eragrostis
+- Juncus stipulatus → Juncus stipulatus
+- Poa annua → Poa annua
+- Taraxacum officinale → Taraxacum officinale
+- Berberis empetrifolia → Berberis empetrifolia
+- Aristotelia chilensis → Aristotelia chilensis
+- Trifolium repens → Trifolium repens
+- Erodium cicutarium → Erodium cicutarium
+- Erodium moschatum → Erodium moschatum
+- Ribes punctatum → Ribes punctatum
+- Plantago lanceolata → Plantago lanceolata
+- Acaena magellanica → Acaena magellanica
+- Rubus ulmifolius → Rubus ulmifolius
+- Galium aparine → Galium aparine
+- Adiantum chilense → Adiantum chilense
+
+## Familias asignadas a mano (1)
+
+- Donatia fascicularis: Stylidiaceae
+
+## Fotos extraídas (185)
+
+- Carex erinacea: 4
+- Carex fuscula: 4
+- Carex magellanica: 4
+- Carex phleoides: 4
+- Cyperus eragrostis: 4
+- Eleocharis pachycarpa: 3
+- Isolepis cernua: 4
+- Schoenoplectus californicus: 3
+- Schoenus rhynchosporoides: 4
+- Oreobolus obtusangulus: 4
+- Juncus microcephalus: 3
+- Juncus planifolius: 4
+- Juncus procerus: 4
+- Juncus effusus: 4
+- Juncus stipulatus: 3
+- Anthoxanthum odoratum: 4
+- Agrostis capillaris: 4
+- Agrostis stolonifera var. stolonifera: 3
+- Aira caryophyllea: 4
+- Aira praecox: 2
+- Alopecurus pratensis: 4
+- Bromus catharticus var. catharticus: 5
+- Chusquea montana: 3
+- Chusquea quila: 3
+- Dactylis glomerata: 4
+- Holcus lanatus: 4
+- Hordeum chilense: 5
+- Poa annua: 4
+- Astelia pumila: 3
+- Fascicularia bicolor: 3
+- Greigia sphacelata: 3
+- Greigia landbeckii: 3
+- Greigia pearcei: 3
+- Dioscorea auriculata: 3
+- Libertia chilensis: 3
+- Luzuriaga polyphylla: 4
+- Luzuriaga marginata: 4
+- Luzuriaga radicans: 4
+- Brachystele unilateralis: 3
+- Philesia magellanica: 5
+- Aextoxicon punctatum: 8
+- Eryngium paniculatum: 4
+- Diplolepis pachyphylla: 3
+- Elytropus chilensis: 3
+- Raukaua laetevirens: 6
+- Raukaua valdiviensis: 3
+- Archidasyphyllum diacanthoides: 3
+- Baccharis obovata: 5
+- Baccharis magellanica: 3
+- Baccharis racemosa: 4
+- Baccharis sagittalis: 3
+- Baccharis sphaerocephala: 3
+- Baccharis zoellneri: 5
+- Senecio otites: 3
+- Taraxacum officinale: 3
+- Laurelia sempervirens: 3
+- Laureliopsis philippiana: 4
+- Berberis darwinii: 6
+- Berberis empetrifolia: 4
+- Berberis ilicifolia: 3
+- Berberis microphylla: 4
+- Berberidopsis corallina: 5
+- Campsidium valdivianum: 4
+- Desfontainia fulgens: 6
+- Caldcluvia paniculata: 5
+- Eucryphia cordifolia: 4
+- Weinmannia trichosperma: 5
+- Drosera uniflora: 3
+- Aristotelia chilensis: 4
+- Crinodendron hookerianum: 7
+- Empetrum rubrum: 4
+- Gaultheria antarctica: 4
+- Gaultheria insana: 4
+- Gaultheria mucronata: 4
+- Gaultheria phillyreifolia: 4
+- Gaultheria pumila var. pumila: 4
+- Lebetanthus myrsinites: 3
+- Escallonia rubra: 3
+- Dysopsis chilensis: 2
+- Lotus corniculatus: 6
+- Trifolium repens: 3
+- Cytisus scoparius: 4
+- Teline monspessulana: 3
+- Ulex europaeus: 4
+- Erodium cicutarium: 3
+- Erodium moschatum: 3
+- Asteranthera ovata: 4
+- Mitraria coccinea: 4
+- Sarmienta scandens: 3
+- Griselinia racemosa: 3
+- Griselinia ruscifolia: 3
+- Griselinia scandens: 3
+- Gunnera tinctoria: 3
+- Gunnera magellanica: 3
+- Hydrangea serratifolia: 3
+- Boquila trifoliolata: 3
+- Ribes magellanicum: 3
+- Ribes punctatum: 2
+- Amomyrtus luma: 7
+- Amomyrtus meli: 7
+- Eucalyptus nitens: 5
+- Luma apiculata: 5
+- Luma chequen: 3
+- Metrosideros stipularis: 3
+- Myrceugenia exsucca: 5
+- Myrceugenia parvifolia: 6
+- Myrceugenia planipes: 5
+- Ugni candollei: 3
+- Ugni molinae: 3
+- Myrteola nummularia: 4
+- Nothofagus antarctica: 4
+- Nothofagus betuloides: 4
+- Nothofagus dombeyi: 5
+- Nothofagus nitida: 4
+- Fuchsia magellanica: 4
+- Hebe salicifolia: 4
+- Plantago lanceolata: 4
+- Rumex acetosella: 3
+- Rumex crispus: 3
+- Embothrium coccineum: 4
+- Gevuina avellana: 4
+- Lomatia ferruginea: 3
+- Lomatia hirsuta: 5
+- Acaena magellanica: 4
+- Acaena ovalifolia: 4
+- Fragaria chiloensis: 3
+- Rubus ulmifolius: 3
+- Galium aparine: 4
+- Nertera granadensis: 3
+- Donatia fascicularis: 3
+- Azara lanceolata: 3
+- Azara serrata: 3
+- Antidaphne punctulata: 2
+- Lepidoceras chilense: 3
+- Myoschilos oblongum: 3
+- Ovidia pillo-pillo: 5
+- Rhaphithamnus spinosus: 6
+- Drimys winteri: 6
+- Fitzroya cupressoides: 6
+- Pilgerodendron uviferum: 4
+- Podocarpus nubigenus: 5
+- Podocarpus salignus: 4
+- Saxegothaea conspicua: 5
+- Austrolycopodium magellanicum: 3
+- Asplenium dareoides: 3
+- Asplenium trilobum: 3
+- Austroblechnum leyboldtianum: 3
+- Austroblechnum lechleri: 2
+- Austroblechnum penna-marina: 3
+- Austroblechnum corralense: 4
+- Blechnum hastatum: 4
+- Lomariocycas magellanica: 3
+- Parablechnum chilense: 4
+- Hypolepis poeppigii: 3
+- Lophosoria quadripinnata: 4
+- Megalastrum spectabile: 3
+- Elaphoglossum gayanum: 5
+- Sticherus cryptocarpus: 2
+- Sticherus quadripartitus: 3
+- Sticherus squamulosus: 3
+- Hymenoglossum cruentum: 3
+- Hymenophyllum caespitosum: 4
+- Hymenophyllum dentatum: 5
+- Hymenophyllum ferrugineum: 3
+- Hymenophyllum caudatum: 4
+- Hymenophyllum fuciforme: 4
+- Hymenophyllum cuneatum: 4
+- Hymenophyllum darwinii: 4
+- Hymenophyllum dicranotrichum: 4
+- Hymenophyllum pectinatum: 4
+- Hymenophyllum falklandicum: 4
+- Hymenophyllum secundum: 3
+- Hymenophyllum peltatum: 4
+- Hymenophyllum umbratile: 3
+- Hymenophyllum asperulum: 3
+- Hymenophyllum nahuelhuapiense: 3
+- Hymenophyllum plicatum: 4
+- Hymenophyllum krauseanum: 4
+- Hymenophyllum magellanicum: 3
+- Hymenophyllum tortuosum: 2
+- Polyphlebium exsectum: 4
+- Notogrammitis angustifolia: 3
+- Synammia feuillei: 3
+- Adiantum chilense: 3
+- Microschizaea fistulosa: 4

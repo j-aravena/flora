@@ -2,7 +2,11 @@
 
 Las funciones de interpretación trabajan sobre spans ya extraídos ({texto, tamano, flags, bbox}) para poder
 probarlas sin el PDF. La lectura del PDF con PyMuPDF está en spans_de_pagina e imagenes_de_pagina."""
+import io
 import re
+
+import numpy as np
+from PIL import Image
 
 from flora.union import _base_registro
 
@@ -141,3 +145,54 @@ def registro_desde_pagina(spans, pagina: int, sitio: str, ahora: str):
     if not habito:
         avisos.append(f"p. {pagina}: {nombre} sin hábito")
     return r, avisos
+
+
+def spans_de_pagina(page) -> list[dict]:
+    salida = []
+    for bloque in page.get_text("dict")["blocks"]:
+        for linea in bloque.get("lines", []):
+            for s in linea["spans"]:
+                salida.append({"texto": s["text"], "tamano": s["size"], "flags": s["flags"], "bbox": tuple(s["bbox"])})
+    return salida
+
+
+def es_ilustracion(im: Image.Image) -> bool:
+    chica = im.convert("RGB").copy()
+    chica.thumbnail((200, 200))
+    a = np.asarray(chica).astype(np.float32)
+    blancos = (a.min(axis=2) > 225).mean()
+    maximo, minimo = a.max(axis=2), a.min(axis=2)
+    saturacion = np.where(maximo > 0, (maximo - minimo) / np.maximum(maximo, 1), 0).mean()
+    return bool(blancos > 0.6 and saturacion < 0.12)
+
+
+def _imagen_de_xref(doc, xref: int) -> Image.Image:
+    import pymupdf
+    pix = pymupdf.Pixmap(doc, xref)
+    if pix.alpha:
+        # Aplana la transparencia sobre blanco.
+        im = Image.frombytes("RGBA", (pix.width, pix.height), pix.samples)
+        fondo = Image.new("RGB", im.size, "white")
+        fondo.paste(im, mask=im.split()[3])
+        return fondo
+    if pix.n - pix.alpha != 3:
+        pix = pymupdf.Pixmap(pymupdf.csRGB, pix)
+    return Image.open(io.BytesIO(pix.tobytes("png"))).convert("RGB")
+
+
+def imagenes_de_pagina(doc, page, excluidos: set[int], lado_min: int = 150) -> list[Image.Image]:
+    """Imágenes embebidas de la diapositiva, sin los textos superpuestos. Primero las fotos por área
+    mostrada, de mayor a menor, y al final las ilustraciones."""
+    vistas, candidatas = set(), []
+    for info in page.get_image_info(xrefs=True):
+        xref = info.get("xref")
+        if not xref or xref in vistas or xref in excluidos:
+            continue
+        vistas.add(xref)
+        if min(info["width"], info["height"]) < lado_min:
+            continue
+        x0, y0, x1, y1 = info["bbox"]
+        im = _imagen_de_xref(doc, xref)
+        candidatas.append((es_ilustracion(im), -(x1 - x0) * (y1 - y0), im))
+    candidatas.sort(key=lambda c: (c[0], c[1]))
+    return [im for _, _, im in candidatas]
