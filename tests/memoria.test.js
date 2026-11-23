@@ -25,6 +25,15 @@ describe('memoria de la lista', () => {
     expect(roto.estado().orden).toBe('nombre');
   });
 
+  it('conserva los campos propios de otra pantalla y tolera valores que no son objeto', () => {
+    const almacen = almacenFalso();
+    crearMemoria(() => almacen, 'flora.estudio').actualizar({ modo: 'repasar', alcance: 'sin', cantidad: 10 });
+    const otra = crearMemoria(() => almacen, 'flora.estudio').estado();
+    expect(otra).toMatchObject({ modo: 'repasar', alcance: 'sin', cantidad: 10, orden: 'nombre' });
+    expect(crearMemoria(() => almacenFalso({ [CLAVE_MEMORIA]: '[1,2]' })).estado().orden).toBe('nombre');
+    expect(crearMemoria(() => almacenFalso({ [CLAVE_MEMORIA]: '"x"' })).estado().filtro).toEqual(FILTRO_VACIO);
+  });
+
   it('funciona aunque el almacenamiento falle', () => {
     const m = crearMemoria(() => { throw new Error('bloqueado'); });
     expect(m.actualizar({ orden: 'familia' }).orden).toBe('familia');

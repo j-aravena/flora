@@ -58,12 +58,13 @@ export function selectorFiltro({ clave, vacio, OPCIONES, todas, ctxFiltro, filtr
 }
 
 // Hoja "Más filtros". leerFiltro() devuelve el filtro actual; cambiar({ [clave]: valor }) aplica un cambio; limpiar() lo limpia.
-export function abrirHojaFiltros({ titulo = 'Más filtros', OPCIONES, todas, ctxFiltro, leerFiltro, cambiar, limpiar }) {
+export function abrirHojaFiltros({ titulo = 'Más filtros', OPCIONES, todas, ctxFiltro, leerFiltro, cambiar, limpiar, contar }) {
+  const contarEn = contar ?? (f => filtrar(todas, f, ctxFiltro).length);
   const dialogo = el('dialog', { class: 'hoja', 'aria-label': 'Filtros' });
   let porAtras = false;
   function pintarHoja() {
     const filtro = leerFiltro();
-    const total = filtrar(todas, filtro, ctxFiltro).length;
+    const total = contarEn(filtro);
     dialogo.replaceChildren(
       el('div', { class: 'hoja-cabecera' }, el('h2', {}, titulo),
         el('button', { type: 'button', class: 'btn chico', onclick: () => { limpiar(); pintarHoja(); } }, 'Limpiar todo')),

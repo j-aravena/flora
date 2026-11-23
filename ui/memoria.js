@@ -6,7 +6,7 @@ export const CLAVE_MEMORIA = 'flora.lista';
 
 function normalizar(d) {
   return {
-    ...d, // conserva campos propios de cada pantalla (Estudio guarda modo, alcance y cantidad)
+    ...(d && typeof d === 'object' && !Array.isArray(d) ? d : {}), // conserva campos propios de cada pantalla (Estudio guarda modo, alcance y cantidad)
     filtro: { ...FILTRO_VACIO, ...(d?.filtro ?? {}) },
     orden: d?.orden ?? 'nombre',
     ancla: d?.ancla ?? null,

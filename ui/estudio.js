@@ -68,11 +68,12 @@ export async function render(cont, ctx, especieFija) {
   const filtroActual = () => ({ ...memoria.estado().filtro, texto: '' });
   const ajuste = (campo, defecto) => memoria.estado()[campo] ?? defecto;
   const estadosActuales = () => estadosDeAlcance(ajuste('alcance', 'todas'));
-  const listaActual = () => {
+  const conEstados = c => {
     const estados = estadosActuales();
-    const c = candidatas(todas, conFoto, filtroActual());
     return estados ? c.filter(e => estados.includes(e.aprendizaje ?? 'sin')) : c;
   };
+  const contarCon = filtro => conEstados(candidatas(todas, conFoto, filtro)).length;
+  const listaActual = () => conEstados(candidatas(todas, conFoto, filtroActual()));
 
   // ---------- Inicio ----------
 
@@ -81,9 +82,9 @@ export async function render(cont, ctx, especieFija) {
     const principales = el('div', { class: 'filtros-principales' });
     const chips = el('div', { class: 'chips' });
     const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
-    const bloqueModo = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Modo' });
-    const bloqueAlcance = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Especies' });
-    const bloqueCantidad = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Cantidad' });
+    const bloqueModo = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Modo' });
+    const bloqueAlcance = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Especies' });
+    const bloqueCantidad = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Cantidad' });
     const disponibles = el('p', { class: 'disponibles', 'aria-live': 'polite' });
     const comenzar = el('button', { type: 'button', class: 'btn primario', onclick: () => iniciarSesion() }, 'Comenzar');
 
@@ -98,7 +99,7 @@ export async function render(cont, ctx, especieFija) {
     function segmentos(bloque, opciones, campo, defecto) {
       const actual = ajuste(campo, defecto);
       bloque.replaceChildren(...opciones.map(([valor, texto]) => el('button', {
-        type: 'button', role: 'radio', 'aria-checked': String(actual === valor), class: actual === valor ? 'segmento activo' : 'segmento',
+        type: 'button', 'aria-pressed': String(actual === valor), class: actual === valor ? 'segmento activo' : 'segmento',
         onclick: () => cambiarAjuste(campo, valor),
       }, texto)));
     }
@@ -124,7 +125,7 @@ export async function render(cont, ctx, especieFija) {
       segmentos(bloqueModo, MODOS, 'modo', 'cuestionario');
       segmentos(bloqueAlcance, ALCANCES, 'alcance', 'todas');
       segmentos(bloqueCantidad, CANTIDADES, 'cantidad', 20);
-      const n = listaActual().length;
+      const n = contarCon(filtro);
       disponibles.textContent = n === 1 ? '1 especie con foto entra' : `${n} especies con foto entran`;
       disponibles.classList.toggle('vacio', n === 0);
       comenzar.disabled = n === 0;
@@ -134,6 +135,7 @@ export async function render(cont, ctx, especieFija) {
       abrirHojaFiltros({
         OPCIONES, todas, ctxFiltro,
         leerFiltro: filtroActual,
+        contar: filtro => contarCon(filtro),
         cambiar: filtro => cambiarFiltro(filtro),
         limpiar: () => { memoria.limpiarFiltros(); pintar(); },
       });
@@ -188,116 +190,138 @@ export async function render(cont, ctx, especieFija) {
     const fotos = await fotosDe(db, e.id);
     if (!s.ronda) {
       s.ronda = {
-        preguntas: armarRonda(e, todas, Math.random), resultados: [], elegidas: [], pos: 0, guardada: false,
+        preguntas: armarRonda(e, todas, Math.random), resultados: [], elegidas: [], pos: 0, guardada: false, guardando: false,
         foto: fotos.length ? Math.floor(Math.random() * fotos.length) : 0,
       };
     }
     const r = s.ronda;
     const N = s.cola.length;
     const i = s.indice + 1;
+    // La galería se arma una sola vez por especie: pasar de pregunta solo repinta la zona de abajo.
     const [galeria, indicador] = galeriaDe(fotos, r.foto);
     const terminar = () => (fija ? navegar(`#/ficha/${e.id}`) : terminarSesion());
-
+    const puntos = el('div', { class: 'puntos-ronda', 'aria-hidden': 'true' });
+    const nombreRonda = el('div', {});
+    const zona = el('div', {});
     const cabecera = el('div', { class: 'avance' },
       el('div', { class: 'avance-fila' },
         el('p', {}, fija ? 'Una especie' : `Especie ${i} de ${N}`),
         el('button', { type: 'button', class: 'btn chico terminar', onclick: terminar }, fija ? 'Salir' : 'Terminar sesión')),
       fija ? null : el('progress', { max: N, value: i - 1 }),
-      el('div', { class: 'puntos-ronda', 'aria-hidden': 'true' },
-        ...r.preguntas.map((_, k) => el('span', { class: k < r.pos ? 'hecho' : k === r.pos ? 'actual' : null }))));
-    const nombreVisible = r.resultados.length > 0 || r.pos >= r.preguntas.length
-      ? el('p', { class: 'nombre-ronda' }, el('i', {}, e.nombre)) : null;
+      puntos);
+    cont.replaceChildren(cabecera, galeria, indicador, nombreRonda, zona);
 
-    if (r.pos >= r.preguntas.length) {
-      finDeTarjeta(s, e, fija, [cabecera, galeria, indicador, nombreVisible]);
-      return;
+    function pintar() {
+      puntos.replaceChildren(...r.preguntas.map((_, k) => el('span', { class: k < r.pos ? 'hecho' : k === r.pos ? 'actual' : null })));
+      nombreRonda.replaceChildren(r.resultados.length > 0 || r.pos >= r.preguntas.length
+        ? el('p', { class: 'nombre-ronda' }, el('i', {}, e.nombre)) : '');
+      if (r.pos >= r.preguntas.length) pintarFin();
+      else pintarPregunta();
     }
 
-    const p = r.preguntas[r.pos];
-    const respondida = r.resultados.length > r.pos;
-    const anuncio = el('p', { class: 'resultado-ronda', 'aria-live': 'polite' });
-    const siguiente = el('button', { type: 'button', class: 'btn primario', hidden: !respondida, onclick: () => { r.pos++; tarjeta(s, e, { fija }); } },
-      r.pos === r.preguntas.length - 1 ? 'Ver resumen' : 'Siguiente pregunta');
-    const botones = p.alternativas.map(alt => el('button', {
-      type: 'button', class: 'alternativa', onclick: () => responder(alt),
-    }, nombreEn(alt, p.tipo)));
+    function pintarPregunta() {
+      const p = r.preguntas[r.pos];
+      const respondida = r.resultados.length > r.pos;
+      const anuncio = el('p', { class: 'resultado-ronda', 'aria-live': 'polite' });
+      const siguiente = el('button', { type: 'button', class: 'btn primario', hidden: !respondida, onclick: () => {
+        if (siguiente.disabled) return;
+        siguiente.disabled = true;
+        r.pos++;
+        pintar();
+      } }, r.pos === r.preguntas.length - 1 ? 'Ver resultado' : 'Siguiente pregunta');
+      const botones = p.alternativas.map(alt => el('button', {
+        type: 'button', class: 'alternativa', onclick: () => responder(alt),
+      }, nombreEn(alt, p.tipo)));
 
-    function marcar(elegida) {
-      botones.forEach((b, k) => {
-        const alt = p.alternativas[k];
-        b.disabled = true;
-        if (alt === p.correcta) b.classList.add('correcta');
-        else if (alt === elegida) b.classList.add('incorrecta');
-        else b.classList.add('atenuada');
+      function marcar(elegida) {
+        botones.forEach((b, k) => {
+          const alt = p.alternativas[k];
+          b.disabled = true;
+          if (alt === p.correcta) b.classList.add('correcta');
+          else if (alt === elegida) b.classList.add('incorrecta');
+          else b.classList.add('atenuada');
+        });
+        const acierto = elegida === p.correcta;
+        anuncio.className = `resultado-ronda ${acierto ? 'ok' : 'mal'}`;
+        if (acierto) anuncio.replaceChildren('Correcto');
+        else anuncio.replaceChildren('Era: ', nombreEn(p.correcta, p.tipo));
+        siguiente.hidden = false;
+      }
+
+      function responder(elegida) {
+        if (r.resultados.length > r.pos) return;
+        r.resultados.push({ tipo: p.tipo, acierto: elegida === p.correcta });
+        r.elegidas.push(elegida);
+        marcar(elegida);
+        if (r.pos === r.preguntas.length - 1) guardarRonda(s, e);
+        siguiente.focus({ preventScroll: true });
+      }
+
+      zona.replaceChildren(
+        el('h2', { class: 'enunciado' }, p.enunciado),
+        el('div', { class: 'alternativas' }, ...botones),
+        anuncio,
+        el('div', { class: 'acciones' }, siguiente));
+      if (respondida) marcar(r.elegidas[r.pos]);
+    }
+
+    async function pintarFin() {
+      const aciertos = r.resultados.filter(x => x.acierto).length;
+      const esUltima = s.indice === s.cola.length - 1;
+      const filas = r.preguntas.map((p, k) => {
+        const bien = r.resultados[k]?.acierto;
+        return el('li', { class: bien ? 'ok' : 'mal' },
+          el('span', { class: 'marca', 'aria-label': bien ? 'Acertaste' : 'Fallaste' }, bien ? '✓' : '✗'),
+          el('div', {}, el('small', {}, p.enunciado), el('p', {}, nombreEn(p.correcta, p.tipo))));
       });
-      const acierto = elegida === p.correcta;
-      anuncio.className = `resultado-ronda ${acierto ? 'ok' : 'mal'}`;
-      if (acierto) anuncio.replaceChildren('Correcto');
-      else anuncio.replaceChildren('Era: ', nombreEn(p.correcta, p.tipo));
-      siguiente.hidden = false;
+      const siguiente = el('button', { type: 'button', class: 'btn primario', disabled: !r.guardada, onclick: () => {
+        if (siguiente.disabled) return;
+        siguiente.disabled = true;
+        s.indice++;
+        s.ronda = null;
+        if (esUltima) s.terminada = true;
+        mostrar();
+      } }, esUltima ? 'Ver resultado' : 'Siguiente especie');
+      const fallo = el('div', { class: 'diagnostico', hidden: r.guardada || r.guardando },
+        el('p', {}, 'No se pudo guardar el resultado de esta especie.'),
+        el('button', { type: 'button', class: 'btn', onclick: async () => { await guardarRonda(s, e); pintar(); } }, 'Reintentar'));
+      zona.replaceChildren(
+        el('div', { class: `marcador ${resultadoRonda(r.resultados)}` },
+          el('h2', {}, `${aciertos} de ${r.preguntas.length}`),
+          el('p', {}, resultadoRonda(r.resultados) === 'perfecta' ? 'Ronda perfecta' : 'Para repasar')),
+        el('ul', { class: 'resultado-lista' }, ...filas),
+        e.diagnostico ? el('div', { class: 'diagnostico' }, el('h2', {}, 'Rasgo para reconocerla'), el('p', {}, e.diagnostico)) : null,
+        fallo,
+        el('div', { class: 'acciones' },
+          fija
+            ? el('a', { class: 'btn primario', href: `#/ficha/${e.id}` }, 'Volver a la ficha')
+            : [el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'), siguiente]));
+      // Si el guardado de la última pregunta falló o sigue en curso, se reintenta/espera aquí; la especie no pasa hasta quedar guardada.
+      if (r.guardando) { while (r.guardando) await new Promise(res => setTimeout(res, 50)); pintar(); }
+      else if (!r.guardada) { await guardarRonda(s, e); if (r.guardada) pintar(); else fallo.hidden = false; }
     }
 
-    async function responder(elegida) {
-      if (r.resultados.length > r.pos) return;
-      r.resultados.push({ tipo: p.tipo, acierto: elegida === p.correcta });
-      r.elegidas.push(elegida);
-      marcar(elegida);
-      botones.forEach(b => { b.disabled = true; });
-      if (r.pos === r.preguntas.length - 1) await guardarRonda(s, e);
-      siguiente.focus({ preventScroll: true });
-    }
-
-    cont.replaceChildren(
-      cabecera, galeria, indicador, nombreVisible,
-      el('h2', { class: 'enunciado' }, p.enunciado),
-      el('div', { class: 'alternativas' }, ...botones),
-      anuncio,
-      el('div', { class: 'acciones' }, siguiente));
-    if (respondida) marcar(r.elegidas[r.pos]);
+    pintar();
   }
 
   async function guardarRonda(s, e) {
     const r = s.ronda;
-    if (r.guardada) return;
-    r.guardada = true;
+    if (r.guardada || r.guardando) return;
+    r.guardando = true;
     try {
       const fresca = (await obtenerEspecie(db, e.id)) ?? e;
       await db.especies.put(calificarRonda(fresca, r.resultados, ahora()));
+      r.guardada = true;
+      s.respuestas.push({
+        id: e.id, resultado: resultadoRonda(r.resultados),
+        correctas: r.resultados.filter(x => x.acierto).length, preguntas: r.resultados.length,
+        fallados: r.resultados.filter(x => !x.acierto).map(x => x.tipo),
+      });
     } catch {
-      r.guardada = false;
       aviso('No se pudo guardar el resultado de esta especie', 4000);
-      return;
+    } finally {
+      r.guardando = false;
     }
-    s.respuestas.push({
-      id: e.id, resultado: resultadoRonda(r.resultados),
-      correctas: r.resultados.filter(x => x.acierto).length, preguntas: r.resultados.length,
-      fallados: r.resultados.filter(x => !x.acierto).map(x => x.tipo),
-    });
-  }
-
-  function finDeTarjeta(s, e, fija, previos) {
-    const r = s.ronda;
-    const aciertos = r.resultados.filter(x => x.acierto).length;
-    const esUltima = s.indice === s.cola.length - 1;
-    const filas = r.preguntas.map((p, k) => {
-      const bien = r.resultados[k]?.acierto;
-      return el('li', { class: bien ? 'ok' : 'mal' },
-        el('span', { class: 'marca', 'aria-label': bien ? 'Acertaste' : 'Fallaste' }, bien ? '✓' : '✗'),
-        el('div', {}, el('small', {}, p.enunciado), el('p', {}, nombreEn(p.correcta, p.tipo))));
-    });
-    cont.replaceChildren(
-      ...previos,
-      el('div', { class: `marcador ${resultadoRonda(r.resultados)}` },
-        el('h2', {}, `${aciertos} de ${r.preguntas.length}`),
-        el('p', {}, resultadoRonda(r.resultados) === 'perfecta' ? 'Ronda perfecta' : 'Para repasar')),
-      el('ul', { class: 'resultado-lista' }, ...filas),
-      e.diagnostico ? el('div', { class: 'diagnostico' }, el('h2', {}, 'Rasgo para reconocerla'), el('p', {}, e.diagnostico)) : null,
-      el('div', { class: 'acciones' },
-        fija
-          ? el('a', { class: 'btn primario', href: `#/ficha/${e.id}` }, 'Volver a la ficha')
-          : [el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'),
-            el('button', { type: 'button', class: 'btn primario', onclick: () => { s.indice++; s.ronda = null; mostrar(); } },
-              esUltima ? 'Ver resultado' : 'Siguiente especie')]));
   }
 
   function terminarSesion() {
@@ -319,7 +343,10 @@ export async function render(cont, ctx, especieFija) {
       else { sesion.indice++; mostrar(); }
     } }, esUltima ? 'Terminar' : 'Siguiente');
     cont.replaceChildren(
-      el('div', { class: 'avance' }, el('p', {}, `Especie ${i} de ${N}`), el('progress', { max: N, value: i - 1 })),
+      el('div', { class: 'avance' },
+        el('div', { class: 'avance-fila' }, el('p', {}, `Especie ${i} de ${N}`),
+          el('button', { type: 'button', class: 'btn chico terminar', onclick: inicio }, 'Terminar sesión')),
+        el('progress', { max: N, value: i - 1 })),
       galeria, indicador,
       el('p', { class: 'respuesta' }, el('i', {}, e.nombre)),
       el('p', {}, `${e.familia || 'sin dato'} · ${e.habito || 'sin dato'}`),
