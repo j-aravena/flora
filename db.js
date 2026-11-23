@@ -1,5 +1,6 @@
 // Capa de datos: IndexedDB con Dexie. No toca el DOM.
 import Dexie from './vendor/dexie.mjs';
+import { filtrar, ordenar } from './filtros.js';
 
 export const FORMATO = 1;
 export const SITIOS = ['Las Tórtolas', 'STP', 'Prefactibilidad', 'Nevado Tres Cruces', 'Chacao Chonchi'];
@@ -66,18 +67,10 @@ export async function borrarEspecie(db, id) {
   });
 }
 
-export async function listarEspecies(db, filtro = {}) {
-  const texto = normalizar(filtro.texto);
+export async function listarEspecies(db, filtro = {}, orden = 'nombre') {
   const todas = await db.especies.toArray();
-  return todas
-    .filter(e => !filtro.sitio || e.sitios.includes(filtro.sitio))
-    .filter(e => !filtro.origen || e.origen === filtro.origen)
-    .filter(e => !filtro.habito || e.habito === filtro.habito)
-    .filter(e => !filtro.aprendizaje || (filtro.aprendizaje === 'sin' ? e.aprendizaje == null : e.aprendizaje === filtro.aprendizaje))
-    .filter(e => !filtro.colorFlor || (e.colorFlor ?? []).includes(filtro.colorFlor))
-    .filter(e => !filtro.petalos || e.petalos === filtro.petalos)
-    .filter(e => !texto || normalizar(e.nombre).includes(texto) || normalizar(e.familia).includes(texto))
-    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  const conFoto = filtro.foto ? await especiesConFoto(db) : new Set();
+  return ordenar(filtrar(todas, filtro, { conFoto }), orden, filtro.sitio);
 }
 
 export async function leerMeta(db, clave, porDefecto = null) {
