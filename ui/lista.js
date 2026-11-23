@@ -43,7 +43,8 @@ export async function render(cont, ctx) {
     })));
     const ordenes = ORDENES.filter(([v]) => v !== 'listado' || hayOrdenListado(todas, filtro.sitio));
     selectorOrden.replaceChildren(...ordenes.map(([v, t]) => el('option', { value: v, selected: v === orden }, t)));
-    chips.replaceChildren(
+    // replaceChildren convierte null en el texto "null": solo se pasan nodos.
+    chips.replaceChildren(...[
       ...activos.map(({ clave, valor }) => el('button', {
         type: 'button', class: 'chip', 'aria-label': `Quitar ${TITULOS[clave]}`,
         onclick: () => cambiar({ filtro: { [clave]: '' } }),
@@ -52,7 +53,8 @@ export async function render(cont, ctx) {
         const texto = memoria.estado().filtro.texto;
         memoria.limpiarFiltros();
         cambiar({ filtro: { texto } });
-      } }, 'Limpiar todo') : null);
+      } }, 'Limpiar todo') : null,
+    ].filter(Boolean));
   }
 
   function fila(e) {
