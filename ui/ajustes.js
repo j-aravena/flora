@@ -195,8 +195,9 @@ export async function render(cont, ctx) {
     el('header', { class: 'cabecera' }, el('h1', {}, 'Ajustes')),
     tarjeta('Tema', selectorTema),
     tarjeta('Respaldo',
-      el('p', { class: 'dato' }, `Último respaldo: ${fechaCorta(ultimoRespaldo)}`),
-      dias > DIAS_AVISO ? el('p', { class: 'advertencia' }, 'Pasaron más de 30 días. Exporta un respaldo y guárdalo fuera del teléfono.') : null,
+      ultimoRespaldo ? el('p', { class: 'dato' }, `Último respaldo: ${fechaCorta(ultimoRespaldo)}`) : null,
+      !ultimoRespaldo ? el('p', { class: 'advertencia' }, 'Aún no hay respaldo. Exporta uno y guárdalo fuera del teléfono.')
+        : dias > DIAS_AVISO ? el('p', { class: 'advertencia' }, 'Pasaron más de 30 días. Exporta un respaldo y guárdalo fuera del teléfono.') : null,
       el('div', { class: 'acciones' },
         el('button', { class: 'btn primario', onclick: exportar }, 'Exportar respaldo'),
         el('button', { class: 'btn', onclick: () => { modoPendiente = 'reemplazar'; entrada.click(); } }, 'Importar reemplazando'),

@@ -11,7 +11,7 @@ const SITIO_AI = 'Chacao Chonchi';
 // Filtros, modo, alcance y cantidad de Estudio: propios y persistentes, independientes de la lista.
 const memoria = crearMemoria(() => globalThis.localStorage, 'flora.estudio');
 const MODOS = [['cuestionario', 'Cuestionario'], ['repasar', 'Repasar']];
-const ALCANCES = [['todas', 'Todas'], ['pendientes', 'Me falta y no la sé'], ['sin', 'Sin evaluar']];
+const ALCANCES = [['todas', 'Todas'], ['pendientes', 'Por repasar'], ['sin', 'Sin evaluar']];
 const CANTIDADES = [[10, '10'], [20, '20'], ['todas', 'Todas']];
 
 // Sesión de estudio: persiste mientras la aplicación está abierta y se retoma al volver a la pantalla.
@@ -24,7 +24,7 @@ const reiniciar = s => Object.assign(s, { cola: [], indice: 0, respuestas: [], r
 function resumenEstados(especies) {
   const c = { se: 0, falta: 0, no: 0, sin: 0 };
   for (const e of especies) c[e.aprendizaje ?? 'sin']++;
-  return `La sé: ${c.se} · Me falta: ${c.falta} · No la sé: ${c.no} · Sin evaluar: ${c.sin}`;
+  return `${c.se} sabidas · ${c.falta + c.no} por repasar · ${c.sin} sin evaluar`;
 }
 
 function estadosDeAlcance(alcance) {
@@ -42,12 +42,12 @@ function galeriaDe(fotos, inicio = 0) {
       src: urlDe(`foto-${f.id}`, f.blob), alt: '',
       style: f.ancho && f.alto ? `aspect-ratio: ${f.ancho} / ${f.alto}` : null,
     })));
-  const indicador = el('p', { class: 'indicador' }, fotos.length ? `${inicio + 1} de ${fotos.length}` : '');
+  const indicador = el('p', { class: 'indicador' }, fotos.length > 1 ? `Foto ${inicio + 1} de ${fotos.length}` : '');
   galeria.addEventListener('scroll', () => {
     if (!fotos.length) return;
     const anchoFoto = galeria.firstElementChild?.getBoundingClientRect().width || 1;
     const idx = Math.min(fotos.length - 1, Math.max(0, Math.round(galeria.scrollLeft / anchoFoto)));
-    indicador.textContent = `${idx + 1} de ${fotos.length}`;
+    indicador.textContent = fotos.length > 1 ? `Foto ${idx + 1} de ${fotos.length}` : '';
   });
   if (inicio > 0) {
     const ir = () => {
@@ -205,19 +205,18 @@ export async function render(cont, ctx, especieFija) {
     // La galería se arma una sola vez por especie: pasar de pregunta solo repinta la zona de abajo.
     const [galeria, indicador] = galeriaDe(fotos, r.foto);
     const terminar = () => (fija ? navegar(`#/ficha/${e.id}`) : terminarSesion());
-    const puntos = el('div', { class: 'puntos-ronda', 'aria-hidden': 'true' });
+    const puntos = el('span', {});
     const nombreRonda = el('div', {});
     const zona = el('div', {});
     const cabecera = el('div', { class: 'avance' },
       el('div', { class: 'avance-fila' },
-        el('p', {}, fija ? 'Una especie' : `Especie ${i} de ${N}`),
+        el('p', {}, fija ? 'Una especie' : `Especie ${i} de ${N}`, puntos),
         el('button', { type: 'button', class: 'btn chico terminar', onclick: terminar }, fija ? 'Salir' : 'Terminar sesión')),
-      fija ? null : el('progress', { max: N, value: i - 1 }),
-      puntos);
+      fija ? null : el('progress', { max: N, value: i - 1 }));
     cont.replaceChildren(cabecera, galeria, indicador, nombreRonda, zona);
 
     function pintar() {
-      puntos.replaceChildren(...r.preguntas.map((_, k) => el('span', { class: k < r.pos ? 'hecho' : k === r.pos ? 'actual' : null })));
+      puntos.textContent = ` · Pregunta ${Math.min(r.pos + 1, r.preguntas.length)} de ${r.preguntas.length}`;
       nombreRonda.replaceChildren(r.resultados.length > 0 || r.pos >= r.preguntas.length
         ? el('p', { class: 'nombre-ronda' }, el('i', {}, e.nombre)) : '');
       if (r.pos >= r.preguntas.length) pintarFin();

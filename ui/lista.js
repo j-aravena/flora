@@ -87,9 +87,8 @@ export async function render(cont, ctx) {
         ? el('img', { src: urlDe(`mini-${e.id}`, minis.get(e.id)), alt: '', loading: 'lazy', width: 56, height: 56 })
         : el('div', { class: 'sin-foto', 'aria-hidden': 'true' }, icono('hoja', { tam: 22 })),
       el('div', { class: 'texto' }, el('i', { class: 'nombre' }, e.nombre),
-        el('span', { class: 'leyenda' }, e.familia ? el('span', {}, e.familia) : null, leyendaColor(e.colorFlor)),
-        insignias.length ? el('span', { class: 'insignias' }, ...insignias) : null),
-      e.aprendizaje && e.aprendizaje !== 'sin' ? el('span', { class: `punto ${e.aprendizaje}`, title: 'Aprendizaje' }) : null));
+        el('span', { class: 'leyenda' }, e.familia ? el('span', {}, e.familia) : null, leyendaColor(e.colorFlor),
+          insignias.length ? el('span', { class: 'insignias' }, ...insignias) : null))));
   }
 
   function pintar() {

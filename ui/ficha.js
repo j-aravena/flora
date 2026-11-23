@@ -5,10 +5,11 @@ import { memoria } from './memoria.js';
 import { el, urlDe, etiquetaAprendizaje } from './dom.js';
 import { icono } from './iconos.js';
 import { leyendaColor } from './lista.js';
+import { siglaCategoria, nivelCategoria } from '../taxonomia.js';
 
 const CAMPOS = [
   ['nivel', 'Nivel'], ['grupo', 'Grupo'], ['origen', 'Origen'], ['habito', 'Hábito'], ['habitoDetalle', 'Hábito detallado'],
-  ['formasVida', 'Forma de vida'], ['ciclo', 'Ciclo de vida'], ['categoriaMMA', 'Categoría de conservación (MMA)'],
+  ['formasVida', 'Forma de vida'], ['ciclo', 'Ciclo de vida'], ['categoriaMMA', 'Conservación (MMA)'],
   ['decreto', 'Decreto'], ['ds68', 'D.S. 68/2009'], ['hidrofila', 'Hidrófila o de humedal'], ['registroAI', 'Registrada antes en el AI'],
   ['distribucion', 'Distribución'], ['rangoAltitudinal', 'Rango altitudinal'],
   ['colorFlor', 'Color de flor'], ['petalos', 'Pétalos'], ['petalosNota', 'Pétalos según clave'],
@@ -35,6 +36,18 @@ function marcaCompletado(e, clave, notaAfuera = false) {
     },
   }, icono('info', { tam: 16 }));
   return boton;
+}
+
+// Las mismas cápsulas de la lista: conservación, hidrófila y registro en el AI.
+function insigniasFicha(e) {
+  const sigla = siglaCategoria(e.categoriaMMA);
+  const lista = [
+    sigla ? el('span', { class: `insignia cat-${nivelCategoria(e.categoriaMMA)}`, title: e.categoriaMMA }, sigla) : null,
+    esHidrofila(e) ? el('span', { class: 'insignia hidrofila' }, 'Hidrófila') : null,
+    e.registroAI === 'si' ? el('span', { class: 'insignia ai', title: 'Registrada antes en el AI' }, 'AI') : null,
+    e.registroAI === 'duda' ? el('span', { class: 'insignia ai duda', title: 'Registro en el AI por confirmar' }, 'AI?') : null,
+  ].filter(Boolean);
+  return lista.length ? el('p', { class: 'insignias' }, ...lista) : null;
 }
 
 function valorTexto(clave, v) {
@@ -100,14 +113,15 @@ export async function render(cont, ctx, id) {
     el('nav', { class: 'recorrido', 'aria-label': 'Recorrer la lista' }, volver, recorrido.pasos),
     fotos.length ? galeria : null,
     el('header', { class: 'cabecera-ficha' },
-      el('h1', {}, el('i', {}, e.nombre)), el('p', { class: 'familia' }, e.familia || '', marcaCompletado(e, 'familia', true))),
+      el('h1', {}, el('i', {}, e.nombre)), el('p', { class: 'familia' }, e.familia || '', marcaCompletado(e, 'familia', true)),
+      insigniasFicha(e)),
     e.diagnostico ? el('section', { class: 'diagnostico' }, el('h2', {}, 'Para reconocerla'), el('p', {}, e.diagnostico, marcaCompletado(e, 'diagnostico', true))) : null,
     campos.childElementCount ? campos : null,
     e.notas ? el('section', { class: 'bloque' }, el('h2', {}, 'Notas'), el('p', { class: 'notas' }, e.notas)) : null,
     e.rasgosFuente ? el('section', { class: 'bloque' }, el('h2', {}, 'Fuentes'),
       ...e.rasgosFuente.split('\n').map(u => u.trim()).filter(Boolean).map(url => el('p', { class: 'fuente' }, el('a', { href: url, target: '_blank', rel: 'noopener' }, url)))) : null,
     el('div', { class: 'acciones' },
-      fotos.length ? el('a', { class: 'btn primario', href: `#/estudio?especie=${e.id}` }, 'Estudiar esta especie') : null,
+      fotos.length ? el('a', { class: 'btn primario', href: `#/estudio?especie=${e.id}` }, 'Estudiar') : null,
       el('a', { class: 'btn', href: `#/editar/${e.id}` }, icono('editar', { tam: 18 }), 'Editar')),
   ].filter(Boolean));
 }
