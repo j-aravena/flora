@@ -4,6 +4,7 @@ import {
 } from '../db.js';
 import { procesarImagen } from '../images.js';
 import { el, urlDe, aviso } from './dom.js';
+import { barraSuperior, volverA } from './volver.js';
 
 const NIVELES_TEXTO = [['especie', 'Especie'], ['genero', 'Género'], ['familia', 'Familia']];
 
@@ -54,7 +55,9 @@ export async function render(cont, ctx, id) {
       const fresca = nueva ? null : await obtenerEspecie(db, original.id);
       const r = await guardarEspecie(db, fusionarEdicion(fresca, original, borrador));
       aviso('Guardado');
-      navegar(`#/ficha/${r.id}`);
+      // Vuelve a la ficha sin dejar la edición en el historial: "Volver" desde la ficha no reabre el formulario.
+      if (!nueva && ctx.rutaPrevia === `#/ficha/${r.id}`) history.back();
+      else { ctx.reemplazando = true; location.replace(`#/ficha/${r.id}`); }
     } catch (err) {
       aviso(err.message, 4000);
     }
@@ -100,7 +103,7 @@ export async function render(cont, ctx, id) {
     campoTexto(borrador, 'notas', 'Notas', true),
     el('div', { class: 'acciones' },
       el('button', { type: 'submit', class: 'btn primario' }, 'Guardar'),
-      el('a', { class: 'btn', href: nueva ? '#/lista' : `#/ficha/${original.id}` }, 'Cancelar')));
+      el('button', { type: 'button', class: 'btn', onclick: () => volverA(ctx, nueva ? '#/lista' : `#/ficha/${original.id}`) }, 'Cancelar')));
 
   const estadoFotos = el('p', { class: 'estado' });
   const listaFotos = el('div', { class: 'fotos-edicion' });
@@ -147,6 +150,7 @@ export async function render(cont, ctx, id) {
   } }, 'Borrar especie');
 
   cont.append(...[
+    barraSuperior({ alVolver: () => volverA(ctx, nueva ? '#/lista' : `#/ficha/${original.id}`) }),
     el('header', { class: 'cabecera' }, el('h1', {}, nueva ? 'Nueva especie' : 'Editar especie')),
     formulario, seccionFotos,
     botonBorrar ? el('div', { class: 'acciones' }, botonBorrar) : null,

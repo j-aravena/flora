@@ -4,6 +4,7 @@ import { candidatas, armarSesion, resumenSesion, tiposFalladosPorId } from '../s
 import { armarRonda, calificarRonda, resultadoRonda, ETIQUETAS_TIPO } from '../quiz.js';
 import { el, urlDe, aviso } from './dom.js';
 import { icono } from './iconos.js';
+import { barraSuperior, volverA } from './volver.js';
 import { crearMemoria, memoria as memoriaLista } from './memoria.js';
 import { PRINCIPALES, TITULOS, opcionesFiltro, etiquetaFiltro, selectorFiltro, abrirHojaFiltros } from './filtros-ui.js';
 
@@ -211,9 +212,10 @@ export async function render(cont, ctx, especieFija) {
     const cabecera = el('div', { class: 'avance' },
       el('div', { class: 'avance-fila' },
         el('p', {}, fija ? 'Una especie' : `Especie ${i} de ${N}`, puntos),
-        el('button', { type: 'button', class: 'btn chico terminar', onclick: terminar }, fija ? 'Salir' : 'Terminar sesión')),
+        fija ? null : el('button', { type: 'button', class: 'btn chico terminar', onclick: terminar }, 'Terminar sesión')),
       fija ? null : el('progress', { max: N, value: i - 1 }));
-    cont.replaceChildren(cabecera, galeria, indicador, nombreRonda, zona);
+    const volver = fija ? barraSuperior({ alVolver: () => volverA(ctx, `#/ficha/${e.id}`) }) : null;
+    cont.replaceChildren(...[volver, cabecera, galeria, indicador, nombreRonda, zona].filter(Boolean));
 
     function pintar() {
       puntos.textContent = ` · Pregunta ${Math.min(r.pos + 1, r.preguntas.length)} de ${r.preguntas.length}`;
@@ -300,7 +302,7 @@ export async function render(cont, ctx, especieFija) {
         fallo,
         el('div', { class: 'acciones' },
           fija
-            ? el('a', { class: 'btn primario', href: `#/ficha/${e.id}` }, 'Volver a la ficha')
+            ? el('button', { type: 'button', class: 'btn primario', onclick: () => volverA(ctx, `#/ficha/${e.id}`) }, 'Volver a la ficha')
             : [el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'), siguiente]));
       // Si el guardado de la última pregunta falló o sigue en curso, se reintenta/espera aquí; la especie no pasa hasta quedar guardada.
       if (r.guardando) { while (r.guardando) await new Promise(res => setTimeout(res, 50)); pintar(); }

@@ -28,6 +28,7 @@ const ctx = {
   aplicarListados,
   actualizacion: { lista: false },
   desdeLista: false,
+  rutaPrevia: '',
   reemplazando: false,
 };
 
@@ -50,7 +51,8 @@ async function enrutar() {
   const hash = location.hash || '#/lista';
   // La ficha sabe si se llegó desde la lista para que "Volver" use history.back(). Un location.replace
   // (anterior/siguiente en la ficha) conserva el origen.
-  if (!ctx.reemplazando) ctx.desdeLista = rutaActual.startsWith('#/lista');
+  // rutaPrevia: pantalla anterior dentro de la app (vacía si se entró directo); "Volver" usa history.back() cuando existe.
+  if (!ctx.reemplazando) { ctx.desdeLista = rutaActual.startsWith('#/lista'); ctx.rutaPrevia = rutaActual; }
   ctx.reemplazando = false;
   rutaActual = hash;
   const pantalla = document.getElementById('pantalla');
