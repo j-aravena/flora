@@ -1,7 +1,7 @@
 import {
   miniaturasPrimeras, especiesConFoto, valoresPetalos, SITIOS, ORIGENES, HABITOS, APRENDIZAJES, COLORES_FLOR, CATEGORIAS,
 } from '../db.js';
-import { FILTRO_VACIO, ORDENES, filtrar, ordenar, conteos, hayOrdenListado, filtrosActivos } from '../filtros.js';
+import { ORDENES, filtrar, ordenar, conteos, hayOrdenListado, filtrosActivos } from '../filtros.js';
 import { GRUPOS, FORMAS_VIDA, siglaCategoria, nivelCategoria, esHidrofila } from '../taxonomia.js';
 import { el, urlDe, estiloColor, tinteFondo } from './dom.js';
 import { memoria } from './memoria.js';
@@ -49,7 +49,6 @@ export async function render(cont, ctx) {
   const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
   const selectorOrden = el('select', { 'aria-label': 'Orden', onchange: ev => cambiar({ orden: ev.target.value }) });
   const ul = el('ul', { class: 'lista' });
-  let visibles = [];
 
   function cambiar({ filtro, orden }) {
     const actual = memoria.estado();
@@ -105,7 +104,7 @@ export async function render(cont, ctx) {
 
   function pintar() {
     const { filtro, orden } = memoria.estado();
-    visibles = ordenar(filtrar(todas, filtro, ctxFiltro), orden, filtro.sitio);
+    const visibles = ordenar(filtrar(todas, filtro, ctxFiltro), orden, filtro.sitio);
     contador.textContent = `${visibles.length} especies`;
     const items = [];
     let familiaActual = null;

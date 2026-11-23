@@ -7,6 +7,7 @@ binomio) se incluyen con su id y su nombre, para que la aplicación les sume el 
 import argparse
 import collections
 import json
+import os
 import shutil
 import sys
 import zipfile
@@ -51,7 +52,7 @@ def verificar(registros: list[dict], fotos: list[dict]) -> list[str]:
     errores = []
     if len(registros) < MINIMO:
         errores.append(f"{len(registros)} especies, se esperaban al menos {MINIMO}")
-    if "�" in json.dumps(registros, ensure_ascii=False):
+    if "\ufffd" in json.dumps(registros, ensure_ascii=False):
         errores.append("texto con U+FFFD")
     sin_familia = [r["nombre"] for r in registros if not r["familia"]]
     if sin_familia:
@@ -102,6 +103,8 @@ def main(argv=None) -> int:
             informe.agregar("Nombres limpiados", f"{r['_nombre_pdf']} → {r['nombre']}")
 
     existentes = cargar_existentes()
+    # Las existentes aportan el conocimiento género→familia, pero solo se informa lo inferido en las nuevas.
+    inferir_familias(list(existentes.values()), Informe())
     inferir_familias(list(existentes.values()) + registros, informe)
     for i, r in enumerate(registros, start=1):
         r["ordenListado"] = {SITIO: i}
@@ -124,16 +127,19 @@ def main(argv=None) -> int:
         informe.agregar("Fotos extraídas", f"{r['nombre']}: {orden}")
 
     errores = verificar(registros, fotos)
-    construir_zip(RUTA_PAQUETE, registros, fotos, ahora)
-    errores += verificar_zip(RUTA_PAQUETE)
+    temporal = RUTA_PAQUETE.with_name(RUTA_PAQUETE.name + ".tmp")
+    construir_zip(temporal, registros, fotos, ahora)
+    errores += verificar_zip(temporal)
     for e in errores:
         informe.agregar("Errores de verificación", e)
     informe.escribir(salida / "informe-chacao-chonchi.md")
     shutil.copy(salida / "informe-chacao-chonchi.md", "docs/informe-chacao-chonchi.md")
-    print(f"{len(registros)} especies, {len(fotos)} fotos, paquete {RUTA_PAQUETE.stat().st_size / 1e6:.1f} MB")
     if errores:
+        temporal.unlink(missing_ok=True)
         print("ERRORES:", *errores, sep="\n  ")
         return 1
+    os.replace(temporal, RUTA_PAQUETE)
+    print(f"{len(registros)} especies, {len(fotos)} fotos, paquete {RUTA_PAQUETE.stat().st_size / 1e6:.1f} MB")
     return 0
 
 

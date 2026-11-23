@@ -25,7 +25,7 @@ Si se borran los datos de Chrome o se desinstala la aplicación, se pierde todo 
 - `source .venv/bin/activate && pytest -q` para las pruebas del pipeline de migración (114 pruebas, 1 saltada).
 - `npm run servir` y abrir `http://localhost:8080/`.
 - El paquete inicial `semilla/semilla.zip` lo genera `tools/migrar.py` (ver `docs/superpowers/plans/2026-09-05-flora-pipeline.md`).
-- Los listados de sitio posteriores (por ahora Nevado Tres Cruces) los genera `tools/agregar_listado.py` como `semilla/<sitio>.zip`. La aplicación los descarga y aplica una sola vez, en `aplicarListados` de `app.js`. Solo agregan: a las especies que ya están en el teléfono, identificadas por id o por nombre, les suman el sitio y no tocan su avance, sus notas ni sus fotos.
+- Los listados de sitio posteriores (Nevado Tres Cruces y Chacao Chonchi) los genera `tools/agregar_listado.py` como `semilla/<sitio>.zip`. La aplicación los descarga y aplica una sola vez, en `aplicarListados` de `app.js`. Solo agregan: las especies que ya están en el teléfono, identificadas por id o por nombre, reciben el sitio, las fotos del listado al final y únicamente los campos que les faltaban, sin tocar nunca su avance, sus notas ni sus ediciones.
 - `tools/agregar_presentacion.py` genera `semilla/chacao-chonchi.zip` desde el PDF de la presentación de campaña (`data/source/chacao-chonchi.pdf`, no versionado). Con `agregarListado`, las especies que ya estaban reciben además las fotos y los datos que les faltan.
 - Al publicar un cambio de código, sube `FLORA_VERSION` en `version.js` y `version` en `package.json`.
 - Especificación: `docs/superpowers/specs/2026-09-05-flora-pwa-design.md`.

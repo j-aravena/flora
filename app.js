@@ -99,7 +99,23 @@ export async function cargarSemilla(pantalla) {
 
 // Descarga y aplica los listados pendientes. Sin conexión no hace nada y se reintenta en la
 // próxima apertura. Devuelve cuántas especies nuevas agregó.
-export async function aplicarListados() {
+let listadosEnCurso = null;
+export function aplicarListados() {
+  // Evita corridas simultáneas (arranque en segundo plano y reimportación desde Ajustes).
+  listadosEnCurso ??= aplicarListadosPendientes().finally(() => { listadosEnCurso = null; });
+  return listadosEnCurso;
+}
+
+// Vuelve a pintar la lista tras agregar especies. Con la hoja de filtros abierta espera a que se
+// cierre: quitarla del DOM sin close() dejaría huérfanos su entrada de historial y su popstate.
+function refrescarLista() {
+  const enLista = () => (location.hash || '#/lista').startsWith('#/lista');
+  const hoja = document.querySelector('dialog.hoja[open]');
+  if (hoja) hoja.addEventListener('close', () => { if (enLista()) enrutar(); }, { once: true });
+  else if (enLista()) enrutar();
+}
+
+async function aplicarListadosPendientes() {
   const aplicados = await leerMeta(db, 'listadosAplicados', []);
   let total = 0;
   for (const { sitio, ruta } of LISTADOS) {
@@ -138,7 +154,7 @@ async function iniciar() {
   window.addEventListener('hashchange', enrutar);
   await enrutar();
   aplicarListados()
-    .then(nuevas => { if (nuevas && location.hash.startsWith('#/lista')) enrutar(); })
+    .then(nuevas => { if (nuevas) refrescarLista(); })
     .catch(err => aviso(`No se pudo agregar un listado: ${err.message}`, 5000));
   const versionAnterior = await leerMeta(db, 'versionApp');
   if (versionAnterior && versionAnterior !== VERSION) aviso('Aplicación actualizada a la versión ' + VERSION);

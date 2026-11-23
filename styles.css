@@ -104,7 +104,7 @@ progress.actividad { width: 100%; height: 10px; }
 .lista li.grupo-familia { position: sticky; top: 0; z-index: 2; background: var(--fondo); padding: 8px 4px 4px; font-weight: 700; color: var(--verde); border-bottom: 2px solid var(--verde); }
 .lista li.grupo-familia small { color: var(--texto-suave); font-weight: 400; }
 .lista li.reciente > a { animation: reciente 1.5s ease-out; }
-@keyframes reciente { from { background: #fff1b8; } to { background: transparent; } }
+@keyframes reciente { from { background: #fff1b8; } }
 .insignias { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
 .insignia { font-size: .75rem; font-weight: 700; padding: 1px 6px; border-radius: 6px; border: 1px solid var(--borde); color: var(--texto-suave); line-height: 1.4; }
 .insignia.cat-amenazada { background: #fde8e6; border-color: var(--rojo); color: var(--rojo); }
