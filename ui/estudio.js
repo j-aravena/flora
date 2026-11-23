@@ -260,6 +260,8 @@ export async function render(cont, ctx, especieFija) {
         marcar(elegida);
         if (r.pos === r.preguntas.length - 1) guardarRonda(s, e);
         siguiente.focus({ preventScroll: true });
+        // El resultado y "Siguiente" deben quedar sobre la barra inferior.
+        requestAnimationFrame(() => siguiente.scrollIntoView({ block: 'end', behavior: 'smooth' }));
       }
 
       zona.replaceChildren(
