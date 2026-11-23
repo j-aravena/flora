@@ -1,4 +1,5 @@
 // Reglas del modo estudio (sección 7 de la especificación). Funciones puras; el generador aleatorio se inyecta.
+import { filtrar } from './filtros.js';
 
 const PESOS = { no: 4, falta: 3, sin: 2, se: 1 };
 const SUBE = { no: 'falta', falta: 'se', sin: 'se', se: 'se' };
@@ -10,8 +11,8 @@ export function peso(especie) {
   return PESOS[especie.aprendizaje ?? 'sin'];
 }
 
-export function candidatas(especies, conFoto, sitio = '') {
-  return especies.filter(e => conFoto.has(e.id) && (!sitio || e.sitios.includes(sitio)));
+export function candidatas(especies, conFoto, filtro = {}) {
+  return filtrar(especies, filtro, { conFoto }).filter(e => conFoto.has(e.id));
 }
 
 export function elegirPonderado(items, pesoDe, rng) {
@@ -96,11 +97,13 @@ export function armarSesion(cands, { n = 20, estados = null, rng = Math.random }
   return cola;
 }
 
-// respuestas: lista de { id, resultado } con resultado en 'se' | 'falta' | 'no' | 'acierto' | 'fallo' | 'saltada'.
+// respuestas: lista de { id, resultado } con resultado en 'se' | 'falta' | 'no' | 'acierto' | 'perfecta' | 'parcial' | 'fallo' | 'saltada'.
 export function resumenSesion(respuestas) {
-  const cuenta = { aciertos: 0, fallos: 0, saltadas: 0, falladas: [] };
+  const cuenta = { aciertos: 0, fallos: 0, saltadas: 0, falladas: [], correctas: 0, preguntas: 0 };
   for (const r of respuestas) {
-    if (r.resultado === 'se' || r.resultado === 'acierto') cuenta.aciertos++;
+    cuenta.correctas += r.correctas ?? 0;
+    cuenta.preguntas += r.preguntas ?? 0;
+    if (r.resultado === 'se' || r.resultado === 'acierto' || r.resultado === 'perfecta') cuenta.aciertos++;
     else if (r.resultado === 'saltada') cuenta.saltadas++;
     else { cuenta.fallos++; cuenta.falladas.push(r.id); }
   }

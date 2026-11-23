@@ -35,7 +35,7 @@ export async function render(cont, ctx, especieFija) {
 
   async function candidatasActuales() {
     const todas = await db.especies.toArray();
-    return candidatas(todas, conFoto, sesion.sitio);
+    return candidatas(todas, conFoto, { sitio: sesion.sitio });
   }
 
   function cabeceraAvance(i, N, esRepaso) {

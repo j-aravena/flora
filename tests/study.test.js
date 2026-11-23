@@ -17,8 +17,8 @@ describe('pesos y selección', () => {
   it('candidatas exige foto y respeta el sitio', () => {
     const lista = [esp('a'), esp('b', { sitios: ['Las Tórtolas'] }), esp('c')];
     const conFoto = new Set(['a', 'b']);
-    expect(candidatas(lista, conFoto, '').map(e => e.id)).toEqual(['a', 'b']);
-    expect(candidatas(lista, conFoto, 'Las Tórtolas').map(e => e.id)).toEqual(['b']);
+    expect(candidatas(lista, conFoto, {}).map(e => e.id)).toEqual(['a', 'b']);
+    expect(candidatas(lista, conFoto, { sitio: 'Las Tórtolas' }).map(e => e.id)).toEqual(['b']);
   });
 
   it('elegirPonderado recorre los pesos acumulados', () => {
@@ -174,6 +174,32 @@ describe('resumenSesion', () => {
   });
 
   it('con lista vacía devuelve todo en cero', () => {
-    expect(resumenSesion([])).toEqual({ aciertos: 0, fallos: 0, saltadas: 0, falladas: [] });
+    expect(resumenSesion([])).toEqual({ aciertos: 0, fallos: 0, saltadas: 0, falladas: [], correctas: 0, preguntas: 0 });
+  });
+});
+
+describe('candidatas con filtro y rondas', () => {
+  it('candidatas aplica el filtro de la lista y exige foto', () => {
+    const es = [
+      { id: '1', nombre: 'A', familia: 'Poaceae', sitios: ['STP'] },
+      { id: '2', nombre: 'B', familia: 'Poaceae', sitios: [] },
+      { id: '3', nombre: 'C', familia: 'Asteraceae', sitios: ['STP'] },
+    ];
+    const conFoto = new Set(['1', '2', '3']);
+    expect(candidatas(es, conFoto, { familia: 'Poaceae' }).map(e => e.id)).toEqual(['1', '2']);
+    expect(candidatas(es, new Set(['1']), { familia: 'Poaceae' }).map(e => e.id)).toEqual(['1']);
+    expect(candidatas(es, conFoto, { sitio: 'STP' }).map(e => e.id)).toEqual(['1', '3']);
+  });
+  it('resumenSesion cuenta rondas perfectas, parciales y preguntas', () => {
+    const r = resumenSesion([
+      { id: 'a', resultado: 'perfecta', correctas: 3, preguntas: 3 },
+      { id: 'b', resultado: 'parcial', correctas: 2, preguntas: 3 },
+      { id: 'c', resultado: 'fallo', correctas: 0, preguntas: 2 },
+    ]);
+    expect(r.aciertos).toBe(1);
+    expect(r.fallos).toBe(2);
+    expect(r.falladas).toEqual(['b', 'c']);
+    expect(r.correctas).toBe(5);
+    expect(r.preguntas).toBe(8);
   });
 });
