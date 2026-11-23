@@ -156,15 +156,20 @@ def validar_registro(r: dict, permitidos: set) -> list[str]:
             errores.append(f'{campo} sin fuente válida (nombre y url https://)')
         if campo in no:
             errores.append(f'{campo} está en campos y en noEncontrado')
+    for c in no:
+        if c not in permitidos:
+            errores.append(f'noEncontrado: {c} no fue pedido')
     if 'categoriaMMA' in campos and 'decreto' not in campos:
         errores.append('categoriaMMA exige decreto')
     return errores
 
 
-def _leer_lotes(dir_lotes: Path, faltantes_: list[dict]):
-    """Devuelve (registros_por_clave, errores). categorias.json se fusiona sobre los demás."""
+def _leer_lotes(dir_lotes: Path, faltantes_: list[dict], conocidas: set):
+    """Devuelve (registros_por_clave, errores). categorias.json se fusiona sobre los demás; sus claves
+    deben ser especies conocidas, las de los lotes deben estar en faltantes."""
     errores = []
     pedidos = {f['clave']: set(f['faltan']) for f in faltantes_}
+    nombres = {f['clave']: f['nombre'] for f in faltantes_}
     vistos: dict[str, str] = {}
     registros: dict[str, dict] = {}
     archivos = sorted(Path(dir_lotes).glob('lote-*.json'))
@@ -178,9 +183,12 @@ def _leer_lotes(dir_lotes: Path, faltantes_: list[dict]):
         except ValueError as e:
             errores.append(f'{ruta.name}: JSON ilegible ({e})')
             continue
+        if not isinstance(datos, list) or not all(isinstance(r, dict) for r in datos):
+            errores.append(f'{ruta.name}: debe ser una lista de registros (objetos)')
+            continue
         for r in datos:
             clave = r.get('clave')
-            if clave not in pedidos and not (es_cat and clave in {f['clave'] for f in faltantes_}):
+            if clave not in (conocidas if es_cat else pedidos):
                 errores.append(f'{ruta.name}: clave desconocida {clave}')
                 continue
             if es_cat:
@@ -199,7 +207,8 @@ def _leer_lotes(dir_lotes: Path, faltantes_: list[dict]):
                 dst['fuentes'].update(r.get('fuentes') or {})
                 dst['noEncontrado'] += r.get('noEncontrado') or []
             else:
-                registros[clave] = {'campos': dict(r.get('campos') or {}), 'fuentes': dict(r.get('fuentes') or {}),
+                registros[clave] = {'nombre': nombres.get(clave) or r.get('nombre') or clave,
+                                    'campos': dict(r.get('campos') or {}), 'fuentes': dict(r.get('fuentes') or {}),
                                     'noEncontrado': list(r.get('noEncontrado') or [])}
     return registros, errores
 
@@ -213,10 +222,7 @@ def _informe(registros, faltantes_, generado) -> str:
         for c in f['faltan']:
             pedidos[c] += 1
     por_especie = []
-    for f in faltantes_:
-        r = registros.get(f['clave'])
-        if not r:
-            continue
+    for clave, r in registros.items():
         for c in r['campos']:
             llenos[c] += 1
         for c in r['noEncontrado']:
@@ -224,7 +230,7 @@ def _informe(registros, faltantes_, generado) -> str:
         for fu in r['fuentes'].values():
             fuentes[fu['nombre']] += 1
         if r['campos']:
-            por_especie.append((f['nombre'], sorted(r['campos'])))
+            por_especie.append((r['nombre'], sorted(r['campos'])))
     total = sum(llenos.values())
     L = [f'# Informe de complementos ({generado})', '',
          f'{len(por_especie)} especies con datos nuevos, {total} campos llenados.', '',
@@ -240,34 +246,47 @@ def _informe(registros, faltantes_, generado) -> str:
     return '\n'.join(L) + '\n'
 
 
-def construir(dir_lotes, faltantes_, destino, informe, generado) -> list[str]:
-    registros, errores = _leer_lotes(dir_lotes, faltantes_)
+def _escribir_atomico(destino: Path, escribir) -> None:
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    tmp = destino.with_name(destino.name + '.tmp')
+    escribir(tmp)
+    os.replace(tmp, destino)
+
+
+def construir(dir_lotes, faltantes_, destino, informe, generado, conocidas=None) -> list[str]:
+    if conocidas is None:
+        conocidas = {f['clave'] for f in faltantes_}
+    registros, errores = _leer_lotes(dir_lotes, faltantes_, set(conocidas))
     if errores:
         return errores
-    destino = Path(destino)
+    # Orden: primero los de faltantes, luego claves extra (categorías de especies sin otros faltantes).
+    orden = [f['clave'] for f in faltantes_ if f['clave'] in registros]
+    orden += [k for k in registros if k not in set(orden)]
     salida = []
-    for f in faltantes_:
-        r = registros.get(f['clave'])
-        if r and r['campos']:
-            salida.append({'id': f['clave'], 'nombre': f['nombre'], 'campos': r['campos'],
+    for clave in orden:
+        r = registros[clave]
+        if r['campos']:
+            salida.append({'id': clave, 'nombre': r['nombre'], 'campos': r['campos'],
                            'fuentes': {c: f"{r['fuentes'][c]['nombre']} — {r['fuentes'][c]['url']}" for c in r['campos']}})
     manifest = {'formato': 1, 'tipo': 'complementos', 'version': 1, 'creado': generado}
-    tmp = destino.with_suffix('.zip.tmp')
-    destino.parent.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED) as z:
-        z.writestr('manifest.json', json.dumps(manifest, ensure_ascii=False))
-        z.writestr('complementos.json', json.dumps(salida, ensure_ascii=False, indent=1))
-    os.replace(tmp, destino)
-    informe = Path(informe)
-    informe.parent.mkdir(parents=True, exist_ok=True)
-    informe.write_text(_informe(registros, faltantes_, generado), encoding='utf-8')
+
+    def escribir_zip(tmp):
+        with zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED) as z:
+            z.writestr('manifest.json', json.dumps(manifest, ensure_ascii=False))
+            z.writestr('complementos.json', json.dumps(salida, ensure_ascii=False, indent=1))
+
+    texto = _informe({k: registros[k] for k in orden}, faltantes_, generado)
+    _escribir_atomico(Path(destino), escribir_zip)
+    _escribir_atomico(Path(informe), lambda tmp: tmp.write_text(texto, encoding='utf-8'))
     return []
 
 
 def comando_construir() -> int:
     lista = json.loads((SALIDA / 'faltantes.json').read_text(encoding='utf-8'))
+    unidas = json.loads((SALIDA / 'especies-unidas.json').read_text(encoding='utf-8'))
     errores = construir(LOTES_INVESTIGADOS, lista, Path('semilla/complementos.zip'),
-                        Path('docs/informe-complementos.md'), generado=date.today().isoformat())
+                        Path('docs/informe-complementos.md'), generado=date.today().isoformat(),
+                        conocidas={e['clave'] for e in unidas})
     if errores:
         print('\n'.join(errores))
         print(f'{len(errores)} errores; no se escribió nada')

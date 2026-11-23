@@ -78,3 +78,61 @@ def test_construir_no_escribe_con_errores(tmp_path):
     destino = tmp_path / 'c.zip'
     errores = construir(lotes, [{'clave': 'k1', 'nombre': 'x', 'faltan': ['origen']}], destino, tmp_path / 'i.md', generado='x')
     assert errores and not destino.exists() and not (tmp_path / 'c.zip.tmp').exists()
+
+
+def _src(n='Chileflora'):
+    return {'nombre': n, 'url': 'https://www.chileflora.com/x'}
+
+
+def _cat(clave='k1', nombre='Greigia sphacelata'):
+    return {'clave': clave, 'nombre': nombre,
+            'campos': {'categoriaMMA': 'Vulnerable', 'decreto': 'D.S. N° 52/2014'},
+            'fuentes': {'categoriaMMA': _src('RCE'), 'decreto': _src('RCE')}, 'noEncontrado': []}
+
+
+def _zip(destino):
+    with zipfile.ZipFile(destino) as z:
+        return json.loads(z.read('complementos.json'))
+
+
+def test_categorias_se_fusiona_con_lote(tmp_path):
+    (tmp_path / 'lote-01.json').write_text(json.dumps([reg({'origen': 'Endémica'})]), encoding='utf-8')
+    (tmp_path / 'categorias.json').write_text(json.dumps([_cat()]), encoding='utf-8')
+    f = [{'clave': 'k1', 'nombre': 'Greigia sphacelata', 'faltan': ['origen']}]
+    assert construir(tmp_path, f, tmp_path / 'c.zip', tmp_path / 'i.md', generado='x') == []
+    c = _zip(tmp_path / 'c.zip')
+    assert len(c) == 1 and set(c[0]['campos']) == {'origen', 'categoriaMMA', 'decreto'}
+
+
+def test_categorias_clave_conocida_fuera_de_faltantes(tmp_path):
+    (tmp_path / 'categorias.json').write_text(json.dumps([_cat('k9', 'Otra sp.')]), encoding='utf-8')
+    f = [{'clave': 'k1', 'nombre': 'x', 'faltan': ['origen']}]
+    assert construir(tmp_path, f, tmp_path / 'c.zip', tmp_path / 'i.md', generado='x', conocidas={'k1', 'k9'}) == []
+    c = _zip(tmp_path / 'c.zip')
+    assert [e['id'] for e in c] == ['k9'] and c[0]['nombre'] == 'Otra sp.'
+    assert 'Otra sp.' in (tmp_path / 'i.md').read_text(encoding='utf-8')
+
+
+def test_categorias_clave_desconocida(tmp_path):
+    (tmp_path / 'categorias.json').write_text(json.dumps([_cat('k9')]), encoding='utf-8')
+    f = [{'clave': 'k1', 'nombre': 'x', 'faltan': ['origen']}]
+    assert construir(tmp_path, f, tmp_path / 'c.zip', tmp_path / 'i.md', generado='x', conocidas={'k1'})
+    assert not (tmp_path / 'c.zip').exists()
+
+
+def test_clave_repetida_entre_lotes(tmp_path):
+    for n in ('01', '02'):
+        (tmp_path / f'lote-{n}.json').write_text(json.dumps([reg({'origen': 'Endémica'})]), encoding='utf-8')
+    f = [{'clave': 'k1', 'nombre': 'x', 'faltan': ['origen']}]
+    errores = construir(tmp_path, f, tmp_path / 'c.zip', tmp_path / 'i.md', generado='x')
+    assert any('repetida' in e for e in errores)
+
+
+def test_lote_que_no_es_lista_de_objetos(tmp_path):
+    (tmp_path / 'lote-01.json').write_text(json.dumps({'a': 1}), encoding='utf-8')
+    errores = construir(tmp_path, [], tmp_path / 'c.zip', tmp_path / 'i.md', generado='x')
+    assert errores and 'lote-01.json' in errores[0]
+
+
+def test_no_encontrado_debe_estar_pedido():
+    assert validar_registro(reg({}, no=['petalos']), permitidos={'origen'})
