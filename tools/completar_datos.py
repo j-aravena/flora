@@ -161,6 +161,8 @@ def validar_registro(r: dict, permitidos: set) -> list[str]:
             errores.append(f'noEncontrado: {c} no fue pedido')
     if 'categoriaMMA' in campos and 'decreto' not in campos:
         errores.append('categoriaMMA exige decreto')
+    if 'decreto' in campos and 'categoriaMMA' not in campos:
+        errores.append('decreto exige categoriaMMA')
     return errores
 
 

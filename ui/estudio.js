@@ -277,7 +277,7 @@ export async function render(cont, ctx, especieFija) {
       const filas = r.preguntas.map((p, k) => {
         const bien = r.resultados[k]?.acierto;
         return el('li', { class: bien ? 'ok' : 'mal' },
-          el('span', { class: 'marca', 'aria-label': bien ? 'Acertaste' : 'Fallaste' }, bien ? '✓' : '✗'),
+          el('span', { class: 'marca', role: 'img', 'aria-label': bien ? 'Acertaste' : 'Fallaste' }, bien ? '✓' : '✗'),
           el('div', {}, el('small', {}, p.enunciado), el('p', {}, nombreEn(p.correcta, p.tipo))));
       });
       const siguiente = el('button', { type: 'button', class: 'btn primario', disabled: !r.guardada, onclick: () => {

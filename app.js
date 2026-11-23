@@ -6,6 +6,7 @@ import * as ficha from './ui/ficha.js';
 import * as editar from './ui/editar.js';
 import * as estudio from './ui/estudio.js';
 import * as ajustes from './ui/ajustes.js';
+import { leerTema, aplicarTema } from './tema.js';
 
 export const VERSION = globalThis.FLORA_VERSION;
 const RUTA_SEMILLA = 'semilla/semilla.zip';
@@ -200,3 +201,12 @@ async function iniciar() {
 }
 
 iniciar();
+
+// Con el tema "auto", sigue los cambios de claro/oscuro del sistema mientras la app está abierta.
+try {
+  globalThis.matchMedia?.('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    let almacen = null;
+    try { almacen = globalThis.localStorage; } catch { /* almacenamiento bloqueado */ }
+    aplicarTema(leerTema(almacen));
+  });
+} catch { /* sin matchMedia */ }

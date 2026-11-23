@@ -1,5 +1,5 @@
 import {
-  obtenerEspecie, nuevaEspecie, guardarEspecie, borrarEspecie, fotosDe, agregarFoto, borrarFoto, moverFoto,
+  obtenerEspecie, fusionarEdicion, nuevaEspecie, guardarEspecie, borrarEspecie, fotosDe, agregarFoto, borrarFoto, moverFoto,
   SITIOS, ORIGENES, HABITOS, CICLOS, CATEGORIAS, APRENDIZAJES, COLORES_FLOR,
 } from '../db.js';
 import { procesarImagen } from '../images.js';
@@ -51,7 +51,8 @@ export async function render(cont, ctx, id) {
       if (JSON.stringify(borrador[clave]) !== JSON.stringify(original[clave])) delete borrador.completado[clave];
     }
     try {
-      const r = await guardarEspecie(db, borrador);
+      const fresca = nueva ? null : await obtenerEspecie(db, original.id);
+      const r = await guardarEspecie(db, fusionarEdicion(fresca, original, borrador));
       aviso('Guardado');
       navegar(`#/ficha/${r.id}`);
     } catch (err) {

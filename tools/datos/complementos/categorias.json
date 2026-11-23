@@ -3,9 +3,14 @@
   "clave": "6234742b-ad79-528c-b127-2e18a4680751",
   "nombre": "Adiantum excisum",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 38/2015"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -17,9 +22,14 @@
   "clave": "05f7ee98-dcf0-5aac-a14a-32b742e6f657",
   "nombre": "Adiantum sulphureum",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 38/2015"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -31,9 +41,14 @@
   "clave": "e9ee6335-c7aa-579d-b403-50f4d85ff238",
   "nombre": "Alstroemeria spathulata",
   "campos": {
+   "categoriaMMA": "Casi amenazada",
    "decreto": "D.S. N° 44/2021"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -45,9 +60,14 @@
   "clave": "8d0c92cd-5420-521a-ae10-a05d98666b28",
   "nombre": "Kageneckia angustifolia",
   "campos": {
+   "categoriaMMA": "Casi amenazada",
    "decreto": "D.S. N° 44/2021"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -59,9 +79,14 @@
   "clave": "9dff7e12-c4c1-58de-baef-90b6ff4c76e3",
   "nombre": "Krameria cistoidea",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 42/2011"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -73,9 +98,14 @@
   "clave": "20e87fa4-ced4-5751-9e02-82112f6461b0",
   "nombre": "Maihueniopsis ovata",
   "campos": {
+   "categoriaMMA": "Casi amenazada",
    "decreto": "D.S. N° 19/2012"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -106,9 +136,14 @@
   "clave": "31175f54-e61e-5160-89bf-d8a508780923",
   "nombre": "Pellaea ternifolia",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 52/2014"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -120,9 +155,14 @@
   "clave": "21e68e0d-aa48-5028-a391-2e5095e9a24d",
   "nombre": "Trichocereus chiloensis",
   "campos": {
+   "categoriaMMA": "Casi amenazada",
    "decreto": "D.S. N° 41/2011"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -134,9 +174,14 @@
   "clave": "3d306d86-3cb3-54c0-af8d-ecbc59ce492a",
   "nombre": "Cordia decandra",
   "campos": {
+   "categoriaMMA": "Casi amenazada",
    "decreto": "D.S. N° 42/2011"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -148,9 +193,14 @@
   "clave": "1f303052-15d2-5d6f-a4d0-7bbae2daf449",
   "nombre": "Eriosyce aurata",
   "campos": {
+   "categoriaMMA": "Vulnerable",
    "decreto": "D.S. N° 13/2013"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -162,9 +212,14 @@
   "clave": "8f8109b7-c27c-5f55-b7dc-3e31674bfadf",
   "nombre": "Eriosyce curvispina",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 41/2011"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
@@ -176,9 +231,14 @@
   "clave": "bcfea968-ca7b-5d74-8f7c-10369f59022b",
   "nombre": "Eulychnia acida",
   "campos": {
+   "categoriaMMA": "Preocupación Menor",
    "decreto": "D.S. N° 41/2011"
   },
   "fuentes": {
+   "categoriaMMA": {
+    "nombre": "RCE MMA",
+    "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"
+   },
    "decreto": {
     "nombre": "RCE MMA",
     "url": "https://clasificacionespecies.mma.gob.cl/wp-content/uploads/2026/10/NominaDeEspecies_SegunEstadoConservacion-Chile_actualizado_20mProcesoRCE_20octubre2026.xlsx"

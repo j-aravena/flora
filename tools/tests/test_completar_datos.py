@@ -26,6 +26,7 @@ def test_valores_validos(campos):
     {'colorFlor': []}, {'petalos': 'cinco'}, {'familia': 'Compositae'}, {'habitoDetalle': 'x' * 61},
     {'diagnostico': 'x' * 161}, {'categoriaMMA': 'Amenazada', 'decreto': 'D.S. N° 52/2014'},
     {'categoriaMMA': 'Vulnerable', 'decreto': 'DS 52/2014'}, {'categoriaMMA': 'Vulnerable'},
+    {'decreto': 'D.S. N° 52/2014'},
 ])
 def test_valores_invalidos(campos):
     assert validar_registro(reg(campos), permitidos=set(campos)) != []

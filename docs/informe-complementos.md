@@ -1,6 +1,6 @@
 # Informe de complementos (2026-11-23)
 
-201 especies con datos nuevos, 427 campos llenados.
+201 especies con datos nuevos, 439 campos llenados.
 
 | campo | llenados | no encontrados | sin investigar |
 |---|---|---|---|
@@ -11,7 +11,7 @@
 | colorFlor | 137 | 56 | 0 |
 | petalos | 42 | 140 | 0 |
 | diagnostico | 3 | 721 | 0 |
-| categoriaMMA | 4 | 0 | 0 |
+| categoriaMMA | 16 | 0 | 0 |
 | decreto | 16 | 0 | 0 |
 
 ## Fuentes más usadas
@@ -19,7 +19,7 @@
 - Chileflora: 211
 - Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2)): 111
 - GBIF (WCVP): 45
-- RCE MMA: 20
+- RCE MMA: 32
 - GBIF (WCVP), familia Poaceae: 10
 - GBIF (WCVP), familia Cyperaceae: 9
 - POWO: 5
@@ -34,31 +34,31 @@
 
 ## Especies
 
-- Adiantum excisum: decreto
-- Adiantum sulphureum: decreto
-- Alstroemeria spathulata: decreto
+- Adiantum excisum: categoriaMMA, decreto
+- Adiantum sulphureum: categoriaMMA, decreto
+- Alstroemeria spathulata: categoriaMMA, decreto
 - Colliguaja salicifolia: colorFlor
 - Geranium core-core: colorFlor
-- Kageneckia angustifolia: decreto
-- Krameria cistoidea: decreto
+- Kageneckia angustifolia: categoriaMMA, decreto
+- Krameria cistoidea: categoriaMMA, decreto
 - Leucocoryne alliacea: habitoDetalle
 - Leucocoryne ixioides: habitoDetalle
 - Leucocoryne violacescens: habitoDetalle
 - Loasa tricolor: habitoDetalle
-- Maihueniopsis ovata: decreto
+- Maihueniopsis ovata: categoriaMMA, decreto
 - Malesherbia lirana: categoriaMMA, decreto
 - Mutisia ilicifolia: habitoDetalle
-- Pellaea ternifolia: decreto
-- Trichocereus chiloensis: decreto
+- Pellaea ternifolia: categoriaMMA, decreto
+- Trichocereus chiloensis: categoriaMMA, decreto
 - Aristolochia chilensis: familia
 - Bahia ambrosioides: familia
 - Bridgesia incisifolia: familia, petalos
-- Cordia decandra: decreto, familia
+- Cordia decandra: categoriaMMA, decreto, familia
 - Encelia canescens: familia
-- Eriosyce aurata: decreto, familia, habitoDetalle
-- Eriosyce curvispina: decreto, familia, habitoDetalle
+- Eriosyce aurata: categoriaMMA, decreto, familia, habitoDetalle
+- Eriosyce curvispina: categoriaMMA, decreto, familia, habitoDetalle
 - Eryngium coquimbanum: familia
-- Eulychnia acida: decreto, familia
+- Eulychnia acida: categoriaMMA, decreto, familia
 - Gutierrezia resinosa: familia
 - Mutisia cana: habitoDetalle
 - Nolana rostrata: familia

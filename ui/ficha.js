@@ -107,11 +107,11 @@ export async function render(cont, ctx, id) {
     if (!v) return [];
     return [el('div', {}, el('dt', {}, titulo), el('dd', {}, v, marcaCompletado(e, clave)))];
   }));
-  const volver = el('button', { type: 'button', class: 'boton-icono', 'aria-label': 'Volver a la lista',
-    onclick: () => (ctx.desdeLista ? history.back() : navegar('#/lista')) }, icono('atras'));
+  const volver = el('button', { type: 'button', class: 'boton-volver', 'aria-label': 'Volver a la lista',
+    onclick: () => (ctx.desdeLista ? history.back() : navegar('#/lista')) }, icono('atras', { tam: 20 }), el('span', {}, 'Volver'));
   cont.append(...[
     el('nav', { class: 'recorrido', 'aria-label': 'Recorrer la lista' }, volver, recorrido.pasos),
-    fotos.length ? galeria : null,
+    fotos.length ? galeria : el('p', { class: 'estado' }, 'Sin fotos. Agrega una desde Editar.'),
     el('header', { class: 'cabecera-ficha' },
       el('h1', {}, el('i', {}, e.nombre)), el('p', { class: 'familia' }, e.familia || '', marcaCompletado(e, 'familia', true)),
       insigniasFicha(e)),

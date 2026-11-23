@@ -241,10 +241,12 @@ legend { font-size: .9rem; font-weight: 600; color: var(--texto-suave); padding:
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .chips:empty { display: none; }
 .chip {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px 0 14px;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px 0 14px;
   border-radius: var(--radio-pildora); border: 0; background: var(--acento-suave); color: var(--acento);
   font-size: .85rem; font-weight: 550; cursor: pointer;
 }
+.boton-volver { display: inline-flex; align-items: center; gap: 2px; min-height: 48px; padding: 0 12px 0 4px; border: 0; border-radius: var(--radio-pildora); background: transparent; color: var(--texto); font-size: .95rem; font-weight: 550; cursor: pointer; }
+.boton-volver:hover { background: var(--superficie-2); }
 .chip.limpiar { background: transparent; color: var(--texto-suave); text-decoration: underline; text-underline-offset: 3px; padding: 0 8px; }
 
 /* Lista */

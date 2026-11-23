@@ -57,6 +57,30 @@ export async function guardarEspecie(db, especie) {
   return registro;
 }
 
+// Fusiona la edición del usuario sobre la copia más reciente de la BD: solo escribe los campos que el usuario cambió
+// respecto de `original` (la copia con que abrió el formulario), y conserva lo demás de `fresca` (complementos aplicados
+// en segundo plano, avance de estudio, fallos). Un campo completado que el usuario cambia o borra pasa a `rechazado`
+// para que los complementos no lo vuelvan a llenar; confirmarlo solo quita su marca de `completado`.
+export function fusionarEdicion(fresca, original, borrador) {
+  if (!fresca) return borrador;
+  const igual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const r = { ...fresca };
+  for (const k of Object.keys(borrador)) {
+    if (k === 'completado' || k === 'rechazado') continue;
+    if (!igual(borrador[k], original[k])) r[k] = borrador[k];
+  }
+  const completado = { ...(fresca.completado ?? {}) };
+  const rechazado = new Set(fresca.rechazado ?? []);
+  for (const k of Object.keys(original.completado ?? {})) {
+    if (borrador.completado && k in borrador.completado) continue;
+    delete completado[k];
+    if (!igual(borrador[k], original[k])) rechazado.add(k);
+  }
+  r.completado = completado;
+  if (rechazado.size) r.rechazado = [...rechazado];
+  return r;
+}
+
 export function obtenerEspecie(db, id) {
   return db.especies.get(id);
 }
@@ -185,14 +209,17 @@ export async function aplicarComplementos(db, JSZip, datos) {
     if (!original) continue;
     const e = cambiadas.get(original.id) ?? { ...original, completado: { ...(original.completado ?? {}) } };
     let tocada = false;
+    const rechazado = original.rechazado ?? [];
     const poner = campo => { e[campo] = r.campos[campo]; e.completado[campo] = r.fuentes[campo]; campos++; tocada = true; };
     for (const campo of Object.keys(r.campos)) {
       if (!CAMPOS_COMPLEMENTO.includes(campo) || campo === 'decreto' || !r.fuentes[campo] || sinValor(r.campos[campo])) continue;
+      if (rechazado.includes(campo)) continue;
       if (campo === 'categoriaMMA') {
+        const puedeDecreto = !rechazado.includes('decreto');
         if (sinValor(e.categoriaMMA)) {
           poner('categoriaMMA');
-          if (r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) poner('decreto');
-        } else if (e.categoriaMMA === r.campos.categoriaMMA && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) {
+          if (puedeDecreto && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) poner('decreto');
+        } else if (puedeDecreto && e.categoriaMMA === r.campos.categoriaMMA && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) {
           poner('decreto');
         }
         continue;

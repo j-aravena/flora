@@ -5,7 +5,7 @@ import {
   crearDb, nuevaEspecie, guardarEspecie, obtenerEspecie, borrarEspecie, listarEspecies,
   normalizar, leerMeta, escribirMeta, contar,
   fotosDe, agregarFoto, borrarFoto, moverFoto, miniaturasPrimeras, especiesConFoto,
-  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos, agregarListado, aplicarComplementos,
+  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos, agregarListado, aplicarComplementos, fusionarEdicion,
 } from '../db.js';
 
 let db;
@@ -350,6 +350,49 @@ describe('aplicarComplementos', () => {
     expect(await db.especies.get('a')).toMatchObject({ categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014', completado: { categoriaMMA: F, decreto: F } });
     expect(await db.especies.get('b')).toMatchObject({ categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014', completado: { decreto: F } });
     expect(await db.especies.get('c')).toMatchObject({ categoriaMMA: 'En peligro', decreto: '' });
+  });
+
+  it('un decreto solo se completa si la categoría coincide y el decreto está vacío', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.bulkAdd([
+      nuevaEspecie({ id: 'a', nombre: 'A a', categoriaMMA: 'Casi amenazada' }),
+      nuevaEspecie({ id: 'b', nombre: 'B b', categoriaMMA: 'Vulnerable' }),
+      nuevaEspecie({ id: 'c', nombre: 'C c', categoriaMMA: 'Casi amenazada', decreto: 'D.S. N° 1/2000' }),
+    ]);
+    const campos = { categoriaMMA: 'Casi amenazada', decreto: 'D.S. N° 44/2021' };
+    const fuentes = { categoriaMMA: F, decreto: F };
+    await aplicarComplementos(db, JSZip, await zipComplementos(['a', 'b', 'c'].map(id => ({ id, nombre: id, campos, fuentes }))));
+    expect(await db.especies.get('a')).toMatchObject({ decreto: 'D.S. N° 44/2021', completado: { decreto: F } });
+    expect(await db.especies.get('b')).toMatchObject({ categoriaMMA: 'Vulnerable', decreto: '' });
+    expect(await db.especies.get('c')).toMatchObject({ decreto: 'D.S. N° 1/2000' });
+  });
+
+  it('no vuelve a llenar los campos que el usuario rechazó', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.bulkAdd([
+      nuevaEspecie({ id: 'a', nombre: 'A a', rechazado: ['origen', 'categoriaMMA'] }),
+      nuevaEspecie({ id: 'b', nombre: 'B b', categoriaMMA: 'Vulnerable', rechazado: ['decreto'] }),
+    ]);
+    await aplicarComplementos(db, JSZip, await zipComplementos(['a', 'b'].map(id => ({
+      id, nombre: id, campos: { origen: 'Nativa', familia: 'Fabaceae', categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014' },
+      fuentes: { origen: F, familia: F, categoriaMMA: F, decreto: F },
+    }))));
+    expect(await db.especies.get('a')).toMatchObject({ origen: '', familia: 'Fabaceae', categoriaMMA: '', decreto: '' });
+    expect(await db.especies.get('b')).toMatchObject({ decreto: '' });
+  });
+
+  it('fusionarEdicion escribe solo lo editado, conserva lo de fondo y registra los rechazos', () => {
+    const original = nuevaEspecie({ id: 'a', nombre: 'A a', familia: 'X', origen: 'Nativa', notas: '', completado: { familia: F, origen: F } });
+    const fresca = { ...original, diagnostico: 'Nuevo', aciertos: 3, completado: { familia: F, origen: F, diagnostico: F } };
+    const borrador = structuredClone(original);
+    borrador.notas = 'mi nota';
+    borrador.familia = '';
+    delete borrador.completado.familia;
+    delete borrador.completado.origen; // confirmado sin cambio
+    const r = fusionarEdicion(fresca, original, borrador);
+    expect(r).toMatchObject({ notas: 'mi nota', familia: '', origen: 'Nativa', diagnostico: 'Nuevo', aciertos: 3, rechazado: ['familia'] });
+    expect(r.completado).toEqual({ diagnostico: F });
+    expect(fusionarEdicion(null, original, borrador)).toBe(borrador);
   });
 
   it('es idempotente e ignora especies o campos desconocidos', async () => {
