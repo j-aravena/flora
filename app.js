@@ -1,16 +1,18 @@
 // Arranque, enrutador por fragmento, carga inicial del paquete y service worker.
-import { crearDb, leerMeta, escribirMeta, importarRespaldo, agregarListado } from './db.js';
+import { crearDb, leerMeta, escribirMeta, importarRespaldo, agregarListado, aplicarComplementos } from './db.js';
 import { el, aviso, liberarUrls } from './ui/dom.js';
 import * as lista from './ui/lista.js';
 import * as ficha from './ui/ficha.js';
 import * as editar from './ui/editar.js';
 import * as estudio from './ui/estudio.js';
 import * as ajustes from './ui/ajustes.js';
+import { leerTema, aplicarTema } from './tema.js';
 
 export const VERSION = globalThis.FLORA_VERSION;
 const RUTA_SEMILLA = 'semilla/semilla.zip';
 // Listados de sitio que llegan después del paquete inicial. Cada uno se aplica una sola vez y solo
 // agrega: no reemplaza especies, avance ni fotos que ya estén en el teléfono.
+const COMPLEMENTOS = { version: 1, ruta: 'semilla/complementos.zip' };
 const LISTADOS = [
   { sitio: 'Nevado Tres Cruces', ruta: 'semilla/nevado-tres-cruces.zip' },
   { sitio: 'Chacao Chonchi', ruta: 'semilla/chacao-chonchi.zip' },
@@ -91,6 +93,7 @@ export async function cargarSemilla(pantalla) {
   await escribirMeta(db, 'versionDatos', 1);
   // El paquete inicial reemplazó todo: los listados deben volver a aplicarse.
   await escribirMeta(db, 'listadosAplicados', []);
+  await escribirMeta(db, 'complementosAplicados', 0);
   if (navigator.storage?.persist) await navigator.storage.persist();
   aviso(`Datos cargados: ${r.especies} especies, ${r.fotos} fotos`);
   estado.textContent = 'Agregando listados de sitio...';
@@ -133,6 +136,22 @@ async function aplicarListadosPendientes() {
     await escribirMeta(db, 'listadosAplicados', aplicados);
     total += r.nuevas;
     aviso(`Listado ${sitio} agregado: ${r.nuevas} especies nuevas, ${r.conSitio} ya existentes completadas y ${r.fotos} fotos`, 5000);
+  }
+  // Los complementos van al final: así también alcanzan a las especies de un listado que llegó tarde.
+  const listadosAlDia = LISTADOS.every(l => aplicados.includes(l.sitio));
+  if (listadosAlDia && (await leerMeta(db, 'complementosAplicados', 0)) < COMPLEMENTOS.version) {
+    try {
+      const respuesta = await fetch(COMPLEMENTOS.ruta, { cache: 'no-store' });
+      if (respuesta.ok) {
+        const r = await aplicarComplementos(db, ctx.JSZip, await respuesta.arrayBuffer());
+        await escribirMeta(db, 'complementosAplicados', COMPLEMENTOS.version);
+        total += r.especies;
+        if (r.campos > 0) aviso(`Datos completados: ${r.campos} campos en ${r.especies} especies`, 5000);
+      }
+    } catch (err) {
+      // Sin conexión o paquete ilegible: se reintenta en la próxima apertura.
+      console.warn('Complementos no aplicados:', err);
+    }
   }
   return total;
 }
@@ -182,3 +201,12 @@ async function iniciar() {
 }
 
 iniciar();
+
+// Con el tema "auto", sigue los cambios de claro/oscuro del sistema mientras la app está abierta.
+try {
+  globalThis.matchMedia?.('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    let almacen = null;
+    try { almacen = globalThis.localStorage; } catch { /* almacenamiento bloqueado */ }
+    aplicarTema(leerTema(almacen));
+  });
+} catch { /* sin matchMedia */ }

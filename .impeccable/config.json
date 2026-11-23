@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-23T18:30:37.442Z",
+        "reason": "Inter is the primary typeface of the user's DESIGN.md (Raycast reference) and is in the 1.5 spec the user approved (§3.4)"
+      }
+    ]
+  }
+}

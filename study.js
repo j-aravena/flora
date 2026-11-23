@@ -1,4 +1,5 @@
 // Reglas del modo estudio (sección 7 de la especificación). Funciones puras; el generador aleatorio se inyecta.
+import { filtrar } from './filtros.js';
 
 const PESOS = { no: 4, falta: 3, sin: 2, se: 1 };
 const SUBE = { no: 'falta', falta: 'se', sin: 'se', se: 'se' };
@@ -10,8 +11,8 @@ export function peso(especie) {
   return PESOS[especie.aprendizaje ?? 'sin'];
 }
 
-export function candidatas(especies, conFoto, sitio = '') {
-  return especies.filter(e => conFoto.has(e.id) && (!sitio || e.sitios.includes(sitio)));
+export function candidatas(especies, conFoto, filtro = {}) {
+  return filtrar(especies, filtro, { conFoto }).filter(e => conFoto.has(e.id));
 }
 
 export function elegirPonderado(items, pesoDe, rng) {
@@ -36,24 +37,6 @@ export function barajar(arr, rng) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
-}
-
-export function distractores(cands, correcta, n, rng) {
-  const otras = cands.filter(e => e.id !== correcta.id);
-  const mismaFamilia = otras.filter(e => e.familia && e.familia === correcta.familia);
-  const mismoHabito = otras.filter(e => !mismaFamilia.includes(e) && e.habito && e.habito === correcta.habito);
-  const resto = otras.filter(e => !mismaFamilia.includes(e) && !mismoHabito.includes(e));
-  const elegidas = [];
-  for (const grupo of [mismaFamilia, mismoHabito, resto]) {
-    for (const e of barajar(grupo, rng)) {
-      if (elegidas.length < n) elegidas.push(e);
-    }
-  }
-  return elegidas;
-}
-
-export function calificarA(especie, valor, fecha) {
-  return { ...especie, aprendizaje: valor, ultimoEstudio: fecha, modificadoEn: fecha };
 }
 
 export function registrarB(especie, acierto, fecha) {
@@ -96,16 +79,30 @@ export function armarSesion(cands, { n = 20, estados = null, rng = Math.random }
   return cola;
 }
 
-// respuestas: lista de { id, resultado } con resultado en 'se' | 'falta' | 'no' | 'acierto' | 'fallo' | 'saltada'.
+// respuestas: lista de { id, resultado } con resultado en 'se' | 'falta' | 'no' | 'acierto' | 'perfecta' | 'parcial' | 'fallo' | 'saltada'.
 export function resumenSesion(respuestas) {
-  const cuenta = { aciertos: 0, fallos: 0, saltadas: 0, falladas: [] };
+  const cuenta = { aciertos: 0, fallos: 0, saltadas: 0, falladas: [], correctas: 0, preguntas: 0 };
   for (const r of respuestas) {
-    if (r.resultado === 'se' || r.resultado === 'acierto') cuenta.aciertos++;
+    cuenta.correctas += r.correctas ?? 0;
+    cuenta.preguntas += r.preguntas ?? 0;
+    if (r.resultado === 'se' || r.resultado === 'acierto' || r.resultado === 'perfecta') cuenta.aciertos++;
     else if (r.resultado === 'saltada') cuenta.saltadas++;
     else { cuenta.fallos++; cuenta.falladas.push(r.id); }
   }
   cuenta.falladas = [...new Set(cuenta.falladas)];
   return cuenta;
+}
+
+// Tipos de pregunta fallados por especie, para el resumen de fin de sesión. respuestas: { id, resultado, fallados?: string[] }.
+export function tiposFalladosPorId(respuestas) {
+  const mapa = new Map();
+  for (const r of respuestas) {
+    if (r.resultado === 'perfecta' || r.resultado === 'saltada') continue;
+    const tipos = mapa.get(r.id) ?? [];
+    for (const t of r.fallados ?? []) if (!tipos.includes(t)) tipos.push(t);
+    mapa.set(r.id, tipos);
+  }
+  return mapa;
 }
 
 // mulberry32: generador pequeño y determinista para pruebas.

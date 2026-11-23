@@ -1,0 +1,492 @@
+[
+ {
+  "clave": "a8b917b5-ab22-5f6a-851c-c45217ef2052",
+  "nombre": "Berberis chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "11f733cf-28c9-5091-b345-1c42293e3517",
+  "nombre": "Berberis empetrifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "58fb1de6-b88f-5c78-850b-5a9664edc07d",
+  "nombre": "Boopis eryngioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e83568a0-7559-5aaf-bddd-79e53d8fe712",
+  "nombre": "Bowlesia incana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "649731ad-8106-5629-8461-22c632c9ddcc",
+  "nombre": "Bowlesia tropaeolifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b272cc12-1317-5300-9ded-3345f47af98e",
+  "nombre": "Brassica napus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ce584bbe-785b-5cdf-8fc5-c8adf12722a5",
+  "nombre": "Brassica nigra",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d34d2265-2330-504e-9482-65458892ec1c",
+  "nombre": "Brassica rapa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2f8f4f9d-31ab-5f14-ba36-992e36769c13",
+  "nombre": "Bromus berteroanus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5b7d6fa9-0892-5169-8c9c-56c833a1d8a8",
+  "nombre": "Bromus hordeaceus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "62021a54-1627-51ad-b9f6-b3d4f62a41f1",
+  "nombre": "Bromus lanceolatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ca6be18a-566a-50e0-9202-976dc1997c68",
+  "nombre": "Bromus racemosus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "81949498-3a59-52df-9bd5-e56d0d006f29",
+  "nombre": "Bromus scoparius",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0c88699a-3ffa-5227-bcd3-a12a8c7050a3",
+  "nombre": "Buddleja globosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "aea296c2-2f19-5aeb-988c-5b7eb313cc4b",
+  "nombre": "Caiophora coronata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dc905d5f-35d9-524f-9827-128a3769fb5b",
+  "nombre": "Calandrinia compressa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "93750f14-9d39-59b8-a754-19c6926295b7",
+  "nombre": "Calceolaria cana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "fb0e236a-cb92-5229-9ae6-14592f248641",
+  "nombre": "Calceolaria corymbosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cb5f8a9e-3761-5770-abbc-89c677c09eca",
+  "nombre": "Calceolaria hypericina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c300ffac-2974-5d26-b7d4-15286c09dac0",
+  "nombre": "Calceolaria polifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "51e45ace-693d-54ba-851f-547d6b3a9732",
+  "nombre": "Calceolaria purpurea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c79a4066-32f1-5cc1-97d3-2d7c82a37699",
+  "nombre": "Calceolaria segethii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a026f3c3-4a62-565b-8a1e-efea8549b103",
+  "nombre": "Calceolaria thyrsiflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4f6e61f8-7cde-537c-8734-f793e1f78494",
+  "nombre": "Camissonia dentata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "798de4bf-a9ba-5e8e-aa32-d7392f4dcf72",
+  "nombre": "Capsella bursa-pastoris",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cb1bddf0-3068-5a80-9843-d5f551bdd16f",
+  "nombre": "Carduus pycnocephalus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "320f0668-0d1c-52cf-a6e3-f0788968f345",
+  "nombre": "Carex andina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "080fa28a-48b1-5616-9089-44d2ff3a3d4b",
+  "nombre": "Carex gayana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cf8c205a-7e71-54ed-8c6a-130a64e06c68",
+  "nombre": "Carthamus lanatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "631c925b-811d-5a32-b619-5a0083773f72",
+  "nombre": "Casuarina equisetifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "de594bdf-62a3-595c-8282-f6f380b55156",
+  "nombre": "Celtis australis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "89780485-3f36-5a13-92a1-37d44c2d3f38",
+  "nombre": "Centaurea chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "86c62122-334d-5a8f-b7ee-7ee6ab67ab64",
+  "nombre": "Centaurea melitensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cb2abe99-4002-5ea3-a252-673f6e5ad839",
+  "nombre": "Centaurea solstitialis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "558ce0ae-6488-53f9-aace-65578e6a7927",
+  "nombre": "Cerastium arvense",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f834b39e-391d-51e5-9077-296da55d9b78",
+  "nombre": "Cestrum parqui",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "335e3fa2-d25d-5515-b035-b13d150ccb40",
+  "nombre": "Chaetanthera euphrasioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c17354d0-9047-5425-8507-34712553faa7",
+  "nombre": "Chaetanthera flabellata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8e16e4de-d2ac-521b-914c-978d3a50b94a",
+  "nombre": "Chaetanthera glabrata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "251534b8-2b2c-570f-bf1a-205fb2222fa0",
+  "nombre": "Chaetanthera linearis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1ae3cc38-3ed6-5cd5-bd80-a4d900781320",
+  "nombre": "Chaetanthera moenchioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e0c7c797-d885-5f74-8a04-c5bbd88124ef",
+  "nombre": "Cheilanthes hypoleuca",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b2714f2e-3bc2-5e1c-9bf6-017f75b9ddc0",
+  "nombre": "Cheilanthes mollis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "72e8903c-ef0c-596d-9b9d-b51393b5cf57",
+  "nombre": "Chenopodium philippianum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3e3ec489-0086-5daa-83ad-a17c32f75506",
+  "nombre": "Chiropetalum berterianum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "76f86b86-bd43-51b0-80c4-a41e7175307e",
+  "nombre": "Chuquiraga oppositifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e3b727b1-f1fd-522c-af8d-2974bd0985d4",
+  "nombre": "Chuquiraga ulicina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "075763be-18c1-550f-b98e-16f86e0be17e",
+  "nombre": "Cirsium vulgare",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8e1bfe68-bbcc-5438-b204-85612e93b35e",
+  "nombre": "Cistanthe arenaria",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bf7678bd-80a0-53b4-82a2-be6e523beb74",
+  "nombre": "Cistanthe grandiflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ }
+]

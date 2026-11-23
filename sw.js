@@ -4,9 +4,9 @@
 importScripts('./version.js');
 const VERSION = 'flora-v' + self.FLORA_VERSION;
 const ARCHIVOS = [
-  './', './index.html', './styles.css', './version.js', './app.js', './actualizacion.js', './db.js', './study.js', './images.js',
-  './taxonomia.js', './filtros.js', './ui/memoria.js', './ui/dom.js', './ui/lista.js', './ui/ficha.js', './ui/editar.js', './ui/estudio.js', './ui/ajustes.js',
-  './vendor/dexie.mjs', './vendor/jszip.min.js',
+  './', './index.html', './styles.css', './version.js', './app.js', './actualizacion.js', './db.js', './study.js', './images.js', './tema.js', './quiz.js',
+  './taxonomia.js', './filtros.js', './ui/memoria.js', './ui/dom.js', './ui/lista.js', './ui/ficha.js', './ui/editar.js', './ui/estudio.js', './ui/ajustes.js', './ui/filtros-ui.js', './ui/iconos.js',
+  './vendor/dexie.mjs', './vendor/jszip.min.js', './vendor/inter/InterVariable-latin.woff2',
   './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png',
 ];
 

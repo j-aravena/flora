@@ -1,0 +1,491 @@
+[
+ {
+  "clave": "8b654387-8140-5881-b9c8-43569261f6df",
+  "nombre": "Pozoa coriacea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "81d7cf65-c237-58f9-b3db-7e3e4984474f",
+  "nombre": "Proustia cuneifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e279c8c2-d66b-572d-a386-fcd3b8d1ca9c",
+  "nombre": "Prunus cerasus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4bcfc120-f42a-52c7-9aa6-767852bf875a",
+  "nombre": "Pseudognaphalium gayanum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cc7b5bcc-6bcf-588d-84ef-75b444b9fe97",
+  "nombre": "Puya alpestris",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0b54291d-c3e5-5c5f-9c30-1dda6df6201f",
+  "nombre": "Quillaja saponaria",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39d492c9-5430-5cf5-af9e-5db2dedb5e0b",
+  "nombre": "Quinchamalium chilense",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "13b213b2-f44d-5831-85a3-2e32d52b325d",
+  "nombre": "Ranunculus sceleratus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f3f64643-46cf-58fa-ad74-f106eabee0ab",
+  "nombre": "Rapistrum rugosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bd1935d4-f54e-58f0-9d25-c63a223ffb45",
+  "nombre": "Retanilla trinervia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "59ce1ad1-8e9f-5989-97ee-ba58bebd777c",
+  "nombre": "Rhodolirium andicola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d500a244-4669-516d-8d00-05073bcda17b",
+  "nombre": "Rhodolirium montanum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dc93f05a-82b9-58e2-8433-e1f4f9ad4445",
+  "nombre": "Ribes cucullatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8c39046b-26e4-536e-b5cb-8e8f126c08b4",
+  "nombre": "Ribes punctatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bab6b5a5-3153-5b67-b350-c6e80330f5b7",
+  "nombre": "Ricinus communis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ef338789-93d9-5867-92a6-48ac99265956",
+  "nombre": "Robinia pseudoacacia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c47d1331-5a50-537c-9615-3c4be53309aa",
+  "nombre": "Rostraria cristata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3546bd15-54c0-5194-8c71-abcb26e21bb8",
+  "nombre": "Rubus ulmifolius",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "687568ff-1f9d-5dba-8857-87c16e0c2392",
+  "nombre": "Salix babylonica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cafb3cfe-8154-5825-8828-51521116600c",
+  "nombre": "Salix humboldtiana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "6e640937-5aab-5ef1-b5ac-17b0cb254aaf",
+  "nombre": "Salix viminalis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "77b5c503-3395-5156-8ebf-7e5525f52584",
+  "nombre": "Salsola kali",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "763109a2-03d1-5597-977b-a8aba52aa7ed",
+  "nombre": "Schinus areira",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "63871352-3217-5bbd-af44-a28a2e056d7d",
+  "nombre": "Schinus latifolius",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "44afedda-62d7-5bc1-8ba1-d6bc1c8bb064",
+  "nombre": "Schinus montanus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f8ce812c-7685-5549-87e8-1d9bd1791cd3",
+  "nombre": "Schinus polygama",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3f7b538d-000e-53e2-a91f-044dfe198d04",
+  "nombre": "Schismus arabicus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "047a5e32-1ba3-557e-b8ba-c4ce0c67b79e",
+  "nombre": "Schizanthus hookeri",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "87f2fd7c-ff5b-53ad-beaf-61b2b9a8962b",
+  "nombre": "Schizanthus porrigens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b2342ab0-95c3-5ca6-993f-94e6f6e2d755",
+  "nombre": "Senecio adenotrichius",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d9e51132-4934-562b-938d-545acc4e2103",
+  "nombre": "Senecio bustillosianus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2c9a4d0e-ebac-586b-90ee-266569d6fc37",
+  "nombre": "Senecio eruciformis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "345b2b43-9ce5-59dc-8256-52af620a18dd",
+  "nombre": "Senecio francisci",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e1616651-0086-505c-b818-5d38348f2b3a",
+  "nombre": "Senecio polygaloides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "56006ea3-568f-5d54-8a1d-58bbfb3c912c",
+  "nombre": "Senecio pseuderucoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "754f1f66-38a9-5807-b9e9-f6e71ae47a9b",
+  "nombre": "Senecio vulgaris",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "90032fae-f3be-5315-a567-e66d5c76e9d7",
+  "nombre": "Silybum marianum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f49b8fdf-89ee-5e97-a361-e994d50a126f",
+  "nombre": "Sisymbrium irio",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8226f53f-b2ba-50dc-8296-3e10071008e2",
+  "nombre": "Sisymbrium officinale",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a20d47bf-97f1-5b7d-9479-d3a68eb8b326",
+  "nombre": "Sisymbrium orientale",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "749eef04-e922-5284-9458-bfe8a05ed245",
+  "nombre": "Sisyrinchium arenarium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9357ea52-3ea1-57c6-9f12-a9dbaa06126c",
+  "nombre": "Sisyrinchium chilense",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "376f2d7b-2dda-5ef0-bf2c-8a4d41a847bf",
+  "nombre": "Sisyrinchium cuspidatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b4f5416a-07fd-5735-b590-644e6791436f",
+  "nombre": "Solanum crispum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "86922d21-2181-5328-9d07-704c6aec28cb",
+  "nombre": "Spinoliva ilicifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b06ac943-982e-5667-a271-b7a508595e43",
+  "nombre": "Stachys grandidentata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "30b76536-0dd2-5107-90d4-003e76f6c8c9",
+  "nombre": "Stachys philippiana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c3cd2b7b-2594-5515-9173-63cbfbed98ab",
+  "nombre": "Stellaria media",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "320373e5-e62b-5041-a353-cb13bf595584",
+  "nombre": "Stemodia durantifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d8238387-f21e-585f-bf28-faef6d7ebcfa",
+  "nombre": "Tanacetum parthenium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ }
+]

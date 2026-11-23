@@ -1,0 +1,1057 @@
+[
+ {
+  "clave": "efa87f73-5703-588a-ba5d-bfbd6075be0b",
+  "nombre": "Austroblechnum penna-marina",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1c03dec8-2dd4-5e2e-8798-2cfa42047a0d",
+  "nombre": "Austroblechnum corralense",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Endémica",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39fa8119-fb8a-58de-93a6-c12d912e8720",
+  "nombre": "Blechnum hastatum",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "edb1514c-e0d0-5ebf-9d45-1dd854b5adb8",
+  "nombre": "Lomariocycas magellanica",
+  "campos": {
+   "habitoDetalle": "Helecho arborescente",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b557e25a-0cf1-567a-9b82-76235d05a587",
+  "nombre": "Parablechnum chilense",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "adb269a1-7aaa-5c9f-bc20-471fe0b2645e",
+  "nombre": "Hypolepis poeppigii",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e818f66f-04f7-57b4-89c2-1ded71cc7dea",
+  "nombre": "Lophosoria quadripinnata",
+  "campos": {
+   "habitoDetalle": "Helecho subarborescente",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2ba500e2-4797-53ff-ae52-d71e5ca1d4ff",
+  "nombre": "Megalastrum spectabile",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3f95119c-dbc9-52d5-a0cf-eb1cd5154aa2",
+  "nombre": "Elaphoglossum gayanum",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c811afef-2ea9-5df9-a80d-e0a6207fd88d",
+  "nombre": "Sticherus cryptocarpus",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f5276b92-00f4-51dc-82b4-abdf4523028a",
+  "nombre": "Sticherus quadripartitus",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7907f275-25c5-5914-9cec-e1086587c64a",
+  "nombre": "Sticherus squamulosus",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Endémica",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5465b4bc-4506-561e-aa19-d3f598b485af",
+  "nombre": "Hymenoglossum cruentum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "07c2e79a-99b8-5a9a-b464-adcd6d62ebf9",
+  "nombre": "Hymenophyllum caespitosum",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre o saxícola",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1256fdcd-5978-5b17-8ee8-646efdf31355",
+  "nombre": "Hymenophyllum dentatum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7782d432-7d56-5b70-b2e6-50fe95725cba",
+  "nombre": "Hymenophyllum ferrugineum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o epipétrico",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ],
+   "origen": "Endémica"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/3607021"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4fec5cda-c6fa-50eb-9ce9-065cdf4b4a9c",
+  "nombre": "Hymenophyllum caudatum",
+  "campos": {
+   "habito": "Hierba perenne",
+   "habitoDetalle": "Helecho epífito o saxícola",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habito": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3458b8ba-eb1c-5259-9c90-225175286e12",
+  "nombre": "Hymenophyllum fuciforme",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ],
+   "diagnostico": "Helecho película de frondas largas: entre los Hymenophyllum de Chile es la especie con las frondas más largas."
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "diagnostico": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "9e2a474e-a41d-5ef5-abe5-2f6672f3b10e",
+  "nombre": "Hymenophyllum cuneatum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito",
+   "origen": "Endémica",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ],
+   "diagnostico": "Helecho película epífito de follaje plano, con indusios suborbiculares y ápice redondo; se confunde con H. darwinii."
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "diagnostico": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "ab15541b-f9dc-5fa8-9a5d-88e700304d5f",
+  "nombre": "Hymenophyllum darwinii",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o saxícola",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ],
+   "diagnostico": "Helecho película de follaje ondulado, con indusios lanceolados de ápice agudo; se confunde con H. cuneatum."
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "diagnostico": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "921859c5-0b12-5019-86e3-fbce7f99e5fd",
+  "nombre": "Hymenophyllum dicranotrichum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito",
+   "origen": "Endémica",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "da62435f-c42c-51b6-8a4b-f3b46f10cc5b",
+  "nombre": "Hymenophyllum pectinatum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4e72fac6-f347-54f3-9cc1-fe04f601e523",
+  "nombre": "Hymenophyllum falklandicum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito, epipétrico o saxícola",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "8620cc34-ada9-5f88-a076-c2af3a56ce1b",
+  "nombre": "Hymenophyllum secundum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "6107cb7c-afe3-514b-956c-0a4127545abb",
+  "nombre": "Hymenophyllum peltatum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito, a veces epipétrico o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "25805511-05ef-5e6c-94cd-3a5e4edc0b92",
+  "nombre": "Hymenophyllum umbratile",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "24627c27-42be-5a9b-a194-5bf61eae73a3",
+  "nombre": "Hymenophyllum asperulum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o saxícola",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "89d7590f-c659-52dd-be0f-d839e26672b2",
+  "nombre": "Hymenophyllum nahuelhuapiense",
+  "campos": {
+   "habitoDetalle": "Helecho saxícola o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos"
+  ]
+ },
+ {
+  "clave": "b71cb200-bbfe-5cbf-be44-691a41a41da3",
+  "nombre": "Hymenophyllum plicatum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito, terrestre o epipétrico",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "372350ae-0109-5336-92cf-0ded19494287",
+  "nombre": "Hymenophyllum krauseanum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito, raramente terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9ebdd671-0936-5d97-9b5b-3f9c07ff448c",
+  "nombre": "Hymenophyllum magellanicum",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre o epífito",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e0b91cd0-3dd2-5825-baeb-439ca6ed3748",
+  "nombre": "Hymenophyllum tortuosum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "12a66823-1956-5882-b613-d594f084556d",
+  "nombre": "Polyphlebium exsectum",
+  "campos": {
+   "habitoDetalle": "Helecho epífito o saxícola",
+   "origen": "Endémica",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f873d877-9b9e-59d4-a020-5c378804fcfd",
+  "nombre": "Notogrammitis angustifolia",
+  "campos": {
+   "habitoDetalle": "Helecho epífito",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "370df4b7-8b84-5302-b86a-90ca5220cdfd",
+  "nombre": "Synammia feuillei",
+  "campos": {
+   "habitoDetalle": "Helecho saxícola o epífito",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "713c18af-bff9-52a3-b905-940c8ac62a4b",
+  "nombre": "Microschizaea fistulosa",
+  "campos": {
+   "habitoDetalle": "Helecho terrestre",
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "origen": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   },
+   "colorFlor": {
+    "nombre": "Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2))",
+    "url": "https://gayanabotanica.cl/index.php/gb/article/download/515/220"
+   }
+  },
+  "noEncontrado": [
+   "petalos",
+   "diagnostico"
+  ]
+ }
+]

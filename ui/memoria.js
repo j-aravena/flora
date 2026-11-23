@@ -6,6 +6,7 @@ export const CLAVE_MEMORIA = 'flora.lista';
 
 function normalizar(d) {
   return {
+    ...(d && typeof d === 'object' && !Array.isArray(d) ? d : {}), // conserva campos propios de cada pantalla (Estudio guarda modo, alcance y cantidad)
     filtro: { ...FILTRO_VACIO, ...(d?.filtro ?? {}) },
     orden: d?.orden ?? 'nombre',
     ancla: d?.ancla ?? null,
@@ -13,17 +14,17 @@ function normalizar(d) {
   };
 }
 
-export function crearMemoria(obtenerAlmacen) {
+export function crearMemoria(obtenerAlmacen, clave = CLAVE_MEMORIA) {
   let actual = null;
   function leer() {
     try {
-      return normalizar(JSON.parse(obtenerAlmacen().getItem(CLAVE_MEMORIA) ?? 'null'));
+      return normalizar(JSON.parse(obtenerAlmacen().getItem(clave) ?? 'null'));
     } catch {
       return normalizar(null);
     }
   }
   function escribir() {
-    try { obtenerAlmacen().setItem(CLAVE_MEMORIA, JSON.stringify(actual)); } catch { /* sin memoria persistente */ }
+    try { obtenerAlmacen().setItem(clave, JSON.stringify(actual)); } catch { /* sin memoria persistente */ }
   }
   return {
     estado() {

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T00:00:00Z",
+  "title": "Design System: Flora",
+  "extensions": {
+    "colorMeta": {
+      "acento": { "role": "primary", "displayName": "Bosque profundo", "canonical": "#1d5a36", "tonalRamp": ["#0a2314", "#0f3320", "#1d5a36", "#2f7a4e", "#5aa07a", "#8fc2a5", "#c3dfcf", "#e6f0e8"] },
+      "tinta": { "role": "primary", "displayName": "Tinta bosque", "canonical": "#163a24", "tonalRamp": ["#06140c", "#0d2417", "#163a24", "#25563a", "#437a59", "#78a58c", "#b2cfbf", "#e3eee7"] },
+      "fondo": { "role": "neutral", "displayName": "Lienzo", "canonical": "#f6f7f4", "tonalRamp": ["#0f1a13", "#2a362e", "#4f5d54", "#748178", "#a4afa7", "#cfd6cf", "#e2e7e0", "#f6f7f4"] },
+      "ambar": { "role": "semantic", "displayName": "Ámbar", "canonical": "#8a5300", "tonalRamp": ["#2e1c00", "#5a3600", "#8a5300", "#b56f0a", "#d9953a", "#ecc07f", "#f6dfb5", "#fbf1de"] },
+      "rojo": { "role": "semantic", "displayName": "Rojo", "canonical": "#b42318", "tonalRamp": ["#3a0b07", "#6b150e", "#b42318", "#d64a3d", "#e8847a", "#f2b3ad", "#f9d6d2", "#fdecea"] },
+      "azul": { "role": "semantic", "displayName": "Azul", "canonical": "#1c5d99", "tonalRamp": ["#0a2339", "#113c63", "#1c5d99", "#3a82c4", "#6ca4d6", "#9fc4e6", "#c9ddf0", "#e7f0f9"] },
+      "acento-noche": { "role": "primary", "displayName": "Menta nocturna", "canonical": "#7fd6a0", "tonalRamp": ["#062012", "#173826", "#25683f", "#3f9a64", "#5fbf84", "#7fd6a0", "#aee6c4", "#d9f3e3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título Flora y marcador de resultados." },
+      "headline": { "displayName": "Headline", "purpose": "Nombre de la especie en la ficha." },
+      "title": { "displayName": "Title", "purpose": "Encabezados de sección y enunciados." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido y nombres en filas." },
+      "label": { "displayName": "Label", "purpose": "Leyenda de fila, insignias, barra inferior." }
+    },
+    "shadows": [
+      { "name": "sombra-1", "value": "0 1px 2px rgb(15 26 19 / .05), 0 1px 3px rgb(15 26 19 / .06)", "purpose": "Tarjetas, píldoras, botones secundarios, alternativas." },
+      { "name": "sombra-2", "value": "0 8px 24px -6px rgb(15 26 19 / .18), 0 2px 6px rgb(15 26 19 / .08)", "purpose": "Solo superficies flotantes: botón flotante, aviso, hoja de filtros." }
+    ],
+    "motion": [
+      { "name": "salida-suave", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Entrada de hoja de filtros, aviso y resaltado de fila reciente." },
+      { "name": "estado", "value": ".15s", "purpose": "Transiciones de color, fondo y borde." }
+    ],
+    "breakpoints": [
+      { "name": "columna-maxima", "value": "720px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Acción principal en píldora de tinta bosque.",
+      "html": "<button class=\"ds-btn-primario\">Guardar</button>",
+      "css": ".ds-btn-primario { min-height: 48px; padding: 0 20px; border-radius: 9999px; border: 1px solid #163a24; background: #163a24; color: #fff; font: 550 .95rem Inter, system-ui, sans-serif; cursor: pointer; transition: background-color .15s, transform .1s; } .ds-btn-primario:hover { background: color-mix(in srgb, #163a24 88%, #0f1a13); } .ds-btn-primario:active { transform: scale(.98); } .ds-btn-primario:focus-visible { outline: 2px solid #1d5a36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "Acción secundaria con borde y sombra leve.",
+      "html": "<button class=\"ds-btn-sec\">Editar</button>",
+      "css": ".ds-btn-sec { min-height: 48px; padding: 0 20px; border-radius: 9999px; border: 1px solid #e2e7e0; background: #fff; color: #0f1a13; font: 550 .95rem Inter, system-ui, sans-serif; box-shadow: 0 1px 2px rgb(15 26 19 / .05), 0 1px 3px rgb(15 26 19 / .06); cursor: pointer; transition: background-color .15s; } .ds-btn-sec:hover { background: #eef1ec; } .ds-btn-sec:focus-visible { outline: 2px solid #1d5a36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Buscador",
+      "kind": "input",
+      "refersTo": "input-buscador",
+      "description": "Campo píldora relleno sin borde con lupa.",
+      "html": "<label class=\"ds-buscador\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z\"/><path d=\"m20 20-4-4\"/></svg><input class=\"ds-input\" type=\"search\" placeholder=\"Buscar especie\"></label>",
+      "css": ".ds-buscador { position: relative; display: block; color: #5f6b63; } .ds-buscador svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); } .ds-input { width: 100%; min-height: 52px; padding: 10px 14px 10px 48px; border: 1px solid transparent; border-radius: 9999px; background: #f0f2ee; color: #0f1a13; font: 1rem Inter, system-ui, sans-serif; transition: border-color .15s, background-color .15s, box-shadow .15s; } .ds-input:focus { outline: none; background: #fff; border-color: #1d5a36; box-shadow: 0 0 0 3px #e6f0e8; }"
+    },
+    {
+      "name": "Píldora de filtro",
+      "kind": "chip",
+      "refersTo": "pildora-filtro",
+      "description": "Filtro en reposo y activo.",
+      "html": "<button class=\"ds-pildora\">Flor</button> <button class=\"ds-pildora activo\">Hábito: árbol</button>",
+      "css": ".ds-pildora { min-height: 44px; padding: 0 16px; border-radius: 9999px; border: 1px solid #e2e7e0; background: #fff; color: #0f1a13; font: 500 .92rem Inter, system-ui, sans-serif; box-shadow: 0 1px 2px rgb(15 26 19 / .05), 0 1px 3px rgb(15 26 19 / .06); cursor: pointer; } .ds-pildora.activo { background: #e6f0e8; border-color: rgb(29 90 54 / .45); color: #1d5a36; font-weight: 600; } .ds-pildora:focus-visible { outline: 2px solid #1d5a36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Fila de lista con leyenda",
+      "kind": "card",
+      "refersTo": "tarjeta",
+      "description": "Fila de foto, nombre en cursiva y línea de leyenda con muestra de color.",
+      "html": "<div class=\"ds-lista\"><a class=\"ds-fila\" href=\"#\"><span class=\"ds-foto\"></span><span class=\"ds-texto\"><i class=\"ds-nombre\">Nothofagus dombeyi</i><span class=\"ds-leyenda\">Nothofagaceae<b></b><span class=\"ds-color\"><span class=\"ds-muestra\"></span>blanca</span><b></b><span class=\"ds-insignia\">AI</span></span></span></a></div>",
+      "css": ".ds-lista { background: #fff; border: 1px solid #e2e7e0; border-radius: 24px; box-shadow: 0 1px 2px rgb(15 26 19 / .05), 0 1px 3px rgb(15 26 19 / .06); overflow: clip; font-family: Inter, system-ui, sans-serif; } .ds-fila { display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 10px 16px; color: #0f1a13; text-decoration: none; } .ds-fila:hover { background: #eef1ec; } .ds-foto { width: 56px; height: 56px; border-radius: 14px; background: #eef1ec; flex: none; } .ds-texto { display: flex; flex-direction: column; gap: 3px; } .ds-nombre { font-size: 1.02rem; font-weight: 550; letter-spacing: -.01em; } .ds-leyenda { display: flex; align-items: center; font-size: .85rem; color: #4f5d54; } .ds-leyenda b { width: 3px; height: 3px; border-radius: 50%; background: #5f6b63; margin: 0 7px; } .ds-color { display: inline-flex; align-items: center; gap: 4px; } .ds-muestra { width: 10px; height: 10px; border-radius: 3px; background: #f4f4ee; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .18); } .ds-insignia { font-size: .72rem; font-weight: 650; letter-spacing: .02em; padding: 4px 8px; border-radius: 9999px; background: #e6f0e8; color: #1d5a36; }"
+    },
+    {
+      "name": "Barra inferior",
+      "kind": "nav",
+      "refersTo": "tarjeta",
+      "description": "Navegación con iconos y sección activa en píldora musgo.",
+      "html": "<nav class=\"ds-barra\"><a class=\"activa\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 19c0-8 5-14 14-14 0 9-6 14-14 14Z\"/><path d=\"M5 19 13 11\"/></svg><span>Flora</span></a><a href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6.5 12 3l8 3.5-8 3.5-8-3.5Z\"/><path d=\"M7 8.5V14c0 1.7 2.2 3 5 3s5-1.3 5-3V8.5\"/><path d=\"M20 6.5V12\"/></svg><span>Estudio</span></a></nav>",
+      "css": ".ds-barra { display: flex; justify-content: center; height: 68px; background: rgb(255 255 255 / .9); backdrop-filter: saturate(1.4) blur(16px); border-top: 1px solid #e2e7e0; font-family: Inter, system-ui, sans-serif; } .ds-barra a { flex: 1; max-width: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #5f6b63; font-size: .75rem; font-weight: 550; letter-spacing: .01em; } .ds-barra a svg { box-sizing: content-box; padding: 4px 18px; border-radius: 9999px; transition: background-color .2s, color .2s; } .ds-barra a.activa { color: #0f1a13; } .ds-barra a.activa svg { background: #e6f0e8; color: #1d5a36; }"
+    },
+    {
+      "name": "Alternativa de estudio",
+      "kind": "custom",
+      "refersTo": "alternativa",
+      "description": "Respuesta grande: reposo y correcta.",
+      "html": "<button class=\"ds-alt\">Nothofagus dombeyi</button> <button class=\"ds-alt correcta\">Drimys winteri</button>",
+      "css": ".ds-alt { display: block; width: 100%; min-height: 52px; margin-bottom: 8px; padding: 12px 18px; text-align: left; font: 1rem/1.3 Inter, system-ui, sans-serif; background: #fff; color: #0f1a13; border: 1px solid #e2e7e0; border-radius: 18px; box-shadow: 0 1px 2px rgb(15 26 19 / .05), 0 1px 3px rgb(15 26 19 / .06); cursor: pointer; transition: background-color .15s, border-color .15s, transform .1s; } .ds-alt:hover { border-color: #5f6b63; } .ds-alt:active { transform: scale(.99); } .ds-alt.correcta { background: #163a24; border-color: #163a24; color: #fff; font-weight: 600; } .ds-alt:focus-visible { outline: 2px solid #1d5a36; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La carta de vegetación",
+    "overview": "Flora se lee como una carta de vegetación moderna: la fotografía de la planta es el mapa y la interfaz es la leyenda que lo acompaña. El lienzo es un blanco verdoso muy claro, sin crema; la tinta es un verde bosque casi negro; hay un solo acento, bosque profundo. Todo es sobrio y exacto: bordes de 1 px, una sombra mínima, tarjetas amplias y controles en píldora.\n\nEl color de flor es un cuadrado de leyenda de 10 px con su palabra al lado. La densidad es baja y cada texto se gana su lugar. De noche el sistema pasa a un bosque nocturno (#0b100d) con acento menta, sin cambiar de estructura.",
+    "keyCharacteristics": [
+      "Lienzo claro neutro-verdoso, tinta bosque, un único acento.",
+      "Tarjetas de 24 px, controles en píldora, inputs rellenos sin borde visible.",
+      "Profundidad por borde de 1 px y sombra leve; casi plana.",
+      "Iconos SVG de trazo 1.75 en línea; nombres científicos en cursiva.",
+      "Todo objetivo táctil de 44 a 48 px; contraste AA en ambos temas."
+    ],
+    "rules": [
+      { "name": "The Una Sola Tinta Rule", "body": "El verde bosque es el único acento; ámbar, rojo y azul solo significan estado o categoría, nunca decoran.", "section": "colors" },
+      { "name": "The Leyenda Rule", "body": "El color de flor se muestra como cuadrado de 10 px (12 px en la ficha) con su palabra; nunca como fondo, franja ni borde de tarjeta.", "section": "colors" },
+      { "name": "The Cursiva Científica Rule", "body": "Todo nombre científico va en cursiva; es la señal de especie, no un adorno.", "section": "typography" },
+      { "name": "The Cifras Tabulares Rule", "body": "Contadores, avance, indicadores e insignias usan font-variant-numeric: tabular-nums.", "section": "typography" },
+      { "name": "The Plano en Reposo Rule", "body": "El botón primario y los elementos rellenos de color no llevan sombra; la sombra 2 es solo para superficies flotantes.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do dejar que la foto de la planta sea lo más grande y la interfaz se retire.",
+      "Do usar un solo acento bosque (acento) y reservar el relleno macizo (tinta) para la acción principal y la respuesta correcta.",
+      "Do mostrar el color de flor como cuadrado de leyenda con su palabra.",
+      "Do mantener objetivos de 44 a 48 px y contraste AA en claro y oscuro (verificar con tools/contraste.py).",
+      "Do definir cada color nuevo con su par oscuro en los dos bloques de tema."
+    ],
+    "donts": [
+      "Don't usar fondos crema, tarjetas verdes saturadas ni franjas de color.",
+      "Don't usar color de flor como fondo, borde o franja de tarjeta.",
+      "Don't agregar iconos de glifo o emoji; los iconos son SVG de trazo 1.75.",
+      "Don't reintroducir el ornamento de contorno (--contorno), retirado en la revisión final, ni las alternativas ss01/cv11 de Inter.",
+      "Don't meter texto de relleno: si no ayuda a reconocer o estudiar, no va."
+    ]
+  }
+}

@@ -3,7 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#2f6b3a">
+  <meta name="theme-color" content="#f6f7f4">
+  <script>
+    // Aplica el tema guardado antes de pintar (misma lógica que tema.js).
+    (function () {
+      var t = 'auto';
+      try { t = localStorage.getItem('flora.tema') || 'auto'; } catch (e) {}
+      var oscuro = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'claro' || t === 'oscuro') document.documentElement.setAttribute('data-tema', t);
+      var efectivo = t === 'claro' || t === 'oscuro' ? t : (oscuro ? 'oscuro' : 'claro');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', efectivo === 'oscuro' ? '#0b100d' : '#f6f7f4');
+    })();
+  </script>
   <title>Flora offline</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
@@ -13,9 +24,9 @@
 <body>
   <main id="pantalla"></main>
   <nav class="barra" aria-label="Secciones">
-    <a href="#/lista" data-ruta="lista">Lista</a>
-    <a href="#/estudio" data-ruta="estudio">Estudio</a>
-    <a href="#/ajustes" data-ruta="ajustes">Ajustes</a>
+    <a href="#/lista" data-ruta="lista"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><span>Especies</span></a>
+    <a href="#/estudio" data-ruta="estudio"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5 12 3l8 3.5-8 3.5-8-3.5Z"/><path d="M7 8.5V14c0 1.7 2.2 3 5 3s5-1.3 5-3V8.5"/><path d="M20 6.5V12"/></svg><span>Estudio</span></a>
+    <a href="#/ajustes" data-ruta="ajustes"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"/><path d="M12 2.5v3"/><path d="M12 18.5v3"/><path d="M2.5 12h3"/><path d="M18.5 12h3"/><path d="m5.3 5.3 2.1 2.1"/><path d="m16.6 16.6 2.1 2.1"/><path d="m5.3 18.7 2.1-2.1"/><path d="m16.6 7.4 2.1-2.1"/></svg><span>Ajustes</span></a>
   </nav>
   <script src="version.js"></script>
   <script src="vendor/jszip.min.js"></script>

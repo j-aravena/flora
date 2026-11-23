@@ -1,0 +1,237 @@
+# Informe de complementos (2026-11-23)
+
+201 especies con datos nuevos, 439 campos llenados.
+
+| campo | llenados | no encontrados | sin investigar |
+|---|---|---|---|
+| familia | 14 | 0 | 0 |
+| habito | 1 | 7 | 0 |
+| habitoDetalle | 51 | 572 | 0 |
+| origen | 159 | 17 | 0 |
+| colorFlor | 137 | 56 | 0 |
+| petalos | 42 | 140 | 0 |
+| diagnostico | 3 | 721 | 0 |
+| categoriaMMA | 16 | 0 | 0 |
+| decreto | 16 | 0 | 0 |
+
+## Fuentes más usadas
+
+- Chileflora: 211
+- Gallardo-Valdivia et al. 2024, Catálogo de licofitas y helechos nativos de Chile (Gayana Botánica 81(2)): 111
+- GBIF (WCVP): 45
+- RCE MMA: 32
+- GBIF (WCVP), familia Poaceae: 10
+- GBIF (WCVP), familia Cyperaceae: 9
+- POWO: 5
+- The Endemic Plants of Chile (RBGE): 4
+- GBIF (WCVP), familia Juncaceae: 4
+- Wikispecies (Viola sect. Rosulatae): 2
+- GBIF (WCVP), familia Blechnaceae: 2
+- Wikipedia (Pleocarphus): 1
+- Currículum Nacional (MINEDUC), plantas vasculares acuáticas: 1
+- GBIF (WCVP), familia Lycopodiaceae: 1
+- GBIF (WCVP), familia Aspleniaceae: 1
+
+## Especies
+
+- Adiantum excisum: categoriaMMA, decreto
+- Adiantum sulphureum: categoriaMMA, decreto
+- Alstroemeria spathulata: categoriaMMA, decreto
+- Colliguaja salicifolia: colorFlor
+- Geranium core-core: colorFlor
+- Kageneckia angustifolia: categoriaMMA, decreto
+- Krameria cistoidea: categoriaMMA, decreto
+- Leucocoryne alliacea: habitoDetalle
+- Leucocoryne ixioides: habitoDetalle
+- Leucocoryne violacescens: habitoDetalle
+- Loasa tricolor: habitoDetalle
+- Maihueniopsis ovata: categoriaMMA, decreto
+- Malesherbia lirana: categoriaMMA, decreto
+- Mutisia ilicifolia: habitoDetalle
+- Pellaea ternifolia: categoriaMMA, decreto
+- Trichocereus chiloensis: categoriaMMA, decreto
+- Aristolochia chilensis: familia
+- Bahia ambrosioides: familia
+- Bridgesia incisifolia: familia, petalos
+- Cordia decandra: categoriaMMA, decreto, familia
+- Encelia canescens: familia
+- Eriosyce aurata: categoriaMMA, decreto, familia, habitoDetalle
+- Eriosyce curvispina: categoriaMMA, decreto, familia, habitoDetalle
+- Eryngium coquimbanum: familia
+- Eulychnia acida: categoriaMMA, decreto, familia
+- Gutierrezia resinosa: familia
+- Mutisia cana: habitoDetalle
+- Nolana rostrata: familia
+- Pleocarphus revolutus: familia
+- Senna cumingii: familia
+- Suaeda foliosa: familia
+- Atacama nivea: categoriaMMA, decreto
+- Stuckenia filiformis: habitoDetalle
+- Viola frigida: habitoDetalle
+- Viola gelida: habitoDetalle
+- Viola montagnei: habitoDetalle
+- Carex erinacea: colorFlor, origen
+- Carex fuscula: colorFlor, origen
+- Carex magellanica: colorFlor, origen
+- Carex phleoides: colorFlor, origen
+- Eleocharis pachycarpa: colorFlor, origen
+- Isolepis cernua: colorFlor, origen
+- Schoenoplectus californicus: colorFlor, origen
+- Schoenus rhynchosporoides: colorFlor, origen
+- Oreobolus obtusangulus: colorFlor, origen
+- Juncus microcephalus: colorFlor, origen
+- Juncus planifolius: colorFlor, origen
+- Juncus procerus: colorFlor, origen
+- Juncus effusus: colorFlor
+- Anthoxanthum odoratum: colorFlor, origen
+- Agrostis capillaris: colorFlor, origen
+- Aira caryophyllea: colorFlor
+- Aira praecox: colorFlor, origen
+- Alopecurus pratensis: colorFlor, origen
+- Chusquea montana: colorFlor, origen
+- Chusquea quila: colorFlor, origen
+- Dactylis glomerata: colorFlor
+- Holcus lanatus: colorFlor, origen
+- Hordeum chilense: colorFlor, origen
+- Astelia pumila: origen
+- Fascicularia bicolor: origen
+- Greigia sphacelata: origen
+- Greigia landbeckii: colorFlor, origen
+- Greigia pearcei: origen
+- Dioscorea auriculata: origen
+- Libertia chilensis: colorFlor, origen, petalos
+- Luzuriaga polyphylla: colorFlor, origen, petalos
+- Luzuriaga marginata: origen
+- Luzuriaga radicans: colorFlor, origen, petalos
+- Brachystele unilateralis: colorFlor, origen, petalos
+- Philesia magellanica: origen
+- Aextoxicon punctatum: colorFlor, origen, petalos
+- Eryngium paniculatum: colorFlor, origen
+- Diplolepis pachyphylla: origen
+- Elytropus chilensis: colorFlor, origen, petalos
+- Raukaua laetevirens: colorFlor, origen, petalos
+- Raukaua valdiviensis: colorFlor, habitoDetalle, origen, petalos
+- Archidasyphyllum diacanthoides: colorFlor, origen
+- Baccharis obovata: origen
+- Baccharis magellanica: colorFlor, origen
+- Baccharis racemosa: colorFlor, origen
+- Baccharis sagittalis: colorFlor, origen
+- Baccharis sphaerocephala: colorFlor, origen
+- Baccharis zoellneri: origen
+- Senecio otites: colorFlor, origen
+- Laurelia sempervirens: colorFlor, origen
+- Laureliopsis philippiana: colorFlor, origen
+- Berberis darwinii: colorFlor, origen
+- Berberis ilicifolia: colorFlor, origen
+- Berberis microphylla: colorFlor, origen
+- Berberidopsis corallina: colorFlor, habitoDetalle, origen
+- Campsidium valdivianum: colorFlor, habitoDetalle, origen, petalos
+- Desfontainia fulgens: origen
+- Caldcluvia paniculata: colorFlor, origen
+- Eucryphia cordifolia: colorFlor, origen, petalos
+- Weinmannia trichosperma: colorFlor, origen
+- Drosera uniflora: colorFlor, origen, petalos
+- Crinodendron hookerianum: colorFlor, origen
+- Empetrum rubrum: colorFlor, origen, petalos
+- Gaultheria antarctica: origen
+- Gaultheria insana: colorFlor, origen, petalos
+- Gaultheria mucronata: colorFlor, origen, petalos
+- Gaultheria phillyreifolia: colorFlor, origen, petalos
+- Gaultheria pumila var. pumila: colorFlor, origen, petalos
+- Lebetanthus myrsinites: origen
+- Escallonia rubra: colorFlor, origen, petalos
+- Lotus corniculatus: origen
+- Cytisus scoparius: colorFlor, origen, petalos
+- Teline monspessulana: colorFlor, origen, petalos
+- Ulex europaeus: colorFlor, origen, petalos
+- Asteranthera ovata: colorFlor, origen, petalos
+- Mitraria coccinea: colorFlor, origen, petalos
+- Sarmienta scandens: origen
+- Griselinia racemosa: origen
+- Griselinia ruscifolia: origen
+- Griselinia scandens: colorFlor, origen, petalos
+- Gunnera tinctoria: colorFlor, origen
+- Gunnera magellanica: colorFlor, origen, petalos
+- Hydrangea serratifolia: colorFlor, origen, petalos
+- Boquila trifoliolata: colorFlor, origen, petalos
+- Ribes magellanicum: colorFlor, origen, petalos
+- Amomyrtus luma: colorFlor, origen, petalos
+- Amomyrtus meli: origen
+- Luma apiculata: colorFlor, origen, petalos
+- Luma chequen: colorFlor, origen, petalos
+- Myrceugenia exsucca: colorFlor, origen, petalos
+- Myrceugenia parvifolia: origen
+- Myrceugenia planipes: colorFlor, origen, petalos
+- Ugni candollei: colorFlor, origen, petalos
+- Ugni molinae: colorFlor, origen, petalos
+- Myrteola nummularia: origen
+- Nothofagus antarctica: origen
+- Nothofagus betuloides: origen
+- Nothofagus dombeyi: origen
+- Nothofagus nitida: origen
+- Fuchsia magellanica: colorFlor, origen, petalos
+- Hebe salicifolia: categoriaMMA, colorFlor, decreto, petalos
+- Rumex acetosella: origen
+- Rumex crispus: origen
+- Embothrium coccineum: colorFlor, origen, petalos
+- Gevuina avellana: colorFlor, origen, petalos
+- Lomatia ferruginea: colorFlor, origen, petalos
+- Lomatia hirsuta: colorFlor, origen
+- Acaena ovalifolia: origen
+- Fragaria chiloensis: colorFlor, origen
+- Nertera granadensis: colorFlor, origen
+- Donatia fascicularis: origen
+- Azara lanceolata: colorFlor, origen
+- Azara serrata: categoriaMMA, colorFlor, decreto, origen
+- Antidaphne punctulata: origen
+- Lepidoceras chilense: origen
+- Myoschilos oblongum: colorFlor, origen, petalos
+- Ovidia pillo-pillo: colorFlor, origen, petalos
+- Rhaphithamnus spinosus: colorFlor, origen
+- Drimys winteri: colorFlor, origen
+- Fitzroya cupressoides: colorFlor, origen
+- Pilgerodendron uviferum: colorFlor, origen
+- Podocarpus nubigenus: colorFlor, origen
+- Podocarpus salignus: colorFlor, origen
+- Saxegothaea conspicua: colorFlor, origen
+- Austrolycopodium magellanicum: colorFlor
+- Asplenium dareoides: colorFlor, origen
+- Asplenium trilobum: colorFlor, origen
+- Austroblechnum leyboldtianum: colorFlor, origen
+- Austroblechnum lechleri: colorFlor
+- Austroblechnum penna-marina: colorFlor, habitoDetalle, origen
+- Austroblechnum corralense: colorFlor, habitoDetalle, origen
+- Blechnum hastatum: colorFlor, habitoDetalle, origen
+- Lomariocycas magellanica: colorFlor, habitoDetalle, origen
+- Parablechnum chilense: colorFlor, habitoDetalle, origen
+- Hypolepis poeppigii: colorFlor, habitoDetalle, origen
+- Lophosoria quadripinnata: colorFlor, habitoDetalle, origen
+- Megalastrum spectabile: colorFlor, habitoDetalle, origen
+- Elaphoglossum gayanum: colorFlor, habitoDetalle, origen
+- Sticherus cryptocarpus: colorFlor, habitoDetalle, origen
+- Sticherus quadripartitus: colorFlor, habitoDetalle, origen
+- Sticherus squamulosus: colorFlor, habitoDetalle, origen
+- Hymenoglossum cruentum: colorFlor, habitoDetalle, origen
+- Hymenophyllum caespitosum: colorFlor, habitoDetalle, origen
+- Hymenophyllum dentatum: colorFlor, habitoDetalle, origen
+- Hymenophyllum ferrugineum: colorFlor, habitoDetalle, origen
+- Hymenophyllum caudatum: colorFlor, habito, habitoDetalle, origen
+- Hymenophyllum fuciforme: colorFlor, diagnostico, habitoDetalle, origen
+- Hymenophyllum cuneatum: colorFlor, diagnostico, habitoDetalle, origen
+- Hymenophyllum darwinii: colorFlor, diagnostico, habitoDetalle, origen
+- Hymenophyllum dicranotrichum: colorFlor, habitoDetalle, origen
+- Hymenophyllum pectinatum: colorFlor, habitoDetalle, origen
+- Hymenophyllum falklandicum: colorFlor, habitoDetalle, origen
+- Hymenophyllum secundum: colorFlor, habitoDetalle, origen
+- Hymenophyllum peltatum: colorFlor, habitoDetalle, origen
+- Hymenophyllum umbratile: colorFlor, habitoDetalle, origen
+- Hymenophyllum asperulum: colorFlor, habitoDetalle, origen
+- Hymenophyllum nahuelhuapiense: colorFlor, habitoDetalle, origen
+- Hymenophyllum plicatum: colorFlor, habitoDetalle, origen
+- Hymenophyllum krauseanum: colorFlor, habitoDetalle, origen
+- Hymenophyllum magellanicum: colorFlor, habitoDetalle, origen
+- Hymenophyllum tortuosum: colorFlor, habitoDetalle, origen
+- Polyphlebium exsectum: colorFlor, habitoDetalle, origen
+- Notogrammitis angustifolia: colorFlor, habitoDetalle, origen
+- Synammia feuillei: colorFlor, habitoDetalle, origen
+- Microschizaea fistulosa: colorFlor, habitoDetalle, origen

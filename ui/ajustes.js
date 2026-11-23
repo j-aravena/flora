@@ -1,5 +1,6 @@
 import { exportarRespaldo, importarRespaldo, leerManifest, contar, leerMeta, escribirMeta } from '../db.js';
 import { el, aviso, fechaCorta } from './dom.js';
+import { TEMAS, leerTema, guardarTema, aplicarTema } from '../tema.js';
 import { versionPublicada, buscarActualizacion, reiniciarConNueva } from '../actualizacion.js';
 
 const DIAS_AVISO = 30;
@@ -89,6 +90,7 @@ export async function render(cont, ctx) {
       if (modo === 'reemplazar') {
         // Un respaldo anterior a un listado lo dejaría fuera: se vuelve a aplicar (solo agrega).
         await escribirMeta(db, 'listadosAplicados', []);
+        await escribirMeta(db, 'complementosAplicados', 0);
         await ctx.aplicarListados();
       }
       repintar();
@@ -175,22 +177,37 @@ export async function render(cont, ctx) {
   }
 
   const dias = diasDesde(ultimoRespaldo);
+  let almacenTema;
+  try { almacenTema = globalThis.localStorage; } catch { /* almacenamiento bloqueado */ }
+  if (!almacenTema) almacenTema = { getItem: () => null, setItem() {} };
+  const temaActual = leerTema(almacenTema);
+  const selectorTema = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Tema' },
+    ...TEMAS.map(([v, etiqueta]) => el('button', {
+      type: 'button', class: 'segmento', 'aria-pressed': String(v === temaActual),
+      onclick: ev => {
+        guardarTema(almacenTema, v);
+        aplicarTema(v);
+        for (const b of selectorTema.children) b.setAttribute('aria-pressed', String(b === ev.currentTarget));
+      },
+    }, etiqueta)));
+  const tarjeta = (titulo, ...hijos) => el('section', { class: 'tarjeta' }, el('h2', {}, titulo), ...hijos);
   cont.append(
     el('header', { class: 'cabecera' }, el('h1', {}, 'Ajustes')),
-    el('section', {}, el('h2', {}, 'Respaldo'),
-      el('p', {}, `Último respaldo: ${fechaCorta(ultimoRespaldo)}`),
-      dias > DIAS_AVISO ? el('p', { class: 'advertencia' }, 'Han pasado más de 30 días desde el último respaldo. Exporta uno y guárdalo fuera del teléfono.') : null,
+    tarjeta('Tema', selectorTema),
+    tarjeta('Respaldo',
+      ultimoRespaldo ? el('p', { class: 'dato' }, `Último respaldo: ${fechaCorta(ultimoRespaldo)}`) : null,
+      !ultimoRespaldo ? el('p', { class: 'advertencia' }, 'Aún no hay respaldo. Exporta uno y guárdalo fuera del teléfono.')
+        : dias > DIAS_AVISO ? el('p', { class: 'advertencia' }, 'Pasaron más de 30 días. Exporta un respaldo y guárdalo fuera del teléfono.') : null,
       el('div', { class: 'acciones' },
         el('button', { class: 'btn primario', onclick: exportar }, 'Exportar respaldo'),
         el('button', { class: 'btn', onclick: () => { modoPendiente = 'reemplazar'; entrada.click(); } }, 'Importar reemplazando'),
         el('button', { class: 'btn', onclick: () => { modoPendiente = 'fusionar'; entrada.click(); } }, 'Importar fusionando')),
       entrada, estado, listo),
-    el('section', {}, el('h2', {}, 'Datos'),
-      el('p', {}, `${n.especies} especies, ${n.fotos} fotos`),
-      uso ? el('p', {}, `Espacio usado: ${Math.round(uso.usage / 1e6)} MB de ${Math.round(uso.quota / 1e6)} MB disponibles`) : null,
+    tarjeta('Datos',
+      el('p', { class: 'dato' }, `${n.especies} especies · ${n.fotos} fotos` + (uso ? ` · ${Math.round(uso.usage / 1e6)} MB` : '')),
       el('div', { class: 'acciones' }, el('button', { class: 'btn peligro', onclick: recargarSemilla }, 'Volver a cargar el paquete inicial'))),
-    el('section', {}, el('h2', {}, 'Actualizaciones'),
-      el('p', {}, `Versión instalada ${VERSION}`),
+    tarjeta('Actualizaciones',
+      el('p', { class: 'dato' }, `Versión ${VERSION}`),
       el('div', { class: 'acciones' }, btnBuscar, btnReiniciar),
       estadoAct, barraAct));
 }

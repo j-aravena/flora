@@ -1,0 +1,502 @@
+[
+ {
+  "clave": "131b5482-84d9-5f78-ac0c-2efd7153a993",
+  "nombre": "Euphorbia collina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "56165c01-e8f5-52a5-a866-26b983bb7f14",
+  "nombre": "Euphorbia germainii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2de2178e-0b52-5685-906f-bd88156fb108",
+  "nombre": "Euphorbia peplus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a653ff78-e074-5a74-8463-98aba7abb52d",
+  "nombre": "Euphorbia portulacoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a2f5f792-9aa5-593e-96a0-b52c7990b79e",
+  "nombre": "Euphorbia serpens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ccceb658-fb11-505a-bd96-148ed9e39348",
+  "nombre": "Fabiana imbricata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a0e3dd96-b633-51dc-baa3-00983d8baa4d",
+  "nombre": "Famatina andina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "deda961a-975c-5707-9b74-281d54d40859",
+  "nombre": "Festuca myuros",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "49c0ba85-e2d9-5588-8233-c86bad3a90be",
+  "nombre": "Ficus carica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "864a8444-f373-5aeb-97de-04863b8fe4c4",
+  "nombre": "Fumaria agraria",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e10f760c-22fc-5ecf-b63d-1a756567443b",
+  "nombre": "Fumaria capreolata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "30b114b1-4c3a-5fc3-a11f-0be218307379",
+  "nombre": "Fumaria parviflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bce063e7-d217-561f-9345-7a3e33106b57",
+  "nombre": "Galega officinalis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8bfb5061-bb57-5076-975f-395a420ede46",
+  "nombre": "Galium aparine",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "306a358d-2549-5b63-9b7b-5f7d0e17c50b",
+  "nombre": "Galium gilliesii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1a5b5032-72c8-5622-8e6c-796e28d913e9",
+  "nombre": "Gamochaeta americana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b774f81b-ccf4-552e-8c1c-58edf8c2a823",
+  "nombre": "Gamochaeta oligantha",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "742fd40b-49c2-5bdf-8d0a-134cc5a7b2e5",
+  "nombre": "Geranium core-core",
+  "campos": {
+   "colorFlor": [
+    "rojo"
+   ]
+  },
+  "fuentes": {
+   "colorFlor": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0125.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "11fbe800-4c93-527a-a699-b769150e97bd",
+  "nombre": "Gilia crassifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "11af38af-bed1-5b7a-bfea-19f255b9480f",
+  "nombre": "Glandularia araucana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a6e2c7ba-7507-5935-9dd1-5bbdd4136777",
+  "nombre": "Guindilia trinervis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9ffe8d2e-fd89-5064-8599-5542ca1afd1e",
+  "nombre": "Gymnophyton isatidicarpum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "efbfdc9b-ec3f-5448-9a30-2ae6bd5ae71b",
+  "nombre": "Haplopappus anthylloides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "679d1639-c7ea-5530-b724-32df45b3dd29",
+  "nombre": "Haplopappus foliosus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "89d182df-d731-5c22-8331-34bbfe4f4020",
+  "nombre": "Haplopappus multifolius",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "948dd158-3b15-5bbf-8378-e0e6dcabb8de",
+  "nombre": "Haplopappus schumannii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a41e3094-8f80-5178-a270-230154cfc8c8",
+  "nombre": "Haplopappus scrobiculatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "6c6b53c0-5003-5574-9a55-bc45e098380d",
+  "nombre": "Haplopappus uncinatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f1b00e54-ed73-5749-aec8-559cd00fb0b7",
+  "nombre": "Haplopappus velutinus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c309b59a-9c7a-599a-8462-0de5eb634ece",
+  "nombre": "Helenium aromaticum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39ac589e-776a-5b62-9d45-20127028a287",
+  "nombre": "Heliotropium curassavicum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5f1e4f9a-78e5-56c0-99ca-f180eaf38388",
+  "nombre": "Heliotropium geissei",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "77dffb12-4884-5601-b399-08dddf01a26e",
+  "nombre": "Hirschfeldia incana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f9ca6e32-7a74-5eea-b8b0-86b17b41242c",
+  "nombre": "Homalocarpus dichotomus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b42b3f8f-914a-581b-864d-d96d08391880",
+  "nombre": "Hordeum comosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bbf2d899-0892-53b7-8d15-2bd93e7d3640",
+  "nombre": "Hordeum marinum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e58da1da-29fe-5e23-8973-7962d6889bce",
+  "nombre": "Hordeum murinum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e1bc24b3-f774-53e8-b7b0-2f6a71dee550",
+  "nombre": "Hydrocotyle ranunculoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "06da3daf-7133-5518-9ba0-19b9b1a2cfc3",
+  "nombre": "Hypochaeris scorzonerae",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f688782a-6773-5a96-bc85-586531d06791",
+  "nombre": "Juncus balticus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f963f8a5-405e-5c5c-8d26-e7d8fc5bc779",
+  "nombre": "Juncus stipulatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "05e5da65-bc77-54d9-821a-dfb078905c62",
+  "nombre": "Junellia spathulata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8d0c92cd-5420-521a-ae10-a05d98666b28",
+  "nombre": "Kageneckia angustifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c262a24f-3d2c-5264-9cc6-0620f44a698a",
+  "nombre": "Kageneckia oblonga",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9dff7e12-c4c1-58de-baef-90b6ff4c76e3",
+  "nombre": "Krameria cistoidea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d7f6d407-a7d5-59de-a827-f5d4f44d6c04",
+  "nombre": "Lactuca serriola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c01c5df5-1fa8-5b9f-84dd-121ad7553e4c",
+  "nombre": "Lactuca virosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ba0d5a15-1422-5c4b-b81c-636b07c087c3",
+  "nombre": "Lamarckia aurea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "834c07f2-259f-53a2-83c8-9dd0a3073467",
+  "nombre": "Larrea nitida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b4194d13-4013-5350-ba73-bd150f3b95c7",
+  "nombre": "Latace andina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "clave": "b3cd176f-52e2-5a5f-a69f-9f569769fae3",
+    "nombre": "Acaena pinnatifida",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "5826478a-a16a-5d5d-9cdb-8b852bf4f340",
+    "nombre": "Acaena poeppigiana",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "356b7ba5-ff74-5e16-8d26-0aa93ca3c62f",
+    "nombre": "Acaena sericea",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d9b14f20-05ec-52cd-aa10-aa67ecaa99ae",
+    "nombre": "Adesmia aegiceras",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "43e9a96e-3804-5a47-8433-9a56d5d043e2",
+    "nombre": "Adesmia bracteata",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f6545f94-696a-5ad2-a67d-72bc72788dc6",
+    "nombre": "Adesmia confusa",
+    "campos": {
+      "diagnostico": "Arbusto perennifolio de hasta 1,5 m, de ramas brillantes terminadas en espinas, hojas compuestas con foliolos ovales y flores amarillas."
+    },
+    "fuentes": {
+      "diagnostico": {
+        "nombre": "Wikipedia (es)",
+        "url": "https://es.wikipedia.org/wiki/Adesmia_confusa"
+      }
+    },
+    "noEncontrado": []
+  },
+  {
+    "clave": "b010955d-775e-5600-80ca-e16a7e8d3882",
+    "nombre": "Adesmia hemisphaerica",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f55dd718-ed7e-5e57-998f-2d4410d0a4f4",
+    "nombre": "Adesmia schneideri",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "8fea8645-6956-5a06-92c5-f7ed3dbbaa04",
+    "nombre": "Adesmia tenella",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f0c1d5a3-2e33-5c92-a8f8-559cb7615809",
+    "nombre": "Adesmia viscida",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  }
+]

@@ -41,6 +41,7 @@ export function nuevaEspecie(datos = {}) {
     rangoAltitudinal: '', sitios: [], aprendizaje: null, aciertos: 0, fallos: 0, rachaAciertos: 0,
     ultimoEstudio: null, notas: '', colorFlor: [], petalos: '', petalosNota: '', rasgosFuente: '',
     registroAI: '', hidrofila: false, diagnostico: '', ordenListado: {},
+    completado: {}, fallosPorTipo: {},
     creadoEn: t, modificadoEn: t, ...datos,
   };
 }
@@ -54,6 +55,30 @@ export async function guardarEspecie(db, especie) {
   const registro = { ...especie, nombre, modificadoEn: ahora() };
   await db.especies.put(registro);
   return registro;
+}
+
+// Fusiona la edición del usuario sobre la copia más reciente de la BD: solo escribe los campos que el usuario cambió
+// respecto de `original` (la copia con que abrió el formulario), y conserva lo demás de `fresca` (complementos aplicados
+// en segundo plano, avance de estudio, fallos). Un campo completado que el usuario cambia o borra pasa a `rechazado`
+// para que los complementos no lo vuelvan a llenar; confirmarlo solo quita su marca de `completado`.
+export function fusionarEdicion(fresca, original, borrador) {
+  if (!fresca) return borrador;
+  const igual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const r = { ...fresca };
+  for (const k of Object.keys(borrador)) {
+    if (k === 'completado' || k === 'rechazado') continue;
+    if (!igual(borrador[k], original[k])) r[k] = borrador[k];
+  }
+  const completado = { ...(fresca.completado ?? {}) };
+  const rechazado = new Set(fresca.rechazado ?? []);
+  for (const k of Object.keys(original.completado ?? {})) {
+    if (borrador.completado && k in borrador.completado) continue;
+    delete completado[k];
+    if (!igual(borrador[k], original[k])) rechazado.add(k);
+  }
+  r.completado = completado;
+  if (rechazado.size) r.rechazado = [...rechazado];
+  return r;
 }
 
 export function obtenerEspecie(db, id) {
@@ -161,6 +186,51 @@ export async function leerManifest(JSZip, datos) {
   const manifest = JSON.parse((await zip.file('manifest.json')?.async('string')) ?? 'null');
   if (!manifest || manifest.formato !== FORMATO) throw new Error('Formato de respaldo desconocido');
   return manifest;
+}
+
+export const CAMPOS_COMPLEMENTO = ['familia', 'habito', 'habitoDetalle', 'origen', 'colorFlor', 'petalos', 'diagnostico', 'categoriaMMA', 'decreto'];
+const sinValor = v => v == null || v === '' || (Array.isArray(v) && v.length === 0);
+
+// Aplica un paquete de complementos (spec 1.5 §5.4): solo llena campos vacíos y anota su fuente en `completado`.
+// Categoría y decreto van juntos; el decreto solo se completa si la categoría del teléfono coincide. Idempotente.
+export async function aplicarComplementos(db, JSZip, datos) {
+  await leerManifest(JSZip, datos);
+  const zip = await JSZip.loadAsync(datos);
+  const registros = JSON.parse(await zip.file('complementos.json').async('string'));
+  return db.transaction('rw', db.especies, async () => {
+  const actuales = await db.especies.toArray();
+  const porId = new Map(actuales.map(e => [e.id, e]));
+  const porNombre = new Map(actuales.map(e => [normalizar(e.nombre), e]));
+  const cambiadas = new Map();
+  let campos = 0;
+  for (const r of registros) {
+    if (!r.campos || !r.fuentes) continue;
+    const original = porId.get(r.id) ?? porNombre.get(normalizar(r.nombre));
+    if (!original) continue;
+    const e = cambiadas.get(original.id) ?? { ...original, completado: { ...(original.completado ?? {}) } };
+    let tocada = false;
+    const rechazado = original.rechazado ?? [];
+    const poner = campo => { e[campo] = r.campos[campo]; e.completado[campo] = r.fuentes[campo]; campos++; tocada = true; };
+    for (const campo of Object.keys(r.campos)) {
+      if (!CAMPOS_COMPLEMENTO.includes(campo) || campo === 'decreto' || !r.fuentes[campo] || sinValor(r.campos[campo])) continue;
+      if (rechazado.includes(campo)) continue;
+      if (campo === 'categoriaMMA') {
+        const puedeDecreto = !rechazado.includes('decreto');
+        if (sinValor(e.categoriaMMA)) {
+          poner('categoriaMMA');
+          if (puedeDecreto && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) poner('decreto');
+        } else if (puedeDecreto && e.categoriaMMA === r.campos.categoriaMMA && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) {
+          poner('decreto');
+        }
+        continue;
+      }
+      if (sinValor(e[campo])) poner(campo);
+    }
+    if (tocada) cambiadas.set(original.id, e);
+  }
+  await db.especies.bulkPut([...cambiadas.values()]);
+  return { especies: cambiadas.size, campos };
+  });
 }
 
 export async function importarRespaldo(db, JSZip, datos, modo = 'reemplazar', onProgreso = () => {}) {

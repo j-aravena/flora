@@ -1,0 +1,495 @@
+[
+ {
+  "clave": "d83af1a2-6c69-5a17-a45c-b846069ff819",
+  "nombre": "Cistanthe longiscapa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "96d8dc9f-3cb8-5edc-af0d-e968653ba3c0",
+  "nombre": "Cistanthe picta",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f8d6c0dd-d7cf-5b3e-aa33-f96895f3ce15",
+  "nombre": "Clarkia tenella",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3e896fc6-8809-5580-933a-5208a8dc37cb",
+  "nombre": "Colletia hystrix",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9338134c-503d-54f6-85ce-befaf826fb2d",
+  "nombre": "Colliguaja dombeyana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a25c59de-7473-5b22-a5ff-ccab318c72b6",
+  "nombre": "Colliguaja integerrima",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d8a92ff7-36a7-5ece-8167-15b0a0136510",
+  "nombre": "Colliguaja odorifera",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9e7aa30c-3772-55a1-af08-fd36f09c6b04",
+  "nombre": "Colliguaja salicifolia",
+  "campos": {
+   "colorFlor": [
+    "rojo"
+   ]
+  },
+  "fuentes": {
+   "colorFlor": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0004.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ea2cacac-8155-572f-8f8b-916688b870c3",
+  "nombre": "Collomia biflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2daedf02-fdf3-5ef1-a703-319ffea730f8",
+  "nombre": "Conanthera campanulata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b7ad191a-3d95-5772-978b-3f5ef88d9252",
+  "nombre": "Conium maculatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "edcd35c8-eb9c-5ec1-aae9-cb7827685f53",
+  "nombre": "Convolvulus arvensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f9f7a898-3e6b-5b4d-ab47-574f7847d39e",
+  "nombre": "Convolvulus chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "774d46ae-2e12-53a6-8055-3ee67a8a020f",
+  "nombre": "Convolvulus demissus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4b5c04d1-921b-5d01-a0e1-9eed0d98e5b1",
+  "nombre": "Conyza bonariensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ea082a0c-b8f3-53d0-9405-d93eba534e07",
+  "nombre": "Cortaderia selloana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "177859bf-5544-5a5a-a350-72af15cdec7c",
+  "nombre": "Cotula coronopifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "69fe78bb-4e36-5eba-8a3e-b59679ea8ad0",
+  "nombre": "Crataegus monogyna",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "23167cd6-cc71-5ac0-9e0d-fed53ae14c0b",
+  "nombre": "Cristaria dissecta",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f3abea60-80b0-5d5e-80cb-403d3cc686fa",
+  "nombre": "Cryptantha glomerata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "38202c47-1b7b-57f0-9a07-7567b16b46d1",
+  "nombre": "Cumulopuntia sphaerica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b952add4-b14c-549b-be29-941b470214a5",
+  "nombre": "Cupressus macrocarpa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9403b7f9-c8d1-5a12-a504-f57a79da1eac",
+  "nombre": "Cuscuta chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1b7d4af7-699a-5358-a7c2-b6186ccaf556",
+  "nombre": "Cynara cardunculus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d2904009-4529-5f4b-b59b-18dba6122314",
+  "nombre": "Cynoglossum creticum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9e952d58-abe2-5b2c-8dd0-e37115291e34",
+  "nombre": "Cyperus eragrostis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4d6b3ca0-e981-5b4a-8852-82b0287f3750",
+  "nombre": "Datura stramonium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5babbaa2-c53d-5a97-af69-a8eec28bcb0b",
+  "nombre": "Descurainia sophia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e76ad7cf-b997-54da-8918-fa8994016007",
+  "nombre": "Dioscorea humifusa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "711011a2-db8c-5323-9461-c3d91ef8b0d8",
+  "nombre": "Dioscorea saxatilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a956f033-45ac-51fe-853a-b3f0a1c30144",
+  "nombre": "Diplolepis nummulariifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ec845abd-9166-5299-ae35-860bc629e43d",
+  "nombre": "Diposis bulbocastanum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a10e3c6e-64e9-58ae-bf60-4a1b097b2fff",
+  "nombre": "Discaria chacaye",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "453d8469-d80d-579c-9cbd-7b227093a550",
+  "nombre": "Dysphania ambrosioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3c5f7f15-05ac-5c48-8fd3-ce3e8195125b",
+  "nombre": "Dysphania chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5ba55ea2-642d-5fda-b525-6d42823c2106",
+  "nombre": "Dysphania multifida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "645b62bf-c01d-56f7-a7d0-6a71ffcfa481",
+  "nombre": "Eccremocarpus scaber",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2cfca7d0-d435-5b99-a825-5ba1feb6c5d9",
+  "nombre": "Ephedra chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "db965f21-d2a6-5f64-81a2-83a2e4186f5b",
+  "nombre": "Equisetum bogotense",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "aecbbd70-08a8-54c3-8c5e-ee1d4fe4a3ae",
+  "nombre": "Erigeron andicola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "afd6e364-ff00-5edc-931a-9148a8c5007c",
+  "nombre": "Erodium cicutarium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "17025b18-c602-5515-99f3-2cc192bf0836",
+  "nombre": "Erodium malacoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "04b27a4a-e5de-5c11-8297-daf0f6cbd233",
+  "nombre": "Erodium moschatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d5a8d08a-bd0e-58cd-9fb8-158f87b59264",
+  "nombre": "Erythranthe glabrata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e238260d-c496-5c7f-86bb-813020394770",
+  "nombre": "Erythranthe lutea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e320dc9c-02c1-5053-982f-e330e260c365",
+  "nombre": "Escallonia illinita",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "160f0ae5-e9f9-566e-9c96-5156e5fd0def",
+  "nombre": "Escallonia myrtoidea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f21ad6ed-3c53-5e2b-941b-b5dc671d2142",
+  "nombre": "Eschscholzia californica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5f6d31bc-0912-550c-9d05-85ba016d0a3b",
+  "nombre": "Eucalyptus camaldulensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f693b243-297c-55cb-a82a-f375f2b0bf91",
+  "nombre": "Eucalyptus globulus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ }
+]

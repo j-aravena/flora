@@ -65,5 +65,5 @@ export function estiloColor(colores) {
 
 export function tinteFondo(colores) {
   const [a] = utiles(colores);
-  return a ? `color-mix(in srgb, ${COLOR_HEX[a]} 14%, var(--tarjeta))` : '';
+  return a ? `color-mix(in srgb, ${COLOR_HEX[a]} 14%, var(--superficie))` : '';
 }

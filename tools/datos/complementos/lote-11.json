@@ -1,0 +1,510 @@
+[
+ {
+  "clave": "90a6facf-de0b-53d2-a85d-f0f7af1c9ef5",
+  "nombre": "Maihueniopsis colorea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "fdd41e61-5afb-5397-b6d9-abb6679d694a",
+  "nombre": "Maihueniopsis glomerata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ba740fd6-4efd-58b5-acdf-b8381d64061d",
+  "nombre": "Malesherbia densiflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f347b304-ef19-5e2b-9cc9-a97691dbb9a4",
+  "nombre": "Malesherbia lactea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "86a70c6b-1bf1-54c2-b90a-4b3b75495ff0",
+  "nombre": "Menonvillea cuneata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ff2b6035-8b72-5a1a-8d58-63200cdd11cb",
+  "nombre": "Montiopsis copiapina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dfcfc3cb-533a-5b0e-8d99-38eb291a0832",
+  "nombre": "Montiopsis modesta",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a68b62d6-79f5-5daf-94f6-b1461fc600cd",
+  "nombre": "Muhlenbergia asperifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5c766b5d-4da6-5e42-a1dd-09d89249030b",
+  "nombre": "Mulguraea hystrix",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "66cd1f63-d6b0-5a3e-a60b-97e08576a4a9",
+  "nombre": "Neuontobotrys tarapacana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "67d27f60-448b-50db-b062-b8740c64cc7d",
+  "nombre": "Nicotiana longibracteata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "08926b24-8f82-5221-8605-f9660f5ca8f4",
+  "nombre": "Nicotiana petunioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f7b5e5fa-bb1a-5f31-ac7d-d9fbe7a1b47b",
+  "nombre": "Nolana leptophylla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4b246b67-d982-505f-ba11-763fac1df77e",
+  "nombre": "Nototriche clandestina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "337923d5-db70-533e-9a9c-d19639971412",
+  "nombre": "Nototriche ovata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d3bc453d-1cef-5412-9553-1fc42e634328",
+  "nombre": "Oriastrum acerosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "45c28bdc-fa80-567b-adf3-7ae67dbe6e42",
+  "nombre": "Oriastrum gnaphalioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9dec6192-6742-5cd2-b754-0fccbb2ded1c",
+  "nombre": "Oriastrum minutum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3691cd72-df44-56bd-a2cd-322e5abbf5ac",
+  "nombre": "Oriastrum pulvinatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5d8c7f7b-1b9e-59b2-a1ee-f464b1bd81be",
+  "nombre": "Oriastrum revolutum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3bfee316-5c55-5070-9a74-41f8696e7a3a",
+  "nombre": "Oriastrum sphaeroidale",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f9288a86-1153-55a8-9305-e8dc47f08fae",
+  "nombre": "Oxalis hypsophila",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "15839dc5-0394-51ff-a8a3-666662f1acf7",
+  "nombre": "Oxychloë andina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3707d6ca-1320-5e18-b53e-64b08f7a8404",
+  "nombre": "Pappostipa atacamensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f6bce8e5-720b-5d0f-8a56-b5efc75a92c6",
+  "nombre": "Pappostipa chrysophylla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "75120403-01e3-5a41-877a-1df27d7484e6",
+  "nombre": "Pappostipa frigida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f5272882-1932-5251-b846-b3dc9a9a53ff",
+  "nombre": "Pappostipa vaginata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "fd1f4811-2da3-5248-966d-b3848477666c",
+  "nombre": "Patosia clandestina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3f9f861e-457a-5d63-9d20-573563491f4b",
+  "nombre": "Perezia atacamensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "09b89454-fbda-593f-89be-2b01901cb6ef",
+  "nombre": "Perezia pungens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8d18a808-235f-5481-b3e5-8f7670acdb22",
+  "nombre": "Phacelia pinnatifida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5511b729-4e82-54d1-8bc3-928d0215423d",
+  "nombre": "Phragmites australis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "82cf03ad-9d42-530e-8fcf-5c243929a589",
+  "nombre": "Phylloscirpus acaulis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3333102a-b110-5b1d-aa92-9b04f554f587",
+  "nombre": "Phylloscirpus deserticola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ffdaef3d-680c-5305-8236-6c1c5f3f2a9b",
+  "nombre": "Plantago barbata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9a057dc5-9d4c-5f32-8eea-5a573fc9c23a",
+  "nombre": "Polyachyrus carduoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "fd1d42f8-2826-580f-81ae-5ac460c98fd2",
+  "nombre": "Polypogon cachinalensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "6a30ff0c-1e4b-5c3d-b535-beff6eec0073",
+  "nombre": "Prosopis chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c378498d-7639-581d-b8f0-b8f76605c11a",
+  "nombre": "Puccinellia argentinensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "46cd80a9-8e8e-5b95-8faa-5337c825baa6",
+  "nombre": "Puccinellia frigida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7694cfbd-5662-5d8f-8766-4984d5cfac0f",
+  "nombre": "Reyesia parviflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9fe65fd1-ced7-5ef2-b13f-44581f2ebae7",
+  "nombre": "Rhodoscirpus asper",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "328d4740-8951-57ad-bc46-69bc80364775",
+  "nombre": "Ruppia filifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0dab70ea-fda1-52e7-af79-16c84f7cacc0",
+  "nombre": "Salpiglossis spinescens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "51c1bf88-606a-536d-9ac8-2fa4e86a87fb",
+  "nombre": "Schizopetalon rupestre",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a140b4b6-2b13-5797-bfd6-9a6d8779a432",
+  "nombre": "Schoenoplectus americanus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "636d6367-61d8-59a6-9855-aef5efd61ea3",
+  "nombre": "Senecio chrysolepis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a3f4696a-f525-5794-8278-84807e12e7d5",
+  "nombre": "Senecio eriophyton",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b7859056-dd6e-584b-a5d1-23dbec9883b7",
+  "nombre": "Senecio haenkei",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d9e41c5d-8116-5a6e-9cc1-cac60acf78d6",
+  "nombre": "Senecio hirtus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ }
+]
