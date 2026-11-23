@@ -13,17 +13,17 @@ function normalizar(d) {
   };
 }
 
-export function crearMemoria(obtenerAlmacen) {
+export function crearMemoria(obtenerAlmacen, clave = CLAVE_MEMORIA) {
   let actual = null;
   function leer() {
     try {
-      return normalizar(JSON.parse(obtenerAlmacen().getItem(CLAVE_MEMORIA) ?? 'null'));
+      return normalizar(JSON.parse(obtenerAlmacen().getItem(clave) ?? 'null'));
     } catch {
       return normalizar(null);
     }
   }
   function escribir() {
-    try { obtenerAlmacen().setItem(CLAVE_MEMORIA, JSON.stringify(actual)); } catch { /* sin memoria persistente */ }
+    try { obtenerAlmacen().setItem(clave, JSON.stringify(actual)); } catch { /* sin memoria persistente */ }
   }
   return {
     estado() {

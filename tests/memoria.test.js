@@ -36,4 +36,13 @@ describe('memoria de la lista', () => {
     m.actualizar({ filtro: { ...FILTRO_VACIO, sitio: 'STP' }, orden: 'familia', ancla: { id: 'a', desfase: 0 } });
     expect(m.limpiarFiltros()).toMatchObject({ filtro: FILTRO_VACIO, orden: 'familia', ancla: null });
   });
+
+  it('crearMemoria acepta otra clave y no pisa la de la lista', () => {
+    const d = {};
+    const almacen = { getItem: k => d[k] ?? null, setItem: (k, v) => { d[k] = v; } };
+    const otra = crearMemoria(() => almacen, 'flora.estudio');
+    otra.actualizar({ filtro: { ...otra.estado().filtro, sitio: 'STP' } });
+    expect(JSON.parse(d['flora.estudio']).filtro.sitio).toBe('STP');
+    expect(d['flora.lista']).toBeUndefined();
+  });
 });
