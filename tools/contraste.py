@@ -7,6 +7,7 @@ PARES = [  # (texto, fondo) que deben cumplir 4.5:1
     ('--texto', '--fondo'), ('--texto', '--superficie'), ('--texto-suave', '--fondo'),
     ('--texto-suave', '--superficie'), ('--acento', '--superficie'), ('--acento-texto', '--acento'),
     ('--ambar', '--ambar-suave'), ('--rojo', '--rojo-suave'), ('--azul', '--azul-suave'), ('--acento', '--acento-suave'),
+    ('--texto-tenue', '--fondo'), ('--texto-tenue', '--superficie'), ('--texto-tenue', '--superficie-2'),
 ]
 
 
