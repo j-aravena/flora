@@ -3,7 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#2f6b3a">
+  <meta name="theme-color" content="#f3f5f0">
+  <script>
+    // Aplica el tema guardado antes de pintar (misma lógica que tema.js).
+    (function () {
+      var t = 'auto';
+      try { t = localStorage.getItem('flora.tema') || 'auto'; } catch (e) {}
+      var oscuro = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'claro' || t === 'oscuro') document.documentElement.setAttribute('data-tema', t);
+      var efectivo = t === 'claro' || t === 'oscuro' ? t : (oscuro ? 'oscuro' : 'claro');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', efectivo === 'oscuro' ? '#0a0d0b' : '#f3f5f0');
+    })();
+  </script>
   <title>Flora offline</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">

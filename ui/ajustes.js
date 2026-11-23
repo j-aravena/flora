@@ -1,5 +1,6 @@
 import { exportarRespaldo, importarRespaldo, leerManifest, contar, leerMeta, escribirMeta } from '../db.js';
 import { el, aviso, fechaCorta } from './dom.js';
+import { TEMAS, leerTema, guardarTema, aplicarTema } from '../tema.js';
 import { versionPublicada, buscarActualizacion, reiniciarConNueva } from '../actualizacion.js';
 
 const DIAS_AVISO = 30;
@@ -175,8 +176,17 @@ export async function render(cont, ctx) {
   }
 
   const dias = diasDesde(ultimoRespaldo);
+  let almacenTema;
+  try { almacenTema = globalThis.localStorage; } catch { /* almacenamiento bloqueado */ }
+  if (!almacenTema) almacenTema = { getItem: () => null, setItem() {} };
+  const selectorTema = el('select', { class: 'select', onchange: ev => {
+    guardarTema(almacenTema, ev.target.value);
+    aplicarTema(ev.target.value);
+  } }, ...TEMAS.map(([v, etiqueta]) => el('option', { value: v }, etiqueta)));
+  selectorTema.value = leerTema(almacenTema);
   cont.append(
     el('header', { class: 'cabecera' }, el('h1', {}, 'Ajustes')),
+    el('section', {}, el('h2', {}, 'Apariencia'), el('label', {}, 'Tema ', selectorTema)),
     el('section', {}, el('h2', {}, 'Respaldo'),
       el('p', {}, `Último respaldo: ${fechaCorta(ultimoRespaldo)}`),
       dias > DIAS_AVISO ? el('p', { class: 'advertencia' }, 'Han pasado más de 30 días desde el último respaldo. Exporta uno y guárdalo fuera del teléfono.') : null,
