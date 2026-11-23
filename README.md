@@ -12,8 +12,8 @@ Excel original. Los datos y las fotos viven en el teléfono; GitHub solo sirve p
 
 ## Uso
 
-- **Lista.** Buscar por nombre o familia y filtrar por sitio (Las Tórtolas, STP, Prefactibilidad, Nevado Tres Cruces), origen, hábito, aprendizaje, color de flor y pétalos. El botón "+" crea una especie.
-- **Ficha.** Fotos, campos y notas. "Editar" permite cambiar cualquier campo (incluidos el color de flor y el número de pétalos) y agregar fotos con la cámara o la galería.
+- **Lista.** Buscar por nombre, familia o rasgo. "Filtros" abre una hoja con tres secciones. Identificación: grupo, familia, hábito, forma de vida, color de flor y pétalos. Evaluación ambiental: categoría de conservación, origen, hidrófila y registro previo en el área de influencia (solo Chacao Chonchi). Estudio: sitio, aprendizaje y fotos. Cada opción muestra cuántas especies quedan. Los filtros activos aparecen como chips. El orden puede ser alfabético, por familia, como en la presentación del sitio o "me falta primero". La lista recuerda los filtros, el orden y la especie donde quedaste, incluso al cerrar la aplicación. El botón "+" crea una especie.
+- **Ficha.** Fotos, rasgo para reconocerla, campos y notas. "‹ Anterior" y "Siguiente ›" recorren la lista filtrada sin volver a ella. "Editar" permite cambiar cualquier campo y agregar fotos con la cámara o la galería.
 - **Estudio.** Dos ejercicios. "Foto a nombre" muestra una foto y pide recordar el nombre; "Nombre a foto" muestra el nombre y cuatro fotos. Las respuestas actualizan el estado de aprendizaje.
 - **Ajustes.** Exportar un respaldo ZIP con todo (enviarlo a Drive o guardarlo fuera del teléfono) e importarlo en otro teléfono o después de reinstalar.
 
@@ -21,11 +21,12 @@ Si se borran los datos de Chrome o se desinstala la aplicación, se pierde todo 
 
 ## Desarrollo
 
-- `npm install` y `npm test` para las pruebas de la capa de datos y del modo estudio (33 pruebas).
-- `source .venv/bin/activate && pytest -q` para las pruebas del pipeline de migración (57 pruebas).
+- `npm install` y `npm test` para las pruebas de la capa de datos y del modo estudio (60 pruebas).
+- `source .venv/bin/activate && pytest -q` para las pruebas del pipeline de migración (114 pruebas, 1 saltada).
 - `npm run servir` y abrir `http://localhost:8080/`.
 - El paquete inicial `semilla/semilla.zip` lo genera `tools/migrar.py` (ver `docs/superpowers/plans/2026-09-05-flora-pipeline.md`).
 - Los listados de sitio posteriores (por ahora Nevado Tres Cruces) los genera `tools/agregar_listado.py` como `semilla/<sitio>.zip`. La aplicación los descarga y aplica una sola vez, en `aplicarListados` de `app.js`. Solo agregan: a las especies que ya están en el teléfono, identificadas por id o por nombre, les suman el sitio y no tocan su avance, sus notas ni sus fotos.
+- `tools/agregar_presentacion.py` genera `semilla/chacao-chonchi.zip` desde el PDF de la presentación de campaña (`data/source/chacao-chonchi.pdf`, no versionado). Con `agregarListado`, las especies que ya estaban reciben además las fotos y los datos que les faltan.
 - Al publicar un cambio de código, sube `FLORA_VERSION` en `version.js` y `version` en `package.json`.
 - Especificación: `docs/superpowers/specs/2026-09-05-flora-pwa-design.md`.
 
@@ -34,3 +35,4 @@ Si se borran los datos de Chrome o se desinstala la aplicación, se pierde todo 
 - Las fotos extraídas de la planilla original son de la usuaria.
 - Las fotos descargadas de iNaturalist llevan autor y licencia Creative Commons en la ficha y son para uso personal de estudio.
 - Los colores de flor y el número de pétalos provienen de descripciones y claves botánicas citadas en cada ficha, y pueden corregirse desde la aplicación.
+- Las fotos e ilustraciones del listado Chacao Chonchi provienen de la presentación de campaña de Del Río, C. y M. Carrasco (2026), para uso interno de estudio.

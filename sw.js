@@ -5,7 +5,7 @@ importScripts('./version.js');
 const VERSION = 'flora-v' + self.FLORA_VERSION;
 const ARCHIVOS = [
   './', './index.html', './styles.css', './version.js', './app.js', './actualizacion.js', './db.js', './study.js', './images.js',
-  './ui/dom.js', './ui/lista.js', './ui/ficha.js', './ui/editar.js', './ui/estudio.js', './ui/ajustes.js',
+  './taxonomia.js', './filtros.js', './ui/memoria.js', './ui/dom.js', './ui/lista.js', './ui/ficha.js', './ui/editar.js', './ui/estudio.js', './ui/ajustes.js',
   './vendor/dexie.mjs', './vendor/jszip.min.js',
   './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png',
 ];
