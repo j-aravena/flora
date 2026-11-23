@@ -364,6 +364,17 @@ describe('aplicarComplementos', () => {
     expect((await db.especies.get('a')).notas).toBe('');
   });
 
+  it('ignora valores vacíos entrantes y registros sin campos', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.add(nuevaEspecie({ id: 'a', nombre: 'A a' }));
+    const r = await aplicarComplementos(db, JSZip, await zipComplementos([
+      { id: 'a', nombre: 'A a', campos: { familia: '', colorFlor: [], origen: 'Nativa' }, fuentes: { familia: F, colorFlor: F, origen: F } },
+      { id: 'a', nombre: 'A a' },
+    ]));
+    expect(r).toEqual({ especies: 1, campos: 1 });
+    expect(await db.especies.get('a')).toMatchObject({ familia: '', colorFlor: [], origen: 'Nativa' });
+  });
+
   it('nuevaEspecie trae completado y fallosPorTipo vacíos', () => {
     expect(nuevaEspecie()).toMatchObject({ completado: {}, fallosPorTipo: {} });
   });

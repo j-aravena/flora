@@ -136,17 +136,20 @@ async function aplicarListadosPendientes() {
     total += r.nuevas;
     aviso(`Listado ${sitio} agregado: ${r.nuevas} especies nuevas, ${r.conSitio} ya existentes completadas y ${r.fotos} fotos`, 5000);
   }
-  if ((await leerMeta(db, 'complementosAplicados', 0)) < COMPLEMENTOS.version) {
+  // Los complementos van al final: así también alcanzan a las especies de un listado que llegó tarde.
+  const listadosAlDia = LISTADOS.every(l => aplicados.includes(l.sitio));
+  if (listadosAlDia && (await leerMeta(db, 'complementosAplicados', 0)) < COMPLEMENTOS.version) {
     try {
       const respuesta = await fetch(COMPLEMENTOS.ruta, { cache: 'no-store' });
       if (respuesta.ok) {
         const r = await aplicarComplementos(db, ctx.JSZip, await respuesta.arrayBuffer());
         await escribirMeta(db, 'complementosAplicados', COMPLEMENTOS.version);
         total += r.especies;
-        aviso(`Datos completados: ${r.campos} campos en ${r.especies} especies`, 5000);
+        if (r.campos > 0) aviso(`Datos completados: ${r.campos} campos en ${r.especies} especies`, 5000);
       }
-    } catch {
-      // Sin conexión: se reintenta en la próxima apertura.
+    } catch (err) {
+      // Sin conexión o paquete ilegible: se reintenta en la próxima apertura.
+      console.warn('Complementos no aplicados:', err);
     }
   }
   return total;

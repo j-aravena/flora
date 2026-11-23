@@ -173,19 +173,21 @@ export async function aplicarComplementos(db, JSZip, datos) {
   await leerManifest(JSZip, datos);
   const zip = await JSZip.loadAsync(datos);
   const registros = JSON.parse(await zip.file('complementos.json').async('string'));
+  return db.transaction('rw', db.especies, async () => {
   const actuales = await db.especies.toArray();
   const porId = new Map(actuales.map(e => [e.id, e]));
   const porNombre = new Map(actuales.map(e => [normalizar(e.nombre), e]));
   const cambiadas = new Map();
   let campos = 0;
   for (const r of registros) {
+    if (!r.campos || !r.fuentes) continue;
     const original = porId.get(r.id) ?? porNombre.get(normalizar(r.nombre));
     if (!original) continue;
     const e = cambiadas.get(original.id) ?? { ...original, completado: { ...(original.completado ?? {}) } };
     let tocada = false;
     const poner = campo => { e[campo] = r.campos[campo]; e.completado[campo] = r.fuentes[campo]; campos++; tocada = true; };
     for (const campo of Object.keys(r.campos)) {
-      if (!CAMPOS_COMPLEMENTO.includes(campo) || campo === 'decreto' || !r.fuentes?.[campo]) continue;
+      if (!CAMPOS_COMPLEMENTO.includes(campo) || campo === 'decreto' || !r.fuentes[campo] || sinValor(r.campos[campo])) continue;
       if (campo === 'categoriaMMA') {
         if (sinValor(e.categoriaMMA)) {
           poner('categoriaMMA');
@@ -201,6 +203,7 @@ export async function aplicarComplementos(db, JSZip, datos) {
   }
   await db.especies.bulkPut([...cambiadas.values()]);
   return { especies: cambiadas.size, campos };
+  });
 }
 
 export async function importarRespaldo(db, JSZip, datos, modo = 'reemplazar', onProgreso = () => {}) {

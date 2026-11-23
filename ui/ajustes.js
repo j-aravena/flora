@@ -90,6 +90,7 @@ export async function render(cont, ctx) {
       if (modo === 'reemplazar') {
         // Un respaldo anterior a un listado lo dejaría fuera: se vuelve a aplicar (solo agrega).
         await escribirMeta(db, 'listadosAplicados', []);
+        await escribirMeta(db, 'complementosAplicados', 0);
         await ctx.aplicarListados();
       }
       repintar();
