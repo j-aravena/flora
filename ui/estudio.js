@@ -113,7 +113,9 @@ export async function render(cont, ctx, especieFija) {
     });
     const pista = el('p', { class: 'pista', hidden: true });
     const botonPista = el('button', { class: 'btn', onclick: () => {
-      pista.textContent = `Familia: ${e.familia || 'sin dato'} · Hábito: ${e.habito || 'sin dato'}`;
+      pista.textContent = `Familia: ${e.familia || 'sin dato'} · Hábito: ${e.habito || 'sin dato'}`
+        + (e.diagnostico ? `
+${e.diagnostico}` : '');
       pista.hidden = false;
       botonPista.disabled = true;
     } }, 'Pista');
