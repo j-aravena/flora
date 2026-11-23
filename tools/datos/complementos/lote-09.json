@@ -1,0 +1,596 @@
+[
+  {
+    "clave": "dbeab48c-1236-5206-8c23-7c709d54c0d6",
+    "nombre": "Dioscorea",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "f36b8557-5dbc-5e54-a244-44b4a3cec5fe",
+    "nombre": "Encelia canescens",
+    "campos": {
+      "familia": "Asteraceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0566.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "2d6f9864-edc8-588c-b313-f9a73d0290fe",
+    "nombre": "Ephedra americana",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "45512c11-49b0-5f68-b9e0-f074fe573a8b",
+    "nombre": "Ephedra gracilis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "1f303052-15d2-5d6f-a4d0-7bbae2daf449",
+    "nombre": "Eriosyce aurata",
+    "campos": {
+      "familia": "Cactaceae",
+      "habitoDetalle": "Cactus"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0862.htm"
+      },
+      "habitoDetalle": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0862.htm"
+      }
+    },
+    "noEncontrado": [
+      "diagnostico",
+      "petalos"
+    ]
+  },
+  {
+    "clave": "8f8109b7-c27c-5f55-b7dc-3e31674bfadf",
+    "nombre": "Eriosyce curvispina",
+    "campos": {
+      "familia": "Cactaceae",
+      "habitoDetalle": "Cactus"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH2736.htm"
+      },
+      "habitoDetalle": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH2736.htm"
+      }
+    },
+    "noEncontrado": [
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "559188f3-91c2-5571-95ac-6cf9ec345c28",
+    "nombre": "Eryngium coquimbanum",
+    "campos": {
+      "familia": "Apiaceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "POWO",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:841726-1"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "bcfea968-ca7b-5d74-8f7c-10369f59022b",
+    "nombre": "Eulychnia acida",
+    "campos": {
+      "familia": "Cactaceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0741.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "34ebff8f-b4c5-5a2a-bd39-0e5bbecb98fb",
+    "nombre": "Fabaceae",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "6f1487f8-ff32-53ed-8d33-bb99e5e263f4",
+    "nombre": "Gutierrezia resinosa",
+    "campos": {
+      "familia": "Asteraceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0866.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a8f4a020-c262-5c09-8b0b-1c1ba4ddf964",
+    "nombre": "Haplopappus baylahuen",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f11a2a72-a98a-50b7-9575-a555ab017006",
+    "nombre": "Haplopappus",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "ae16f0c8-2345-5cf1-a272-023db0245292",
+    "nombre": "Helenium urmenetae",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "7670e523-d668-52af-b9e8-35a6e365ea3a",
+    "nombre": "Heliotropium stenophyllum",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "877415b5-b657-5709-b26b-c07514071f29",
+    "nombre": "Lycium minutifolium",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a7b317b8-afae-554f-a4c7-6c4a6873ac45",
+    "nombre": "Lycium",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "3d0fb958-8e2d-5a97-a7c0-5f7b78aa7aaf",
+    "nombre": "Montiopsis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "1cd561b3-fc9b-557c-a3de-a58e044f5ded",
+    "nombre": "Mutisia cana",
+    "campos": {
+      "habitoDetalle": "Arbusto trepador"
+    },
+    "fuentes": {
+      "habitoDetalle": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0282.htm"
+      }
+    },
+    "noEncontrado": [
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d7ff2714-4185-5977-a797-74f68b05de26",
+    "nombre": "Nolana rostrata",
+    "campos": {
+      "familia": "Solanaceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "POWO",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:270764-1/general-information"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "3d84414d-0a6e-588a-aeab-d4fa20813abf",
+    "nombre": "Pleocarphus revolutus",
+    "campos": {
+      "familia": "Asteraceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Wikipedia (Pleocarphus)",
+        "url": "https://en.wikipedia.org/wiki/Pleocarphus"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "b2690c80-1528-58a4-928d-6139d1aab3f0",
+    "nombre": "Senna cumingii",
+    "campos": {
+      "familia": "Fabaceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH1093.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c9fe6083-3886-5713-b0bd-93455b0da89f",
+    "nombre": "Suaeda foliosa",
+    "campos": {
+      "familia": "Amaranthaceae"
+    },
+    "fuentes": {
+      "familia": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/7339798"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "082e56e8-446a-583e-ac8a-f1499db4662f",
+    "nombre": "Tristerix verticillatus",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "ed45488a-2ed7-5fa2-b9f2-31396d928d64",
+    "nombre": "Tropaeolaceae",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habito",
+      "origen"
+    ]
+  },
+  {
+    "clave": "26c54a5f-9d3c-5e28-91ae-69aaafca9604",
+    "nombre": "Acaena magellanica",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "6921d1d2-9ada-5aed-b612-9b396b89f5a6",
+    "nombre": "Adesmia atacamensis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "70d84ea3-a191-5480-9f11-df5a22a13773",
+    "nombre": "Adesmia echinus",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "5ca40a9a-4739-5ba1-b35b-fefed667dad3",
+    "nombre": "Adesmia frigida",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "557a6d53-e6b7-54f8-bbf9-e6ff01409dbe",
+    "nombre": "Adesmia spuma",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "1759033a-98e4-5841-8129-221a4b61b506",
+    "nombre": "Adesmia subterranea",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "89a915e2-ecb5-5e86-8e90-8cb02b508e7e",
+    "nombre": "Aloysia trifida",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f3a56fa7-f435-50e3-8203-d5da0946ef82",
+    "nombre": "Alstroemeria andina",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "634cbe4b-a7db-5e11-97f8-1418bda34184",
+    "nombre": "Arenaria rivularis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "6e96b191-cb55-54ad-a57a-d42d393514b0",
+    "nombre": "Arenaria serpens",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "659adeba-11d4-55a2-b812-b9c242dcb4f6",
+    "nombre": "Argylia checoensis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "02b5eea7-2344-572e-ac4c-5f0466c1b9c1",
+    "nombre": "Astragalus bustillosii",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d9581dbd-3ae2-53ef-b813-9dec43064feb",
+    "nombre": "Astragalus pusillus",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "6ae30e64-0824-54fe-82fa-895838d062d4",
+    "nombre": "Atacama nivea",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "4ab0389a-432d-5e5f-8b37-b9e27f38fa7b",
+    "nombre": "Atriplex deserticola",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "2cd01985-3499-59a7-ae20-004180927ba3",
+    "nombre": "Atriplex oreophila",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "3d4807ee-afcd-5f47-affc-8f65a1f3905d",
+    "nombre": "Azorella cryptantha",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a2aabc4c-ca97-5f9f-9169-f56d59c1e4d8",
+    "nombre": "Baccharis acaulis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "3315dd43-0fdf-5289-8973-c1facfa667dd",
+    "nombre": "Bryantiella glutinosa",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "52ed52ae-8543-510a-ba0f-a89009550401",
+    "nombre": "Calandrinia compacta",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c6750984-2d9a-5399-bccf-70212e5be93d",
+    "nombre": "Calceolaria pinifolia",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "ab820e72-ad74-57ee-8d9f-ce91f3738e5b",
+    "nombre": "Carex maritima",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "036e6e43-9016-59ea-9340-ca64e4ad733c",
+    "nombre": "Catabrosa werdermannii",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "66e27e1b-753d-5ed4-9904-30e5a7bffe6b",
+    "nombre": "Chaetanthera lanata",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f2cc8cde-491b-57fc-91ff-d8c620bbdebf",
+    "nombre": "Chenopodium frigidum",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "6d66e8ff-512a-54d7-bffc-b2e140f082d9",
+    "nombre": "Cistanthe amarantoides",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  }
+]

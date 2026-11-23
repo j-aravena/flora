@@ -1,0 +1,1204 @@
+[
+  {
+    "clave": "b88db5f9-50f4-563e-a446-307d7bdc1d2a",
+    "nombre": "Gunnera magellanica",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "2"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0665.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0665.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0665.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a20a606f-5ac4-54d3-b10a-73edf25b8bb3",
+    "nombre": "Hydrangea serratifolia",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4-5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0223.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0223.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0223.htm"
+      }
+    },
+    "noEncontrado": [
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "68d4ff02-d0a9-510f-8084-5175bbcb3610",
+    "nombre": "Boquila trifoliolata",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "6"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0294.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0294.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0294.htm"
+      }
+    },
+    "noEncontrado": [
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "e6798bfb-58ad-5437-b156-399a9ed80903",
+    "nombre": "Ribes magellanicum",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "amarillo"
+      ],
+      "petalos": "5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0186.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0186.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0186.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d719b6da-2ec2-5fda-9643-9df3c6055742",
+    "nombre": "Amomyrtus luma",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0756.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0756.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0756.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "fcd87487-cfbc-5473-9db5-373feeee9351",
+    "nombre": "Amomyrtus meli",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "The Endemic Plants of Chile (RBGE)",
+        "url": "https://chileanendemics.rbge.org.uk/es/taxa/amomyrtus-meli-phil-d-legrand-kausel"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "8dacafe1-7c62-5bdb-8ae5-e4b871d93b91",
+    "nombre": "Eucalyptus nitens",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "origen",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "4047ad26-b23b-584c-955e-17b614640625",
+    "nombre": "Luma apiculata",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0246.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0246.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0246.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "2be1c6f7-4874-5ffd-8653-2e7dd114c638",
+    "nombre": "Luma chequen",
+    "campos": {
+      "origen": "Endémica",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0390.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0390.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0390.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c239cfc0-5469-5e6f-9001-4d43ed546b47",
+    "nombre": "Metrosideros stipularis",
+    "campos": {},
+    "fuentes": {},
+    "noEncontrado": [
+      "habitoDetalle",
+      "origen",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "e114ca7a-38e7-5d5d-b069-348702050506",
+    "nombre": "Myrceugenia exsucca",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0342.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0342.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0342.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "1d74863e-5a86-5d5e-8461-637b65bfa93c",
+    "nombre": "Myrceugenia parvifolia",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/3185769"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c334821e-c28f-5382-b1a1-27b0765bbe7e",
+    "nombre": "Myrceugenia planipes",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0798.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0798.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0798.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "bddeb576-e737-503d-bdf5-3996cdfa06c3",
+    "nombre": "Ugni candollei",
+    "campos": {
+      "origen": "Endémica",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0613.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0613.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0613.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "8075a324-1e78-54d7-afed-260dd415613e",
+    "nombre": "Ugni molinae",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0291.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0291.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0291.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "7c7155ac-2375-5840-8073-d5c7cd7fc032",
+    "nombre": "Myrteola nummularia",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/8606669"
+      }
+    },
+    "noEncontrado": [
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "2792ca22-e86f-577c-941e-0dcd6af98d0c",
+    "nombre": "Nothofagus antarctica",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0323.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "48b5933b-0607-59a0-bd7e-1edaf4bf4365",
+    "nombre": "Nothofagus betuloides",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0776.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "fee1fc46-b77e-5cd7-b434-dfbad71e92f0",
+    "nombre": "Nothofagus dombeyi",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0358.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c6bef134-cf51-5e7a-893f-8b2dbf52d62e",
+    "nombre": "Nothofagus nitida",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0774.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "86d61013-90a6-500a-80d1-a1c2658ccb0e",
+    "nombre": "Fuchsia magellanica",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0306.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0306.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0306.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "5620a312-5c29-5c58-a4ed-9bbb186f3833",
+    "nombre": "Hebe salicifolia",
+    "campos": {
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH1114.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH1114.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "origen",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a9b5ca17-0431-599a-ac72-49e7132d16a2",
+    "nombre": "Rumex acetosella",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0686.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "6c38138c-db85-5426-b000-c9c9a9b2a05e",
+    "nombre": "Rumex crispus",
+    "campos": {
+      "origen": "Introducida"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/8195144"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "5ce1188d-5e54-5b39-86d8-a5471f1d7408",
+    "nombre": "Embothrium coccineum",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0151.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0151.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0151.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "062c9cde-3c37-56ae-99c2-97be9e2e4286",
+    "nombre": "Gevuina avellana",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0193.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0193.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0193.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "806b9536-e589-5087-a54e-e56a5910c25a",
+    "nombre": "Lomatia ferruginea",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0178.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0178.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0178.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "b405d338-a0cc-5a2f-a0df-b861e1d9cecb",
+    "nombre": "Lomatia hirsuta",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0194.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0194.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "e04122ec-3a33-5584-acb2-2d23b7b3cd77",
+    "nombre": "Acaena ovalifolia",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH1460.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c5b869cf-1d4a-55b6-8410-805f9b576840",
+    "nombre": "Fragaria chiloensis",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "blanco"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0027.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0027.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico",
+      "petalos"
+    ]
+  },
+  {
+    "clave": "b97b445f-0e39-5dda-92e4-b149a2afb631",
+    "nombre": "Nertera granadensis",
+    "campos": {
+      "colorFlor": [
+        "verde"
+      ],
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0099.htm"
+      },
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/2911624"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c4f61ada-a1c2-522b-b1d2-aa91ae378808",
+    "nombre": "Donatia fascicularis",
+    "campos": {
+      "origen": "Nativa"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH1746.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "4eb5fbd6-2eb7-5434-9703-103be7c80697",
+    "nombre": "Azara lanceolata",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "amarillo"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0087.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0087.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "26ad3d9c-79bf-5f0c-b75f-66101bedc76e",
+    "nombre": "Azara serrata",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "amarillo"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0359.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0359.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "b8a128b5-b765-5142-88ab-74edff96e7b6",
+    "nombre": "Antidaphne punctulata",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "The Endemic Plants of Chile (RBGE)",
+        "url": "https://chileanendemics.rbge.org.uk/es/taxa/antidaphne-punctulata-clos-kuijt"
+      }
+    },
+    "noEncontrado": [
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "cb3a0bb6-1ccf-5d14-9f9c-d0c48a4d6f62",
+    "nombre": "Lepidoceras chilense",
+    "campos": {
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/3990567"
+      }
+    },
+    "noEncontrado": [
+      "colorFlor",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "a0879d13-fa70-5930-8f50-290304cb29b2",
+    "nombre": "Myoschilos oblongum",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "rojo"
+      ],
+      "petalos": "5"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/3789275"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0145.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0145.htm"
+      }
+    },
+    "noEncontrado": [
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "182b6201-3e3a-5b7f-a949-3084803f9388",
+    "nombre": "Ovidia pillo-pillo",
+    "campos": {
+      "origen": "Endémica",
+      "colorFlor": [
+        "blanco"
+      ],
+      "petalos": "4"
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0395.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0395.htm"
+      },
+      "petalos": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0395.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "42c6e975-b148-585d-a1ac-06bc5654fcbd",
+    "nombre": "Rhaphithamnus spinosus",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "azul"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0141.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0141.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "ec4b4a54-81a5-593c-b53c-2b59d04f2bbf",
+    "nombre": "Drimys winteri",
+    "campos": {
+      "colorFlor": [
+        "blanco"
+      ],
+      "origen": "Endémica"
+    },
+    "fuentes": {
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0008.htm"
+      },
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0008.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "diagnostico",
+      "petalos"
+    ]
+  },
+  {
+    "clave": "1b809033-581c-5cb1-9ca6-14f6eab186ba",
+    "nombre": "Fitzroya cupressoides",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0797.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0797.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "f65604e7-d3dc-51d8-a494-77d4e1181953",
+    "nombre": "Pilgerodendron uviferum",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0799.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0799.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "8a3cc1bd-b496-5fd8-9942-958b318470f8",
+    "nombre": "Podocarpus nubigenus",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0763.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0763.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "17b68e8f-dacf-5b5e-93db-439339a3b668",
+    "nombre": "Podocarpus salignus",
+    "campos": {
+      "origen": "Endémica",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0084.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0084.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d0eb661d-ead4-5e19-a7c8-fd6b066a5754",
+    "nombre": "Saxegothaea conspicua",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0171.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0171.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "379a4d1f-ed77-5175-8db1-8c84695ad813",
+    "nombre": "Austrolycopodium magellanicum",
+    "campos": {
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "colorFlor": {
+        "nombre": "GBIF (WCVP), familia Lycopodiaceae",
+        "url": "https://www.gbif.org/species/3991517"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "origen",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "c2bf9093-9eb9-59b0-a1d2-22a7143355fa",
+    "nombre": "Asplenium dareoides",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH2449.htm"
+      },
+      "colorFlor": {
+        "nombre": "Chileflora",
+        "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH2449.htm"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "535135ab-b447-5055-96da-d365d3f70b2a",
+    "nombre": "Asplenium trilobum",
+    "campos": {
+      "origen": "Nativa",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "GBIF (WCVP)",
+        "url": "https://www.gbif.org/species/8308872"
+      },
+      "colorFlor": {
+        "nombre": "GBIF (WCVP), familia Aspleniaceae",
+        "url": "https://www.gbif.org/species/8308872"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "19b5cd8c-dc87-5267-bdd9-e2102b8668cd",
+    "nombre": "Austroblechnum leyboldtianum",
+    "campos": {
+      "origen": "Endémica",
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "origen": {
+        "nombre": "The Endemic Plants of Chile (RBGE)",
+        "url": "https://chileanendemics.rbge.org.uk/es/taxa/austroblechnum-leyboldtianum-phil-gasper-v-a-o-dittrich"
+      },
+      "colorFlor": {
+        "nombre": "GBIF (WCVP), familia Blechnaceae",
+        "url": "https://www.gbif.org/species/9394464"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "petalos",
+      "diagnostico"
+    ]
+  },
+  {
+    "clave": "d93ff8e4-6283-5ae5-b565-0e9d3bcf85a5",
+    "nombre": "Austroblechnum lechleri",
+    "campos": {
+      "colorFlor": [
+        "sin_flor_vistosa"
+      ]
+    },
+    "fuentes": {
+      "colorFlor": {
+        "nombre": "GBIF (WCVP), familia Blechnaceae",
+        "url": "https://www.gbif.org/species/9590126"
+      }
+    },
+    "noEncontrado": [
+      "habitoDetalle",
+      "origen",
+      "petalos",
+      "diagnostico"
+    ]
+  }
+]

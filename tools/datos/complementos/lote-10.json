@@ -1,0 +1,505 @@
+[
+ {
+  "clave": "fd63d162-f70a-5f6c-8ba4-92e1cc1a4ccb",
+  "nombre": "Cistanthe celosioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "63b1925b-557f-51b6-b12f-7b3291a727b4",
+  "nombre": "Cistanthe densiflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "19910762-575d-5075-955b-bb04ad11e5fc",
+  "nombre": "Cistanthe frigida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e49bacf8-5458-52f7-9a6d-e7c89848a33c",
+  "nombre": "Cistanthe humilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "10619b26-8a32-500b-99f2-fcf9aff4543b",
+  "nombre": "Colobanthus quitensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ab85eae7-64ac-5ec2-98b5-11af31a0bed8",
+  "nombre": "Cortaderia speciosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "138c92ba-9260-5488-80f1-11480d0d80ba",
+  "nombre": "Cristaria andicola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9c20a664-c7a9-518a-9c1d-cdb3aac501b5",
+  "nombre": "Cruckshanksia hymenodon",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "77f402b5-599d-595b-8ae6-67dfb8f59624",
+  "nombre": "Cruckshanksia lithiophila",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a36e4662-e89a-5306-97b6-3f7c6401c9d2",
+  "nombre": "Cryptantha calycina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "af085a40-1d9d-5011-9916-9290788cd746",
+  "nombre": "Cryptantha diffusa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "50f71be9-a922-5d7b-aa31-3269d4816e55",
+  "nombre": "Cryptantha gnaphalioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "cdace1ac-0053-5aca-941d-ac5fa8e4e9da",
+  "nombre": "Deschampsia cespitosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1c766127-3e0f-54bc-b5a1-cbd650edd066",
+  "nombre": "Descurainia depressa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2d869ae4-6bed-5934-9322-56894fb8010d",
+  "nombre": "Descurainia pimpinellifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9639a55a-1063-5199-83c1-d36cfaa1beed",
+  "nombre": "Descurainia stricta",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ea26561d-c74e-5988-984d-1b9c5e5efbb1",
+  "nombre": "Deyeuxia chrysantha",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "19250442-48ea-5c90-961e-903d12fce94d",
+  "nombre": "Deyeuxia chrysophylla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d421d51c-cb17-5a3e-bae5-b76b2c7409fe",
+  "nombre": "Deyeuxia curvula",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3d4ce585-63e8-5f80-9f2c-e803b409f85a",
+  "nombre": "Deyeuxia deserticola",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9b7be35d-4847-513e-af61-85caa1a7d605",
+  "nombre": "Deyeuxia eminens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "46f0b1e8-99e0-59a6-8613-b1bea69f7b61",
+  "nombre": "Deyeuxia velutina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "6cc4de4c-3050-5e57-8f1a-094308db0ff3",
+  "nombre": "Doniophyton weddellii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ac8d4a18-6a8b-5c38-80ee-57846acb8d36",
+  "nombre": "Eleocharis atacamensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "61a6d4af-616c-5e8f-9077-ee13f8b2720c",
+  "nombre": "Eleocharis pseudoalbibracteata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "61511247-e363-59bb-8702-2bc796ab3e63",
+  "nombre": "Equisetum giganteum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3ad65e35-72e2-51fd-afc2-097bb29eeb30",
+  "nombre": "Erythranthe depressa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5b0fb267-3ca6-5101-a0d6-0b6f25fa898a",
+  "nombre": "Fabiana bryoides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "713a2d61-5851-5955-bcb8-59c3953891cd",
+  "nombre": "Festuca chrysophylla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "00380e64-d366-570e-b0d0-65fd15e1c533",
+  "nombre": "Festuca hypsophila",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "00cd0f33-73c9-5738-937a-2a8dcb4ad78f",
+  "nombre": "Gamocarpha caespitosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bf1515c7-95b1-5070-9923-25fab658094c",
+  "nombre": "Gayophytum micranthum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7f0f2884-6ce2-52e9-967e-84742d391294",
+  "nombre": "Gentiana prostrata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "eccd9689-f98e-5844-8a4d-5b63eae0e2fb",
+  "nombre": "Geoffroea decorticans",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "13519097-882e-5b09-bd79-82c6ba6807e4",
+  "nombre": "Halerpestes cymbalaria",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "50b5a299-444e-53b1-bab2-f0c295560d21",
+  "nombre": "Halerpestes exilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "34c3d29a-d992-5358-8b5b-0aae91c7ef10",
+  "nombre": "Halerpestes uniflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1a5f813a-a878-5ede-bcd4-ca647acaa587",
+  "nombre": "Haplopappus rigidus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a9325f46-dc20-56e2-813f-90b84f3625d0",
+  "nombre": "Hordeum pubiflorum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "31e38c83-4ec5-5e89-9869-b79531607670",
+  "nombre": "Ipomopsis gossypifera",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c69c38b3-4ee8-58fb-a708-c49cc9ab8d7d",
+  "nombre": "Jaborosa caulescens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "bb51f712-c233-5bf5-be75-02bf990e5b4e",
+  "nombre": "Junellia caespitosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5f6b4b62-4401-538a-8705-f4a42f11f34d",
+  "nombre": "Junellia origenes",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "510c0829-816d-57cb-92ab-61281c4149fc",
+  "nombre": "Kurzamra pulchella",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c7409a4a-a334-522d-822d-60984df608c7",
+  "nombre": "Lenzia chamaepitys",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "fa7a4e64-cdae-57b9-9bda-bb1396f453d4",
+  "nombre": "Lilaeopsis macloviana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9c4d60d7-8920-5f95-9f1f-5075eec508e1",
+  "nombre": "Limosella australis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8dd101fe-8c30-5be3-907b-8c09f14f2779",
+  "nombre": "Lobelia oligophylla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e9b76c62-4748-570a-a97c-be2e85d8d071",
+  "nombre": "Lycium humile",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "774c35e7-b1b6-5293-bf93-73b1f3be6d60",
+  "nombre": "Lycium stenophyllum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ }
+]

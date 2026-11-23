@@ -1,0 +1,977 @@
+[
+ {
+  "clave": "0391291b-b677-5358-8c7c-d27fc3b3329d",
+  "nombre": "Senecio leucus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2357ca84-43cd-5508-8416-29dff4d09d5c",
+  "nombre": "Senecio oreophyton",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "98be7226-537c-5879-947d-5518e5b4400d",
+  "nombre": "Senecio rahmeri",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8e209514-ec8a-5fc4-9456-d79c043ef2e9",
+  "nombre": "Senecio segethii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dab04f32-6e3d-59c2-bfe2-96e8cbf02aa7",
+  "nombre": "Senecio volckmannii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2d5882c7-9146-5d0b-b0a4-39d341edd51c",
+  "nombre": "Sibara pinnata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "abb978b5-5aa5-5bf5-b88a-c2c707d76147",
+  "nombre": "Silvaea barneoudii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "80554081-5ea4-5890-bde9-d824798b0637",
+  "nombre": "Solanum brachyantherum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "59663c7a-d32d-56f2-b4c0-e5dc8e90cdd6",
+  "nombre": "Stuckenia filiformis",
+  "campos": {
+   "habitoDetalle": "Hierba acuática sumergida"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Currículum Nacional (MINEDUC), plantas vasculares acuáticas",
+    "url": "https://www.curriculumnacional.cl/estudiante/621/articles-254692_recurso_pdf.pdf"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "db0d3578-4d62-5b2a-a410-3a773e58f9c9",
+  "nombre": "Triglochin concinna",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "21aa383d-2e4e-53e6-b032-8ca98162d2ad",
+  "nombre": "Triglochin palustris",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0d06a435-1f5b-5947-990f-501c03fb1ec9",
+  "nombre": "Viola frigida",
+  "campos": {
+   "habitoDetalle": "Hierba en roseta"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Wikispecies (Viola sect. Rosulatae)",
+    "url": "https://species.wikimedia.org/wiki/Viola_frigida"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b5bb7f93-240e-5ba5-812b-1268e5165779",
+  "nombre": "Viola gelida",
+  "campos": {
+   "habitoDetalle": "Hierba en roseta"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "The Endemic Plants of Chile (RBGE)",
+    "url": "https://chileanendemics.rbge.org.uk/taxa/viola-gelida-j-m-watson-m-p-cárdenas-a-r-flores"
+   }
+  },
+  "noEncontrado": [
+   "colorFlor",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1c24ef78-868a-5bd5-aeae-95e923a51a17",
+  "nombre": "Viola montagnei",
+  "campos": {
+   "habitoDetalle": "Hierba en roseta"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Wikispecies (Viola sect. Rosulatae)",
+    "url": "https://species.wikimedia.org/wiki/Viola_montagnei"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "45ecf71b-8f9f-5198-b6ae-ccfdefeafc60",
+  "nombre": "Zameioscirpus atacamensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "673d629d-6013-5b00-bcdd-6f5c465e8c0c",
+  "nombre": "Zameioscirpus gaimardioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "836cd330-289e-59d4-bdc3-a25959257c28",
+  "nombre": "Carex erinacea",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2718025"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2718025"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5ec9a3e7-7276-5b8e-ad38-aa5f49f348ae",
+  "nombre": "Carex fuscula",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2724635"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2724635"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "690fe76a-a8eb-5db9-ae17-f8d1217a4fcb",
+  "nombre": "Carex magellanica",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2726416"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2726416"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "feb47eb7-f88c-5aa4-8ef4-205e66d03aae",
+  "nombre": "Carex phleoides",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2718015"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2718015"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "51c9df6c-235f-5bc4-92ba-70fbc93cef81",
+  "nombre": "Eleocharis pachycarpa",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2717256"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2717256"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e7e553ae-cf05-5555-8633-4855a664c7e6",
+  "nombre": "Isolepis cernua",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2713316"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2713316"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "83460b79-9b19-5ffd-afaf-9667cb7c9a4e",
+  "nombre": "Schoenoplectus californicus",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2711108"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2711108"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9e05b202-7e3c-5a92-b51c-5664a1985212",
+  "nombre": "Schoenus rhynchosporoides",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2709933"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2709933"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0e0c34bb-0d9f-52bc-995d-724693c6b37e",
+  "nombre": "Oreobolus obtusangulus",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2711900"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Cyperaceae",
+    "url": "https://www.gbif.org/species/2711900"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b7617fc9-7976-5cff-8fec-2dd4e82cfce0",
+  "nombre": "Juncus microcephalus",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/7548011"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Juncaceae",
+    "url": "https://www.gbif.org/species/7548011"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f69ebd53-1956-5577-97e6-67fd56472892",
+  "nombre": "Juncus planifolius",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2701447"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Juncaceae",
+    "url": "https://www.gbif.org/species/2701447"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c658a3d0-33be-5207-afdf-d1852485a47b",
+  "nombre": "Juncus procerus",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2701399"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Juncaceae",
+    "url": "https://www.gbif.org/species/2701399"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ea76e468-2077-54e5-b632-910b9b130356",
+  "nombre": "Juncus effusus",
+  "campos": {
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Juncaceae",
+    "url": "https://www.gbif.org/species/2701311"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "origen",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1492d484-4541-5f3a-81c3-017d84648b93",
+  "nombre": "Anthoxanthum odoratum",
+  "campos": {
+   "origen": "Introducida",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2705975"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/2705975"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "42313c1a-1997-5e23-9fdc-ba8612eb3f80",
+  "nombre": "Agrostis capillaris",
+  "campos": {
+   "origen": "Introducida",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2706490"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/2706490"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "81f6672e-6b69-5026-b52a-c5346101d3d2",
+  "nombre": "Agrostis stolonifera var. stolonifera",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "origen",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a00d8744-8c54-5770-97a3-29a530eca437",
+  "nombre": "Aira caryophyllea",
+  "campos": {
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/7747216"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "origen",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b6b0f9ea-f7a2-523d-9787-47699f5c5143",
+  "nombre": "Aira praecox",
+  "campos": {
+   "origen": "Introducida",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/5289582"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/5289582"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f356192e-1942-5355-9675-da5ef28c17c9",
+  "nombre": "Alopecurus pratensis",
+  "campos": {
+   "origen": "Introducida",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/5290081"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/5290081"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f8e7b42a-efdc-5c71-a59a-fd79bbd67b43",
+  "nombre": "Bromus catharticus var. catharticus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "origen",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8388d924-f60c-51f9-9be3-1b60c3a3bee8",
+  "nombre": "Chusquea montana",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/4132090"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/4132090"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "71bc4293-fe96-52db-b3cf-e8e2606747c6",
+  "nombre": "Chusquea quila",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/LowResPages/SH0324.htm"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/4130378"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5cbb3e12-35cc-5478-bf22-780c9f89263a",
+  "nombre": "Dactylis glomerata",
+  "campos": {
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/2705308"
+   }
+  },
+  "noEncontrado": [
+   "habito",
+   "habitoDetalle",
+   "origen",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e8ac60d8-4f15-5af1-9c66-a8c7c0caba6e",
+  "nombre": "Holcus lanatus",
+  "campos": {
+   "origen": "Introducida",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2706164"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/2706164"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "957f7934-52a4-5682-8367-c8b92ad90cae",
+  "nombre": "Hordeum chilense",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "sin_flor_vistosa"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/4149314"
+   },
+   "colorFlor": {
+    "nombre": "GBIF (WCVP), familia Poaceae",
+    "url": "https://www.gbif.org/species/4149314"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2739abc2-e2d8-55bb-ac10-f8e2a808e1d1",
+  "nombre": "Astelia pumila",
+  "campos": {
+   "origen": "Nativa"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2853152"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4e8253f9-7628-5945-ba4b-1473b9264272",
+  "nombre": "Fascicularia bicolor",
+  "campos": {
+   "origen": "Endémica"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/5287984"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "70fecf13-72f7-596e-9eb0-54c0104297a3",
+  "nombre": "Greigia sphacelata",
+  "campos": {
+   "origen": "Endémica"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2693922"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "94a16fec-a968-5b2c-be15-56115cf221b5",
+  "nombre": "Greigia landbeckii",
+  "campos": {
+   "origen": "Endémica",
+   "colorFlor": [
+    "rojo"
+   ]
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0793.htm"
+   },
+   "colorFlor": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0793.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4390923b-56f1-5c80-bc04-0ccfca1af8b7",
+  "nombre": "Greigia pearcei",
+  "campos": {
+   "origen": "Endémica"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2693934"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e1f4339e-1c72-5cf5-89dd-56d80a1707fc",
+  "nombre": "Dioscorea auriculata",
+  "campos": {
+   "origen": "Endémica"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2755042"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e8c27e16-8812-5ae3-bae9-0cd5e1e0f065",
+  "nombre": "Libertia chilensis",
+  "campos": {
+   "origen": "Nativa",
+   "colorFlor": [
+    "blanco"
+   ],
+   "petalos": "3"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/LowResPages/SH0086.htm"
+   },
+   "colorFlor": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/LowResPages/SH0086.htm"
+   },
+   "petalos": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/LowResPages/SH0086.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7f2fe644-b279-5abd-8816-1ff9addd1573",
+  "nombre": "Luzuriaga polyphylla",
+  "campos": {
+   "origen": "Endémica",
+   "colorFlor": [
+    "blanco"
+   ],
+   "petalos": "6"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0287.htm"
+   },
+   "colorFlor": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0287.htm"
+   },
+   "petalos": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0287.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "75ac1a28-0717-580e-814b-28c9e7ceb201",
+  "nombre": "Luzuriaga marginata",
+  "campos": {
+   "origen": "Nativa"
+  },
+  "fuentes": {
+   "origen": {
+    "nombre": "GBIF (WCVP)",
+    "url": "https://www.gbif.org/species/2754334"
+   }
+  },
+  "noEncontrado": [
+   "colorFlor",
+   "petalos",
+   "diagnostico"
+  ]
+ }
+]

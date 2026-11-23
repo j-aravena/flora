@@ -12,14 +12,21 @@ Un lote JSON: `[{ clave, nombre, nivel, familia, habito, faltan: [campos] }]`. I
 ## Fuentes permitidas (en este orden de preferencia)
 
 1. Chileflora — https://www.chileflora.com (fichas por especie, en español/inglés).
-2. Enciclopedia de la Flora Chilena — https://www.florachilena.cl
-3. Flora de Chile / Catálogo de plantas vasculares (Rodríguez et al. 2018) y sus fichas en
-   https://www.floradechile.cl o el PDF de Gayana Botánica 75(1).
-4. POWO — https://powo.science.kew.org (familia, origen/distribución nativa).
+2. Enciclopedia de la Flora Chilena — https://www.florachilena.cl (solo vía archivo web; el sitio vivo tiene TLS no confiable).
+3. Flora de Chile / Catálogo de plantas vasculares (Rodríguez et al. 2018), PDF de Gayana Botánica 75(1).
+   NO uses floradechile.cl: el dominio fue secuestrado (sitio de casinos).
+4. POWO — https://powo.science.kew.org (bloquea clientes automáticos con Cloudflare; para familia/origen usa GBIF, que sirve la lista WCVP).
 5. iNaturalist — https://www.inaturalist.org (solo para color de flor, mirando fotos de grado investigación en Chile).
 6. Tropicos / World Flora Online (familia, sinonimia).
 
 Usa WebSearch y WebFetch. Si el nombre no aparece, prueba sinónimos (POWO/WFO) y registra la fuente del sinónimo.
+
+## Fuentes con script
+
+`tools/datos/fuentes_auto.py` completa familia, origen, colorFlor, petalos y (si es una categoría clara) habito con
+índices locales en `tools/datos/cache/`: Chileflora (índice de familias, clave de flor y ficha por especie), GBIF
+(species/match y distribuciones WCVP) y RBGE (Plantas endémicas de Chile). Lo que el script ya llenó no se
+reinvestiga a mano; `diagnostico` y `habitoDetalle` no tienen fuente escalable y siguen siendo trabajo manual.
 
 ## Campos y vocabulario (exacto)
 

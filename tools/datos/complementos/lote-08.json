@@ -1,0 +1,528 @@
+[
+ {
+  "clave": "4c5a4461-8245-55f4-9dcc-c044dea727b4",
+  "nombre": "Taraxacum officinale",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b8c377e6-cffe-5271-bf7c-806f11a1514b",
+  "nombre": "Tessaria absinthioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f11f412e-8b37-5532-8871-c06cd4832d6c",
+  "nombre": "Tetraglochin alatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "781de9f5-f856-5e52-8c95-5d4b85229b32",
+  "nombre": "Teucrium bicolor",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d31a2e03-5f09-5119-a6ed-216b5e8c8d18",
+  "nombre": "Torilis nodosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a19346a3-479a-522a-b506-e4383f8407fc",
+  "nombre": "Trevoa quinquenervia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "21e68e0d-aa48-5028-a391-2e5095e9a24d",
+  "nombre": "Trichocereus chiloensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c20ff973-b9ba-50f5-bc69-5ef77394b185",
+  "nombre": "Trichopetalum plumosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0a1e59eb-f162-5c77-8967-a2426289281c",
+  "nombre": "Trifolium repens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3cc44a55-af77-5273-b55a-3030cdf1876c",
+  "nombre": "Trifolium tomentosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5ff2e1bc-60d9-5de8-99c6-fa8b43ac05fb",
+  "nombre": "Triptilion capillatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "37d3867a-fcc4-5fea-bd44-8cc0304c9ca7",
+  "nombre": "Tristagma bivalve",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "12171ab0-d180-53f8-a0ed-5780be806bbb",
+  "nombre": "Tristagma nivale",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9b7a6730-0bfa-5d1e-b3a0-bc5861a127fc",
+  "nombre": "Tristagma violaceum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "79b01a7e-bee2-5bd9-8dc7-ad788f2c43f5",
+  "nombre": "Tristerix aphyllus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0784bde0-e88c-59fd-9f85-2e65db4b3b69",
+  "nombre": "Tristerix corymbosus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "036832f6-ad8d-5c2a-999a-f9e45e3b9bd1",
+  "nombre": "Tropaeolum azureum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e45b0632-d39a-5dad-8862-22582d36d26b",
+  "nombre": "Tropaeolum polyphyllum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f5a1b817-b6e2-5a88-b367-82835e592dc7",
+  "nombre": "Tropaeolum sessilifolium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1d50dbc1-390e-51a0-ae03-04f703d817b2",
+  "nombre": "Tropaeolum tricolor",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "762dccf6-746f-5e7b-b129-57bbeea0abb1",
+  "nombre": "Tweedia birostrata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "71729e59-a5cc-50a0-93fd-8eac8cd59339",
+  "nombre": "Typha angustifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5baab94a-2550-5501-b19a-63ea42d4a1b8",
+  "nombre": "Urtica dioica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9c132c2c-7809-5f4b-b245-a41b108a2098",
+  "nombre": "Urtica gracilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c2f5b23c-fbd3-590a-99d1-8b589a517972",
+  "nombre": "Urtica urens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e541cfb3-c91d-5550-ab4d-225222146981",
+  "nombre": "Vachellia caven",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "c0c85f4b-2a75-5f67-846c-19de32fc67fa",
+  "nombre": "Valeriana crispa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dd61dab1-ca55-59a5-8743-3baa657fe46c",
+  "nombre": "Valeriana stricta",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8b30dc99-8708-5059-a177-0352dc82fa90",
+  "nombre": "Verbascum thapsus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39cc4883-ca59-56b6-888b-b2e13722f4d2",
+  "nombre": "Verbascum virgatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3b42adff-0eb2-55e1-99a9-7eb85861d838",
+  "nombre": "Verbena bonariensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9adcf5f0-be1b-50a7-9644-9d058fe05b00",
+  "nombre": "Veronica anagallis-aquatica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2cf65aa3-ca87-54ec-aabb-ac87e1bd04d8",
+  "nombre": "Viola atropurpurea",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "25304b3b-b9fd-5eca-ab98-3deadacb8b08",
+  "nombre": "Viola philippii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2786b003-3e76-5146-b7f0-41615d0bb72d",
+  "nombre": "Viola pusilla",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d3f0ade0-6a5a-5187-9510-89713a7cee8e",
+  "nombre": "Viola subandina",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f0c5d7ec-168c-5dd7-8f2d-5082f5eda80d",
+  "nombre": "Vitis vinifera",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "26088136-2f1e-5f1b-a19a-2761cee4e56c",
+  "nombre": "Viviania marifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "81726437-dfd8-59f5-8e34-d55cf415cc81",
+  "nombre": "Wahlenbergia linarioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dd7c76f6-8100-55c4-a733-3fff61846fbc",
+  "nombre": "Xanthium spinosum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9bb79abc-3b53-58ad-bdd5-25754ae87b44",
+  "nombre": "Adesmia hystrix",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "404fae8f-aa42-555c-9244-f98e2b0bbda7",
+  "nombre": "Adesmia obscura",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9a1ee67f-9de9-5e05-a7b7-27720452c48e",
+  "nombre": "Anisomeria littoralis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7d8f484a-5d38-5c5a-a49e-4ae50dcc4f1b",
+  "nombre": "Aristolochia chilensis",
+  "campos": {
+   "familia": "Aristolochiaceae"
+  },
+  "fuentes": {
+   "familia": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/LowResPages/SH0472.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39d1e62c-2de5-596f-9b49-2188173585be",
+  "nombre": "Baccharis spartioides",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1c17929b-78c6-5c4f-ba94-870cb53ee373",
+  "nombre": "Bahia ambrosioides",
+  "campos": {
+   "familia": "Asteraceae"
+  },
+  "fuentes": {
+   "familia": {
+    "nombre": "POWO",
+    "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:183950-1"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2b6d1cff-6ff3-52ea-b6eb-51ff6714b7bb",
+  "nombre": "Bridgesia incisifolia",
+  "campos": {
+   "familia": "Sapindaceae",
+   "petalos": "5"
+  },
+  "fuentes": {
+   "familia": {
+    "nombre": "POWO",
+    "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:782166-1"
+   },
+   "petalos": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraEnglish/HighResPages/EH0890.htm"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9ae0ca73-8e4f-5191-88ee-640a9a9b5a2b",
+  "nombre": "Buddleja suaveolens",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ca853716-0915-5d79-a19b-93e6a3fbb07f",
+  "nombre": "Calceolaria integrifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "3d306d86-3cb3-54c0-af8d-ecbc59ce492a",
+  "nombre": "Cordia decandra",
+  "campos": {
+   "familia": "Boraginaceae"
+  },
+  "fuentes": {
+   "familia": {
+    "nombre": "POWO",
+    "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:114093-1"
+   }
+  },
+  "noEncontrado": [
+   "habitoDetalle",
+   "petalos",
+   "diagnostico"
+  ]
+ }
+]

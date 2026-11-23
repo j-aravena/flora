@@ -1,0 +1,525 @@
+[
+ {
+  "clave": "23c1643c-8f17-5470-97d8-22c9c084b1f3",
+  "nombre": "Lepidium campestre",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "b4b2f996-4a18-5117-a0ac-4cb551978328",
+  "nombre": "Lepidium draba",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "650e36c5-826e-5015-b750-68a0f91458ff",
+  "nombre": "Lepidium spicatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "39ca9840-1424-559f-807c-a1c881cf7387",
+  "nombre": "Leucheria floribunda",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "63b25b6e-0649-5862-9990-31c59060172f",
+  "nombre": "Leucheria tenuis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "239fed0f-e77a-5c2e-b080-5ee0c1f9c463",
+  "nombre": "Leucocoryne alliacea",
+  "campos": {
+   "habitoDetalle": "Hierba bulbosa"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0437.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8b022108-edcb-5a8c-8189-d04302924d7b",
+  "nombre": "Leucocoryne ixioides",
+  "campos": {
+   "habitoDetalle": "Hierba bulbosa"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH1007.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "2b307eed-44ac-5849-974e-dd70c8b0b74e",
+  "nombre": "Leucocoryne violacescens",
+  "campos": {
+   "habitoDetalle": "Hierba bulbosa"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH1207.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "43d7a125-43e9-5596-921a-e098081d9d4d",
+  "nombre": "Ligaria cuneifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "287e39b0-4f23-5a99-8041-dbbe46f8036f",
+  "nombre": "Lithraea caustica",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "84a33236-1283-5590-96bb-4fdd9842e18c",
+  "nombre": "Loasa floribunda",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e9d71b5c-9a97-5f82-b52a-1f6f5bc05ee8",
+  "nombre": "Loasa placei",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "aa968530-ce75-5ac1-86c2-ec4466be0113",
+  "nombre": "Loasa prostrata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1f96d9b9-c115-5935-8de1-4cbd60a6985d",
+  "nombre": "Loasa tricolor",
+  "campos": {
+   "habitoDetalle": "Hierba trepadora"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0244.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e5c9b17d-6f5f-5976-a42a-ce585e2b37a7",
+  "nombre": "Loasa triloba",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "561a2f92-a925-5cf5-9307-999edb073a60",
+  "nombre": "Lupinus albus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "322f9b4a-1901-53fd-9187-43b0136be034",
+  "nombre": "Lupinus microcarpus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "9debdcd6-3721-5896-a7de-50d9da191711",
+  "nombre": "Lycium chilense",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "ce6304aa-850e-5e1e-bbcf-ede870186170",
+  "nombre": "Madia chilensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "8d47dfdb-2ab1-558d-87f4-eb85dc5fb548",
+  "nombre": "Madia sativa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "20e87fa4-ced4-5751-9e02-82112f6461b0",
+  "nombre": "Maihueniopsis ovata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "971eee12-e1ce-508b-a05f-b71e1229b247",
+  "nombre": "Malesherbia fasciculata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a10ae21e-a5ea-5c70-8a79-f7cef59223a8",
+  "nombre": "Malesherbia humilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7af4244b-9383-5b9c-b974-19676553ed24",
+  "nombre": "Malesherbia linearifolia",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "46465cb6-ba0c-52f4-ae72-df9446ebb1b3",
+  "nombre": "Malesherbia lirana",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7762c404-a80a-5f50-9e25-819f22f7a143",
+  "nombre": "Malva nicaeensis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "71a05f69-9c0c-535a-b546-49acc08996f9",
+  "nombre": "Malva parviflora",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e13cb073-b117-544a-9091-78f4c2eaaf86",
+  "nombre": "Margyricarpus pinnatus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "1fc42c67-2c92-50f4-8245-09fb7919b34b",
+  "nombre": "Marrubium vulgare",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "5920a34e-25b0-5bcb-9aaf-91e321b6d70a",
+  "nombre": "Maytenus boaria",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "634531ad-df41-5931-8bc9-d9632a83a554",
+  "nombre": "Medicago polymorpha",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dc25c0a2-e6f7-5bfb-aead-a8f691ebb02a",
+  "nombre": "Medicago sativa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "790fc1d1-f39d-55ac-acc2-43a6915e1b77",
+  "nombre": "Melia azedarach",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4507505a-a148-52e8-88eb-bf8f8a7d494e",
+  "nombre": "Melilotus indicus",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "30ce04ca-a2c3-5760-aacb-6dfeb7d35987",
+  "nombre": "Melilotus officinalis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "be851e93-0c72-52e9-af9f-96ae6326b1da",
+  "nombre": "Mentha pulegium",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "d3dbd877-932a-53fd-bbec-0086e46c357f",
+  "nombre": "Microsteris gracilis",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "480e3871-08b6-5b04-adc4-e61293ce94eb",
+  "nombre": "Mirabilis ovata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4b032b42-375a-52ff-ba59-99caa2012568",
+  "nombre": "Montiopsis capitata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0bc5cb76-0737-5089-a825-7a5a2f289a1e",
+  "nombre": "Montiopsis gilliesii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "dcc9d1c7-1bf5-5949-b44c-f82da871da26",
+  "nombre": "Montiopsis trifida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "649ff94c-e5a4-520e-986f-ebfffdfa9883",
+  "nombre": "Moscharia pinnatifida",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7b904cb0-e3c3-5984-b466-a97ca3784dcd",
+  "nombre": "Muehlenbeckia hastulata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "e911f319-9816-5479-993a-25b3a98101f4",
+  "nombre": "Mutisia acerosa",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "4dab1db5-7dc3-5d32-b433-4a024da80110",
+  "nombre": "Mutisia ilicifolia",
+  "campos": {
+   "habitoDetalle": "Arbusto trepador"
+  },
+  "fuentes": {
+   "habitoDetalle": {
+    "nombre": "Chileflora",
+    "url": "https://www.chileflora.com/Florachilena/FloraSpanish/HighResPages/SH0260.htm"
+   }
+  },
+  "noEncontrado": [
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "f8aae0c4-e82e-592d-818f-d17a646684b0",
+  "nombre": "Mutisia sinuata",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a18fd68e-d2da-5424-95f3-778b5d0c700c",
+  "nombre": "Nardophyllum lanatum",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "7257c46e-62f7-5efd-9dda-b210f619fb13",
+  "nombre": "Nassauvia axillaris",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "a3b39969-45f6-57f9-9c33-0d645a6a79b4",
+  "nombre": "Nassauvia cumingii",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ },
+ {
+  "clave": "0ce979e3-c2d4-59a8-8cd0-8f6453209d8d",
+  "nombre": "Nassauvia looseri",
+  "campos": {},
+  "fuentes": {},
+  "noEncontrado": [
+   "habitoDetalle",
+   "diagnostico"
+  ]
+ }
+]
