@@ -24,6 +24,7 @@ def _base_registro(nombre: str, nivel: str, ahora: str) -> dict:
         "aciertos": 0, "fallos": 0, "rachaAciertos": 0, "ultimoEstudio": None,
         "notas": "", "creadoEn": ahora, "modificadoEn": ahora, "_filas": [], "_filas_pref": [],
         "colorFlor": [], "petalos": "", "petalosNota": "", "rasgosFuente": "",
+        "registroAI": "", "hidrofila": False, "diagnostico": "", "ordenListado": {},
     }
 
 
