@@ -41,6 +41,7 @@ export function nuevaEspecie(datos = {}) {
     rangoAltitudinal: '', sitios: [], aprendizaje: null, aciertos: 0, fallos: 0, rachaAciertos: 0,
     ultimoEstudio: null, notas: '', colorFlor: [], petalos: '', petalosNota: '', rasgosFuente: '',
     registroAI: '', hidrofila: false, diagnostico: '', ordenListado: {},
+    completado: {}, fallosPorTipo: {},
     creadoEn: t, modificadoEn: t, ...datos,
   };
 }
@@ -161,6 +162,45 @@ export async function leerManifest(JSZip, datos) {
   const manifest = JSON.parse((await zip.file('manifest.json')?.async('string')) ?? 'null');
   if (!manifest || manifest.formato !== FORMATO) throw new Error('Formato de respaldo desconocido');
   return manifest;
+}
+
+export const CAMPOS_COMPLEMENTO = ['familia', 'habito', 'habitoDetalle', 'origen', 'colorFlor', 'petalos', 'diagnostico', 'categoriaMMA', 'decreto'];
+const sinValor = v => v == null || v === '' || (Array.isArray(v) && v.length === 0);
+
+// Aplica un paquete de complementos (spec 1.5 §5.4): solo llena campos vacíos y anota su fuente en `completado`.
+// Categoría y decreto van juntos; el decreto solo se completa si la categoría del teléfono coincide. Idempotente.
+export async function aplicarComplementos(db, JSZip, datos) {
+  await leerManifest(JSZip, datos);
+  const zip = await JSZip.loadAsync(datos);
+  const registros = JSON.parse(await zip.file('complementos.json').async('string'));
+  const actuales = await db.especies.toArray();
+  const porId = new Map(actuales.map(e => [e.id, e]));
+  const porNombre = new Map(actuales.map(e => [normalizar(e.nombre), e]));
+  const cambiadas = new Map();
+  let campos = 0;
+  for (const r of registros) {
+    const original = porId.get(r.id) ?? porNombre.get(normalizar(r.nombre));
+    if (!original) continue;
+    const e = cambiadas.get(original.id) ?? { ...original, completado: { ...(original.completado ?? {}) } };
+    let tocada = false;
+    const poner = campo => { e[campo] = r.campos[campo]; e.completado[campo] = r.fuentes[campo]; campos++; tocada = true; };
+    for (const campo of Object.keys(r.campos)) {
+      if (!CAMPOS_COMPLEMENTO.includes(campo) || campo === 'decreto' || !r.fuentes?.[campo]) continue;
+      if (campo === 'categoriaMMA') {
+        if (sinValor(e.categoriaMMA)) {
+          poner('categoriaMMA');
+          if (r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) poner('decreto');
+        } else if (e.categoriaMMA === r.campos.categoriaMMA && r.campos.decreto && r.fuentes.decreto && sinValor(e.decreto)) {
+          poner('decreto');
+        }
+        continue;
+      }
+      if (sinValor(e[campo])) poner(campo);
+    }
+    if (tocada) cambiadas.set(original.id, e);
+  }
+  await db.especies.bulkPut([...cambiadas.values()]);
+  return { especies: cambiadas.size, campos };
 }
 
 export async function importarRespaldo(db, JSZip, datos, modo = 'reemplazar', onProgreso = () => {}) {

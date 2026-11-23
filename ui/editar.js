@@ -24,6 +24,15 @@ function campoSelector(objeto, clave, titulo, opciones, textoVacio) {
     })));
 }
 
+// Nota bajo un campo que se completó desde una fuente externa, con el botón para confirmarlo.
+function notaCompletado(borrador, clave) {
+  const fuente = borrador.completado?.[clave];
+  if (!fuente) return null;
+  const nota = el('p', { class: 'nota-completado' }, 'Completado desde ' + fuente.split(' — ')[0] + ' ',
+    el('button', { type: 'button', class: 'btn chico', onclick: () => { delete borrador.completado[clave]; nota.remove(); } }, 'Confirmar'));
+  return nota;
+}
+
 export async function render(cont, ctx, id) {
   const { db, navegar } = ctx;
   const nueva = !id;
@@ -38,6 +47,9 @@ export async function render(cont, ctx, id) {
   async function guardar() {
     borrador.distribucion = textoDistribucion.value.split(/[,\s]+/).map(s => s.trim()).filter(Boolean);
     borrador.petalos = (borrador.petalos ?? '').trim();
+    for (const clave of Object.keys(borrador.completado ?? {})) {
+      if (JSON.stringify(borrador[clave]) !== JSON.stringify(original[clave])) delete borrador.completado[clave];
+    }
     try {
       const r = await guardarEspecie(db, borrador);
       aviso('Guardado');
@@ -51,15 +63,22 @@ export async function render(cont, ctx, id) {
     campoTexto(borrador, 'nombre', 'Nombre científico'),
     campoSelector(borrador, 'nivel', 'Nivel', NIVELES_TEXTO, null),
     campoTexto(borrador, 'familia', 'Familia'),
+    notaCompletado(borrador, 'familia'),
     campoSelector(borrador, 'origen', 'Origen', ORIGENES, '(sin dato)'),
+    notaCompletado(borrador, 'origen'),
     campoSelector(borrador, 'habito', 'Hábito', HABITOS, '(sin dato)'),
+    notaCompletado(borrador, 'habito'),
     campoTexto(borrador, 'habitoDetalle', 'Hábito detallado'),
+    notaCompletado(borrador, 'habitoDetalle'),
     campoSelector(borrador, 'ciclo', 'Ciclo de vida', CICLOS, '(sin dato)'),
     campoSelector(borrador, 'categoriaMMA', 'Categoría de conservación (MMA)', CATEGORIAS, '(sin categoría)'),
+    notaCompletado(borrador, 'categoriaMMA'),
     campoTexto(borrador, 'decreto', 'Decreto'),
+    notaCompletado(borrador, 'decreto'),
     campoSelector(borrador, 'registroAI', 'Registrada antes en el área de influencia (AI)', [['si', 'Sí'], ['no', 'No'], ['duda', 'Por confirmar']], '(sin dato)'),
     el('label', { class: 'casilla' }, el('input', { type: 'checkbox', checked: Boolean(borrador.hidrofila), onchange: ev => { borrador.hidrofila = ev.target.checked; } }), 'Hidrófila o de humedal'),
     campoTexto(borrador, 'diagnostico', 'Para reconocerla (rasgo diagnóstico)', true),
+    notaCompletado(borrador, 'diagnostico'),
     el('label', { class: 'casilla' }, el('input', { type: 'checkbox', checked: borrador.ds68, onchange: ev => { borrador.ds68 = ev.target.checked; } }), 'Figura en el D.S. N° 68/2009'),
     el('label', {}, 'Distribución (códigos de región separados por coma)', textoDistribucion),
     campoTexto(borrador, 'rangoAltitudinal', 'Rango altitudinal'),
@@ -72,7 +91,9 @@ export async function render(cont, ctx, id) {
         const actual = borrador.colorFlor ?? [];
         borrador.colorFlor = ev.target.checked ? [...actual, valor] : actual.filter(x => x !== valor);
       } }), texto))),
+    notaCompletado(borrador, 'colorFlor'),
     campoTexto(borrador, 'petalos', 'Pétalos (número, rango como 4-5, 0 o variable)'),
+    notaCompletado(borrador, 'petalos'),
     campoTexto(borrador, 'petalosNota', 'Pétalos según clave (tipo y aclaración)'),
     el('label', {}, 'Aprendizaje', selectorAprendizaje),
     campoTexto(borrador, 'notas', 'Notas', true),

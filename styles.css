@@ -296,3 +296,7 @@ dialog.hoja::backdrop { background: rgba(0,0,0,.45); }
 .hoja-seccion h3 { font-size: 1rem; font-weight: 600; margin: 16px 0 0; color: var(--acento); }
 .hoja-pie { position: sticky; bottom: 0; padding: 16px 16px calc(16px + env(safe-area-inset-bottom)); background: var(--superficie); border-top: 1px solid var(--borde); }
 .hoja-pie .btn { width: 100%; }
+
+/* Complementos */
+.marca-completado { background: none; border: 0; color: var(--texto-tenue); cursor: pointer; font: inherit; min-width: 32px; min-height: 32px; padding: 4px 8px; }
+.fuente-completado, .nota-completado { font-size: 0.9rem; color: var(--texto-suave); margin: 4px 0 8px; }

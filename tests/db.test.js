@@ -5,7 +5,7 @@ import {
   crearDb, nuevaEspecie, guardarEspecie, obtenerEspecie, borrarEspecie, listarEspecies,
   normalizar, leerMeta, escribirMeta, contar,
   fotosDe, agregarFoto, borrarFoto, moverFoto, miniaturasPrimeras, especiesConFoto,
-  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos, agregarListado,
+  exportarRespaldo, importarRespaldo, leerManifest, valoresPetalos, agregarListado, aplicarComplementos,
 } from '../db.js';
 
 let db;
@@ -305,5 +305,66 @@ describe('agregarListado con existentes', () => {
     const r = await agregarListado(db, JSZip, await zipListado([nueva], [fotoMeta('g1', nueva.id, 0)]), 'Chacao Chonchi');
     expect(r).toEqual({ nuevas: 1, conSitio: 0, fotos: 1 });
     expect((await obtenerEspecie(db, nueva.id)).ordenListado).toEqual({ 'Chacao Chonchi': 1 });
+  });
+});
+
+describe('aplicarComplementos', () => {
+  async function zipComplementos(registros) {
+    const z = new JSZip();
+    z.file('manifest.json', JSON.stringify({ formato: 1, tipo: 'complementos', version: 1, creado: '2026-11-23' }));
+    z.file('complementos.json', JSON.stringify(registros));
+    return z.generateAsync({ type: 'arraybuffer' });
+  }
+  const F = 'Chileflora — https://www.chileflora.com/x';
+
+  it('llena solo campos vacíos, por id o por nombre, y marca la procedencia', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.bulkAdd([
+      nuevaEspecie({ id: 'a', nombre: 'Greigia sphacelata', origen: 'Nativa' }),
+      nuevaEspecie({ id: 'b', nombre: 'Carex erinácea' }),
+    ]);
+    const r = await aplicarComplementos(db, JSZip, await zipComplementos([
+      { id: 'a', nombre: 'Greigia sphacelata', campos: { origen: 'Endémica', colorFlor: ['rojo'] }, fuentes: { origen: F, colorFlor: F } },
+      { id: 'zz', nombre: 'Carex erinacea', campos: { diagnostico: 'Espigas erizadas.' }, fuentes: { diagnostico: F } },
+    ]));
+    const a = await db.especies.get('a');
+    const b = await db.especies.get('b');
+    expect(a.origen).toBe('Nativa');
+    expect(a.colorFlor).toEqual(['rojo']);
+    expect(a.completado).toEqual({ colorFlor: F });
+    expect(b.diagnostico).toBe('Espigas erizadas.');
+    expect(b.completado).toEqual({ diagnostico: F });
+    expect(r).toEqual({ especies: 2, campos: 2 });
+  });
+
+  it('categoría y decreto van juntos; decreto solo se completa si la categoría coincide', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.bulkAdd([
+      nuevaEspecie({ id: 'a', nombre: 'A a' }),
+      nuevaEspecie({ id: 'b', nombre: 'B b', categoriaMMA: 'Vulnerable' }),
+      nuevaEspecie({ id: 'c', nombre: 'C c', categoriaMMA: 'En peligro' }),
+    ]);
+    const campos = { categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014' };
+    const fuentes = { categoriaMMA: F, decreto: F };
+    await aplicarComplementos(db, JSZip, await zipComplementos(['a', 'b', 'c'].map(id => ({ id, nombre: id, campos, fuentes }))));
+    expect(await db.especies.get('a')).toMatchObject({ categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014', completado: { categoriaMMA: F, decreto: F } });
+    expect(await db.especies.get('b')).toMatchObject({ categoriaMMA: 'Vulnerable', decreto: 'D.S. N° 52/2014', completado: { decreto: F } });
+    expect(await db.especies.get('c')).toMatchObject({ categoriaMMA: 'En peligro', decreto: '' });
+  });
+
+  it('es idempotente e ignora especies o campos desconocidos', async () => {
+    const db = crearDb(`c-${crypto.randomUUID()}`);
+    await db.especies.add(nuevaEspecie({ id: 'a', nombre: 'A a' }));
+    const datos = await zipComplementos([
+      { id: 'a', nombre: 'A a', campos: { petalos: '5', notas: 'x' }, fuentes: { petalos: F, notas: F } },
+      { id: 'q', nombre: 'No existe', campos: { petalos: '4' }, fuentes: { petalos: F } },
+    ]);
+    expect(await aplicarComplementos(db, JSZip, datos)).toEqual({ especies: 1, campos: 1 });
+    expect(await aplicarComplementos(db, JSZip, datos)).toEqual({ especies: 0, campos: 0 });
+    expect((await db.especies.get('a')).notas).toBe('');
+  });
+
+  it('nuevaEspecie trae completado y fallosPorTipo vacíos', () => {
+    expect(nuevaEspecie()).toMatchObject({ completado: {}, fallosPorTipo: {} });
   });
 });

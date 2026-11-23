@@ -16,6 +16,25 @@ const CAMPOS = [
 const REGISTRO_AI = { si: 'Sí', no: 'No', duda: 'Por confirmar' };
 const ATRIBUCION_PRESENTACION = 'Presentación Chacao Chonchi';
 
+// Marca ⓘ junto a un dato completado desde una fuente externa: al tocarla muestra de dónde salió.
+function marcaCompletado(e, clave) {
+  const fuente = e.completado?.[clave];
+  if (!fuente) return null;
+  const [nombre, url] = fuente.split(' — ');
+  let nota = null;
+  const boton = el('button', {
+    type: 'button', class: 'marca-completado', 'aria-label': 'Completado desde ' + nombre, 'aria-expanded': 'false',
+    onclick: () => {
+      if (nota) { nota.remove(); nota = null; boton.setAttribute('aria-expanded', 'false'); return; }
+      nota = el('p', { class: 'fuente-completado' }, 'Completado desde ',
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener' }, nombre) : nombre);
+      boton.parentNode.append(nota);
+      boton.setAttribute('aria-expanded', 'true');
+    },
+  }, 'ⓘ');
+  return boton;
+}
+
 function valorTexto(clave, v) {
   if (clave === 'ds68') return v ? 'Sí' : '';
   if (clave === 'nivel') return v === 'especie' ? '' : v === 'genero' ? 'Género' : 'Familia';
@@ -70,9 +89,9 @@ export async function render(cont, ctx, id) {
     if (clave === 'colorFlor') {
       const muestras = (e.colorFlor ?? []).filter(c => COLOR_HEX[c])
         .map(c => el('span', { class: 'muestra-color', style: `background: ${COLOR_HEX[c]}` }));
-      return [el('dt', {}, titulo), el('dd', {}, ...muestras, ' ', v)];
+      return [el('dt', {}, titulo), el('dd', {}, ...muestras, ' ', v, marcaCompletado(e, clave))];
     }
-    return [el('dt', {}, titulo), el('dd', {}, v)];
+    return [el('dt', {}, titulo), el('dd', {}, v, marcaCompletado(e, clave))];
   }));
   const banda = estiloColor(e.colorFlor);
   const tinte = tinteFondo(e.colorFlor);
@@ -82,7 +101,7 @@ export async function render(cont, ctx, id) {
       banda ? el('span', { class: 'banda', style: `background: ${banda}`, 'aria-hidden': 'true' }) : null,
       el('h1', {}, el('i', {}, e.nombre)), el('p', {}, e.familia || '')),
     fotos.length ? galeria : el('p', { class: 'estado' }, 'Sin fotos. Agrega una desde Editar.'),
-    e.diagnostico ? el('section', { class: 'diagnostico' }, el('h2', {}, 'Para reconocerla'), el('p', {}, e.diagnostico)) : null,
+    e.diagnostico ? el('section', { class: 'diagnostico' }, el('h2', {}, 'Para reconocerla'), el('p', {}, e.diagnostico, marcaCompletado(e, 'diagnostico'))) : null,
     campos,
     e.notas ? el('section', {}, el('h2', {}, 'Notas'), el('p', { class: 'notas' }, e.notas)) : null,
     e.rasgosFuente ? el('section', {}, el('h2', {}, 'Fuentes de rasgos'),
