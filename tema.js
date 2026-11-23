@@ -2,7 +2,7 @@
 export const CLAVE_TEMA = 'flora.tema';
 export const TEMAS = [['auto', 'Automático'], ['claro', 'Claro'], ['oscuro', 'Oscuro']];
 const VALIDOS = TEMAS.map(([v]) => v);
-export const COLOR_BARRA = { claro: '#f3f5f0', oscuro: '#0a0d0b' };
+export const COLOR_BARRA = { claro: '#f6f7f4', oscuro: '#0b100d' };
 
 export function leerTema(almacen) {
   try {

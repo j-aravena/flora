@@ -1,11 +1,22 @@
-import { miniaturasPrimeras, especiesConFoto, valoresPetalos } from '../db.js';
+import { miniaturasPrimeras, especiesConFoto, valoresPetalos, COLORES_FLOR } from '../db.js';
 import { ORDENES, filtrar, ordenar, hayOrdenListado, filtrosActivos } from '../filtros.js';
 import { siglaCategoria, nivelCategoria, esHidrofila } from '../taxonomia.js';
-import { el, urlDe, estiloColor, tinteFondo } from './dom.js';
+import { el, urlDe, COLOR_HEX } from './dom.js';
+import { icono } from './iconos.js';
 import { memoria } from './memoria.js';
 import { PRINCIPALES, TITULOS, opcionesFiltro, etiquetaFiltro, selectorFiltro, abrirHojaFiltros } from './filtros-ui.js';
 
 const SITIO_AI = 'Chacao Chonchi';
+const NOMBRE_COLOR = Object.fromEntries(COLORES_FLOR);
+
+// Muestra de leyenda del color de flor: cuadrado(s) de color y la palabra del primero.
+export function leyendaColor(colores) {
+  const utiles = (colores ?? []).filter(c => COLOR_HEX[c]).slice(0, 2);
+  if (!utiles.length) return null;
+  return el('span', { class: 'leyenda-color' },
+    ...utiles.map(c => el('span', { class: 'muestra', style: `--muestra: ${COLOR_HEX[c]}`, 'aria-hidden': 'true' })),
+    (NOMBRE_COLOR[utiles[0]] ?? utiles[0]).toLowerCase() + (utiles[1] ? ' y ' + (NOMBRE_COLOR[utiles[1]] ?? utiles[1]).toLowerCase() : ''));
+}
 
 export async function render(cont, ctx) {
   const { db } = ctx;
@@ -17,10 +28,11 @@ export async function render(cont, ctx) {
   const etiqueta = (clave, valor) => etiquetaFiltro(OPCIONES, clave, valor);
 
   const contador = el('p', { class: 'contador', 'aria-live': 'polite' });
+  const etiquetaFiltros = el('span', {}, 'Filtros');
   const chips = el('div', { class: 'chips' });
   const principales = el('div', { class: 'filtros-principales' });
-  const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
-  const selectorOrden = el('select', { 'aria-label': 'Orden', onchange: ev => cambiar({ orden: ev.target.value }) });
+  const botonFiltros = el('button', { type: 'button', class: 'pildora boton-filtros', onclick: () => abrirHoja() }, icono('filtros', { tam: 18 }), etiquetaFiltros);
+  const selectorOrden = el('select', { 'aria-label': 'Orden', class: 'orden', onchange: ev => cambiar({ orden: ev.target.value }) });
   const ul = el('ul', { class: 'lista' });
 
   function cambiar({ filtro, orden }) {
@@ -36,7 +48,8 @@ export async function render(cont, ctx) {
     const { filtro, orden } = memoria.estado();
     const activos = filtrosActivos(filtro);
     const otros = activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).length;
-    botonFiltros.textContent = otros ? `Más filtros (${otros})` : 'Más filtros';
+    etiquetaFiltros.textContent = otros ? `Filtros · ${otros}` : 'Filtros';
+    botonFiltros.classList.toggle('activo', otros > 0);
     principales.replaceChildren(...PRINCIPALES.map(clave => selectorFiltro({
       clave, vacio: TITULOS[clave], OPCIONES, todas, ctxFiltro, filtro,
       alCambiar: valor => cambiar({ filtro: { [clave]: valor } }),
@@ -45,10 +58,10 @@ export async function render(cont, ctx) {
     selectorOrden.replaceChildren(...ordenes.map(([v, t]) => el('option', { value: v, selected: v === orden }, t)));
     // replaceChildren convierte null en el texto "null": solo se pasan nodos.
     chips.replaceChildren(...[
-      ...activos.map(({ clave, valor }) => el('button', {
+      ...activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).map(({ clave, valor }) => el('button', {
         type: 'button', class: 'chip', 'aria-label': `Quitar ${TITULOS[clave]}`,
         onclick: () => cambiar({ filtro: { [clave]: '' } }),
-      }, `${TITULOS[clave]}: ${etiqueta(clave, valor)} ×`)),
+      }, `${TITULOS[clave]}: ${etiqueta(clave, valor)}`, icono('cerrar', { tam: 14 }))),
       activos.length ? el('button', { type: 'button', class: 'chip limpiar', onclick: () => {
         const texto = memoria.estado().filtro.texto;
         memoria.limpiarFiltros();
@@ -58,8 +71,6 @@ export async function render(cont, ctx) {
   }
 
   function fila(e) {
-    const banda = estiloColor(e.colorFlor);
-    const tinte = tinteFondo(e.colorFlor);
     const sigla = siglaCategoria(e.categoriaMMA);
     const insignias = [
       sigla ? el('span', { class: `insignia cat-${nivelCategoria(e.categoriaMMA)}`, title: e.categoriaMMA }, sigla) : null,
@@ -69,17 +80,16 @@ export async function render(cont, ctx) {
     ].filter(Boolean);
     return el('li', { 'data-id': e.id },
       el('a', {
-        href: `#/ficha/${e.id}`, style: tinte ? `background: ${tinte}` : null,
+        href: `#/ficha/${e.id}`,
         onclick: ev => memoria.actualizar({ ancla: { id: e.id, desfase: ev.currentTarget.getBoundingClientRect().top }, ultimaId: e.id }),
       },
-      banda ? el('span', { class: 'banda', style: `background: ${banda}`, 'aria-hidden': 'true' }) : null,
       minis.has(e.id)
-        ? el('img', { src: urlDe(`mini-${e.id}`, minis.get(e.id)), alt: '', loading: 'lazy', width: 64, height: 64 })
-        : el('div', { class: 'sin-foto' }, 'Sin foto'),
-      el('div', { class: 'texto' }, el('i', {}, e.nombre),
-        el('small', {}, e.familia || ''),
+        ? el('img', { src: urlDe(`mini-${e.id}`, minis.get(e.id)), alt: '', loading: 'lazy', width: 56, height: 56 })
+        : el('div', { class: 'sin-foto', 'aria-hidden': 'true' }, icono('hoja', { tam: 22 })),
+      el('div', { class: 'texto' }, el('i', { class: 'nombre' }, e.nombre),
+        el('span', { class: 'leyenda' }, e.familia ? el('span', {}, e.familia) : null, leyendaColor(e.colorFlor)),
         insignias.length ? el('span', { class: 'insignias' }, ...insignias) : null),
-      el('span', { class: `punto ${e.aprendizaje ?? 'sin'}` })));
+      e.aprendizaje && e.aprendizaje !== 'sin' ? el('span', { class: `punto ${e.aprendizaje}`, title: 'Aprendizaje' }) : null));
   }
 
   function pintar() {
@@ -110,14 +120,16 @@ export async function render(cont, ctx) {
   }
 
   const buscador = el('input', {
-    type: 'search', placeholder: 'Buscar nombre, familia o rasgo', value: memoria.estado().filtro.texto,
+    type: 'search', placeholder: 'Buscar especie, familia o rasgo', value: memoria.estado().filtro.texto, 'aria-label': 'Buscar',
     oninput: ev => cambiar({ filtro: { texto: ev.target.value } }),
   });
   cont.append(
-    el('header', { class: 'cabecera' }, buscador, principales,
-      el('div', { class: 'barra-filtros' }, botonFiltros, selectorOrden), chips, contador),
+    el('header', { class: 'cabecera cabecera-lista' },
+      el('div', { class: 'titulo-fila' }, el('h1', {}, 'Flora'), contador),
+      el('label', { class: 'buscador' }, icono('buscar', { tam: 20 }), buscador),
+      el('div', { class: 'filtros-fila' }, botonFiltros, principales, selectorOrden), chips),
     ul,
-    el('a', { class: 'flotante', href: '#/editar/', 'aria-label': 'Nueva especie' }, '+'));
+    el('a', { class: 'flotante', href: '#/editar/', 'aria-label': 'Nueva especie' }, icono('mas', { tam: 26 })));
   pintar();
   restaurar();
   vigilarScroll();

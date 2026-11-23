@@ -3,6 +3,7 @@ import { filtrosActivos } from '../filtros.js';
 import { candidatas, armarSesion, resumenSesion, tiposFalladosPorId } from '../study.js';
 import { armarRonda, calificarRonda, resultadoRonda, ETIQUETAS_TIPO } from '../quiz.js';
 import { el, urlDe, aviso } from './dom.js';
+import { icono } from './iconos.js';
 import { crearMemoria, memoria as memoriaLista } from './memoria.js';
 import { PRINCIPALES, TITULOS, opcionesFiltro, etiquetaFiltro, selectorFiltro, abrirHojaFiltros } from './filtros-ui.js';
 
@@ -81,7 +82,8 @@ export async function render(cont, ctx, especieFija) {
     reiniciar(sesion);
     const principales = el('div', { class: 'filtros-principales' });
     const chips = el('div', { class: 'chips' });
-    const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
+    const etiquetaFiltros = el('span', {}, 'Filtros');
+    const botonFiltros = el('button', { type: 'button', class: 'pildora boton-filtros', onclick: () => abrirHoja() }, icono('filtros', { tam: 18 }), etiquetaFiltros);
     const bloqueModo = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Modo' });
     const bloqueAlcance = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Especies' });
     const bloqueCantidad = el('div', { class: 'segmentos', role: 'group', 'aria-label': 'Cantidad' });
@@ -108,20 +110,23 @@ export async function render(cont, ctx, especieFija) {
       const filtro = filtroActual();
       const activos = filtrosActivos(filtro);
       const otros = activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).length;
-      botonFiltros.textContent = otros ? `Más filtros (${otros})` : 'Más filtros';
+      etiquetaFiltros.textContent = otros ? `Filtros · ${otros}` : 'Filtros';
+      botonFiltros.classList.toggle('activo', otros > 0);
       principales.replaceChildren(...PRINCIPALES.map(clave => selectorFiltro({
         clave, vacio: TITULOS[clave], OPCIONES, todas, ctxFiltro, filtro,
         alCambiar: valor => cambiarFiltro({ [clave]: valor }),
       })));
-      chips.replaceChildren(
-        ...activos.map(({ clave, valor }) => el('button', {
+      // replaceChildren convierte null en el texto "null": solo se pasan nodos.
+      chips.replaceChildren(...[
+        ...activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).map(({ clave, valor }) => el('button', {
           type: 'button', class: 'chip', 'aria-label': `Quitar ${TITULOS[clave]}`,
           onclick: () => cambiarFiltro({ [clave]: '' }),
-        }, `${TITULOS[clave]}: ${etiquetaFiltro(OPCIONES, clave, valor)} ×`)),
+        }, `${TITULOS[clave]}: ${etiquetaFiltro(OPCIONES, clave, valor)}`, icono('cerrar', { tam: 14 }))),
         activos.length ? el('button', { type: 'button', class: 'chip limpiar', onclick: () => {
           memoria.limpiarFiltros();
           pintar();
-        } }, 'Limpiar todo') : null);
+        } }, 'Limpiar todo') : null,
+      ].filter(Boolean));
       segmentos(bloqueModo, MODOS, 'modo', 'cuestionario');
       segmentos(bloqueAlcance, ALCANCES, 'alcance', 'todas');
       segmentos(bloqueCantidad, CANTIDADES, 'cantidad', 20);
@@ -153,11 +158,10 @@ export async function render(cont, ctx, especieFija) {
       el('header', { class: 'cabecera' }, el('h1', {}, 'Estudio'), el('p', { class: 'contador' }, resumenEstados(todas))),
       el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Modo'), bloqueModo),
       el('section', { class: 'bloque-estudio' },
-        el('h2', {}, 'Filtros'), principales,
-        el('div', { class: 'barra-filtros dos' },
-          botonFiltros,
-          el('button', { type: 'button', class: 'btn chico', onclick: usarFiltrosDeLaLista }, 'Usar los filtros de la lista')),
-        chips),
+        el('h2', {}, 'Filtros'),
+        el('div', { class: 'filtros-fila' }, botonFiltros, principales),
+        chips,
+        el('button', { type: 'button', class: 'enlace', onclick: usarFiltrosDeLaLista }, 'Usar los filtros de la lista')),
       el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Especies'), bloqueAlcance),
       el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Cantidad'), bloqueCantidad),
       disponibles,
@@ -177,6 +181,7 @@ export async function render(cont, ctx, especieFija) {
   }
 
   function mostrar() {
+    window.scrollTo(0, 0);
     if (!enCurso(sesion)) { pantallaFinal(); return; }
     const e = sesion.cola[sesion.indice];
     if (sesion.modo === 'repasar') pantallaRepaso(e, sesion.indice + 1, sesion.cola.length);
