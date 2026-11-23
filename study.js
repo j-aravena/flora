@@ -39,24 +39,6 @@ export function barajar(arr, rng) {
   return a;
 }
 
-export function distractores(cands, correcta, n, rng) {
-  const otras = cands.filter(e => e.id !== correcta.id);
-  const mismaFamilia = otras.filter(e => e.familia && e.familia === correcta.familia);
-  const mismoHabito = otras.filter(e => !mismaFamilia.includes(e) && e.habito && e.habito === correcta.habito);
-  const resto = otras.filter(e => !mismaFamilia.includes(e) && !mismoHabito.includes(e));
-  const elegidas = [];
-  for (const grupo of [mismaFamilia, mismoHabito, resto]) {
-    for (const e of barajar(grupo, rng)) {
-      if (elegidas.length < n) elegidas.push(e);
-    }
-  }
-  return elegidas;
-}
-
-export function calificarA(especie, valor, fecha) {
-  return { ...especie, aprendizaje: valor, ultimoEstudio: fecha, modificadoEn: fecha };
-}
-
 export function registrarB(especie, acierto, fecha) {
   const nivel = especie.aprendizaje ?? 'sin';
   if (acierto) {
@@ -109,6 +91,18 @@ export function resumenSesion(respuestas) {
   }
   cuenta.falladas = [...new Set(cuenta.falladas)];
   return cuenta;
+}
+
+// Tipos de pregunta fallados por especie, para el resumen de fin de sesión. respuestas: { id, resultado, fallados?: string[] }.
+export function tiposFalladosPorId(respuestas) {
+  const mapa = new Map();
+  for (const r of respuestas) {
+    if (r.resultado === 'perfecta' || r.resultado === 'saltada') continue;
+    const tipos = mapa.get(r.id) ?? [];
+    for (const t of r.fallados ?? []) if (!tipos.includes(t)) tipos.push(t);
+    mapa.set(r.id, tipos);
+  }
+  return mapa;
 }
 
 // mulberry32: generador pequeño y determinista para pruebas.

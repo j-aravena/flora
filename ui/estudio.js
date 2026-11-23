@@ -1,9 +1,24 @@
-import { fotosDe, especiesConFoto, miniaturasPrimeras, obtenerEspecie, SITIOS } from '../db.js';
-import { candidatas, armarSesion, resumenSesion, distractores, calificarA, registrarB, barajar } from '../study.js';
+import { fotosDe, especiesConFoto, miniaturasPrimeras, obtenerEspecie, valoresPetalos, ahora } from '../db.js';
+import { filtrosActivos } from '../filtros.js';
+import { candidatas, armarSesion, resumenSesion, tiposFalladosPorId } from '../study.js';
+import { armarRonda, calificarRonda, resultadoRonda, ETIQUETAS_TIPO } from '../quiz.js';
 import { el, urlDe, aviso } from './dom.js';
+import { crearMemoria, memoria as memoriaLista } from './memoria.js';
+import { PRINCIPALES, TITULOS, opcionesFiltro, etiquetaFiltro, selectorFiltro, abrirHojaFiltros } from './filtros-ui.js';
 
-// Sesión de estudio: persiste mientras la aplicación está abierta.
-const sesion = { modo: 'A', sitio: '', alcance: 'todas', cantidad: 20, cola: [], indice: 0, respuestas: [] };
+const SITIO_AI = 'Chacao Chonchi';
+// Filtros, modo, alcance y cantidad de Estudio: propios y persistentes, independientes de la lista.
+const memoria = crearMemoria(() => globalThis.localStorage, 'flora.estudio');
+const MODOS = [['cuestionario', 'Cuestionario'], ['repasar', 'Repasar']];
+const ALCANCES = [['todas', 'Todas'], ['pendientes', 'Me falta y no la sé'], ['sin', 'Sin evaluar']];
+const CANTIDADES = [[10, '10'], [20, '20'], ['todas', 'Todas']];
+
+// Sesión de estudio: persiste mientras la aplicación está abierta y se retoma al volver a la pantalla.
+// ronda: { preguntas, resultados, elegidas, pos, guardada, foto } de la especie en curso (null si aún no se arma).
+const sesion = { modo: 'cuestionario', cola: [], indice: 0, respuestas: [], ronda: null, terminada: false };
+
+const enCurso = s => s.cola.length > 0 && s.indice < s.cola.length;
+const reiniciar = s => Object.assign(s, { cola: [], indice: 0, respuestas: [], ronda: null, terminada: false });
 
 function resumenEstados(especies) {
   const c = { se: 0, falta: 0, no: 0, sin: 0 };
@@ -17,239 +32,345 @@ function estadosDeAlcance(alcance) {
   return null;
 }
 
-async function fotoAlAzar(db, especieId) {
-  const fotos = await fotosDe(db, especieId);
-  return fotos[Math.floor(Math.random() * fotos.length)];
-}
+const nombreEn = (texto, tipo) => (tipo === 'nombre' ? el('i', {}, texto) : texto);
 
-function abrirFoto(f) {
-  const capa = el('div', { class: 'capa', onclick: () => capa.remove() },
-    el('img', { src: urlDe(`foto-${f.id}`, f.blob), alt: '' }),
-    f.fuente === 'inaturalist' ? el('p', { class: 'atribucion' }, `${f.autor} · ${f.licencia} · iNaturalist`) : null);
-  document.body.append(capa);
+// Galería deslizable con indicador. azar: empieza en una foto al azar (índice dado).
+function galeriaDe(fotos, inicio = 0) {
+  const galeria = el('div', { class: 'galeria galeria-estudio' },
+    ...fotos.map(f => el('img', {
+      src: urlDe(`foto-${f.id}`, f.blob), alt: '',
+      style: f.ancho && f.alto ? `aspect-ratio: ${f.ancho} / ${f.alto}` : null,
+    })));
+  const indicador = el('p', { class: 'indicador' }, fotos.length ? `${inicio + 1} de ${fotos.length}` : '');
+  galeria.addEventListener('scroll', () => {
+    if (!fotos.length) return;
+    const anchoFoto = galeria.firstElementChild?.getBoundingClientRect().width || 1;
+    const idx = Math.min(fotos.length - 1, Math.max(0, Math.round(galeria.scrollLeft / anchoFoto)));
+    indicador.textContent = `${idx + 1} de ${fotos.length}`;
+  });
+  if (inicio > 0) {
+    const ir = () => {
+      const img = galeria.children[inicio];
+      if (img) galeria.scrollLeft = img.getBoundingClientRect().left - galeria.getBoundingClientRect().left + galeria.scrollLeft;
+    };
+    requestAnimationFrame(ir);
+    galeria.children[inicio]?.addEventListener('load', ir, { once: true });
+  }
+  return [galeria, indicador];
 }
 
 export async function render(cont, ctx, especieFija) {
   const { db, navegar } = ctx;
-  const conFoto = await especiesConFoto(db);
+  const [todas, conFoto, petalos] = await Promise.all([db.especies.toArray(), especiesConFoto(db), valoresPetalos(db)]);
+  const ctxFiltro = { conFoto };
+  const OPCIONES = opcionesFiltro({ todas, petalos });
 
-  async function candidatasActuales() {
-    const todas = await db.especies.toArray();
-    return candidatas(todas, conFoto, { sitio: sesion.sitio });
-  }
+  const filtroActual = () => ({ ...memoria.estado().filtro, texto: '' });
+  const ajuste = (campo, defecto) => memoria.estado()[campo] ?? defecto;
+  const estadosActuales = () => estadosDeAlcance(ajuste('alcance', 'todas'));
+  const listaActual = () => {
+    const estados = estadosActuales();
+    const c = candidatas(todas, conFoto, filtroActual());
+    return estados ? c.filter(e => estados.includes(e.aprendizaje ?? 'sin')) : c;
+  };
 
-  function cabeceraAvance(i, N, esRepaso) {
-    const etiqueta = esRepaso ? `Especie ${i} de ${N}` : `Pregunta ${i} de ${N}`;
-    return el('div', { class: 'avance' }, el('p', {}, etiqueta), el('progress', { max: N, value: i - 1 }));
-  }
+  // ---------- Inicio ----------
 
-  async function inicio() {
-    const lista = await candidatasActuales();
-    const seleccionEjercicio = el('select', { onchange: ev => { sesion.modo = ev.target.value; } },
-      el('option', { value: 'A', selected: sesion.modo === 'A' }, 'Foto a nombre'),
-      el('option', { value: 'B', selected: sesion.modo === 'B' }, 'Nombre a foto'),
-      el('option', { value: 'R', selected: sesion.modo === 'R' }, 'Repasar'));
-    const seleccionSitio = el('select', { onchange: ev => { sesion.sitio = ev.target.value; inicio(); } },
-      el('option', { value: '', selected: sesion.sitio === '' }, 'Todos'),
-      ...SITIOS.map(s => el('option', { value: s, selected: sesion.sitio === s }, s)));
-    const seleccionAlcance = el('select', { onchange: ev => { sesion.alcance = ev.target.value; } },
-      el('option', { value: 'todas', selected: sesion.alcance === 'todas' }, 'Todas'),
-      el('option', { value: 'pendientes', selected: sesion.alcance === 'pendientes' }, 'Me falta y no la sé'),
-      el('option', { value: 'sin', selected: sesion.alcance === 'sin' }, 'Sin evaluar'));
-    const seleccionCantidad = el('select', { onchange: ev => { sesion.cantidad = ev.target.value === 'todas' ? 'todas' : Number(ev.target.value); } },
-      el('option', { value: '10', selected: sesion.cantidad === 10 }, '10'),
-      el('option', { value: '20', selected: sesion.cantidad === 20 }, '20'),
-      el('option', { value: 'todas', selected: sesion.cantidad === 'todas' }, 'Todas'));
+  function inicio() {
+    reiniciar(sesion);
+    const principales = el('div', { class: 'filtros-principales' });
+    const chips = el('div', { class: 'chips' });
+    const botonFiltros = el('button', { type: 'button', class: 'btn chico boton-filtros', onclick: () => abrirHoja() });
+    const bloqueModo = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Modo' });
+    const bloqueAlcance = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Especies' });
+    const bloqueCantidad = el('div', { class: 'segmentos', role: 'radiogroup', 'aria-label': 'Cantidad' });
+    const disponibles = el('p', { class: 'disponibles', 'aria-live': 'polite' });
+    const comenzar = el('button', { type: 'button', class: 'btn primario', onclick: () => iniciarSesion() }, 'Comenzar');
+
+    function cambiarFiltro(cambio) {
+      const nuevo = { ...filtroActual(), ...cambio, texto: '' };
+      if (nuevo.sitio !== SITIO_AI) nuevo.registroAI = '';
+      memoria.actualizar({ filtro: nuevo });
+      pintar();
+    }
+    function cambiarAjuste(campo, valor) { memoria.actualizar({ [campo]: valor }); pintar(); }
+
+    function segmentos(bloque, opciones, campo, defecto) {
+      const actual = ajuste(campo, defecto);
+      bloque.replaceChildren(...opciones.map(([valor, texto]) => el('button', {
+        type: 'button', role: 'radio', 'aria-checked': String(actual === valor), class: actual === valor ? 'segmento activo' : 'segmento',
+        onclick: () => cambiarAjuste(campo, valor),
+      }, texto)));
+    }
+
+    function pintar() {
+      const filtro = filtroActual();
+      const activos = filtrosActivos(filtro);
+      const otros = activos.filter(({ clave }) => !PRINCIPALES.includes(clave)).length;
+      botonFiltros.textContent = otros ? `Más filtros (${otros})` : 'Más filtros';
+      principales.replaceChildren(...PRINCIPALES.map(clave => selectorFiltro({
+        clave, vacio: TITULOS[clave], OPCIONES, todas, ctxFiltro, filtro,
+        alCambiar: valor => cambiarFiltro({ [clave]: valor }),
+      })));
+      chips.replaceChildren(
+        ...activos.map(({ clave, valor }) => el('button', {
+          type: 'button', class: 'chip', 'aria-label': `Quitar ${TITULOS[clave]}`,
+          onclick: () => cambiarFiltro({ [clave]: '' }),
+        }, `${TITULOS[clave]}: ${etiquetaFiltro(OPCIONES, clave, valor)} ×`)),
+        activos.length ? el('button', { type: 'button', class: 'chip limpiar', onclick: () => {
+          memoria.limpiarFiltros();
+          pintar();
+        } }, 'Limpiar todo') : null);
+      segmentos(bloqueModo, MODOS, 'modo', 'cuestionario');
+      segmentos(bloqueAlcance, ALCANCES, 'alcance', 'todas');
+      segmentos(bloqueCantidad, CANTIDADES, 'cantidad', 20);
+      const n = listaActual().length;
+      disponibles.textContent = n === 1 ? '1 especie con foto entra' : `${n} especies con foto entran`;
+      disponibles.classList.toggle('vacio', n === 0);
+      comenzar.disabled = n === 0;
+    }
+
+    function abrirHoja() {
+      abrirHojaFiltros({
+        OPCIONES, todas, ctxFiltro,
+        leerFiltro: filtroActual,
+        cambiar: filtro => cambiarFiltro(filtro),
+        limpiar: () => { memoria.limpiarFiltros(); pintar(); },
+      });
+    }
+
+    function usarFiltrosDeLaLista() {
+      const nuevo = { ...memoriaLista.estado().filtro, texto: '' };
+      if (nuevo.sitio !== SITIO_AI) nuevo.registroAI = '';
+      memoria.actualizar({ filtro: nuevo });
+      pintar();
+      aviso('Filtros de la lista aplicados');
+    }
+
     cont.replaceChildren(
-      el('header', { class: 'cabecera' }, el('h1', {}, 'Estudio'), el('p', { class: 'contador' }, resumenEstados(lista))),
-      el('div', { class: 'formulario-sesion' },
-        el('label', {}, 'Ejercicio', seleccionEjercicio),
-        el('label', {}, 'Sitio', seleccionSitio),
-        el('label', {}, 'Especies', seleccionAlcance),
-        el('label', {}, 'Cantidad', seleccionCantidad)),
-      el('div', { class: 'acciones' }, el('button', { class: 'btn primario', onclick: comenzar }, 'Comenzar')));
+      el('header', { class: 'cabecera' }, el('h1', {}, 'Estudio'), el('p', { class: 'contador' }, resumenEstados(todas))),
+      el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Modo'), bloqueModo),
+      el('section', { class: 'bloque-estudio' },
+        el('h2', {}, 'Filtros'), principales,
+        el('div', { class: 'barra-filtros dos' },
+          botonFiltros,
+          el('button', { type: 'button', class: 'btn chico', onclick: usarFiltrosDeLaLista }, 'Usar los filtros de la lista')),
+        chips),
+      el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Especies'), bloqueAlcance),
+      el('section', { class: 'bloque-estudio' }, el('h2', {}, 'Cantidad'), bloqueCantidad),
+      disponibles,
+      el('div', { class: 'acciones' }, comenzar));
+    pintar();
   }
 
-  async function comenzar() {
-    const lista = await candidatasActuales();
-    if (sesion.modo === 'B' && lista.length < 4) {
-      aviso('Se necesitan al menos 4 especies con foto para este ejercicio', 4000);
-      return;
-    }
-    const estados = estadosDeAlcance(sesion.alcance);
-    const n = sesion.cantidad === 'todas' ? Infinity : sesion.cantidad;
-    const cola = armarSesion(lista, { n, estados, rng: Math.random });
-    if (!cola.length) {
-      aviso('No hay especies con foto para esta selección', 4000);
-      return;
-    }
+  function iniciarSesion() {
+    const cantidad = ajuste('cantidad', 20);
+    const n = cantidad === 'todas' ? Infinity : cantidad;
+    const cola = armarSesion(listaActual(), { n, estados: null, rng: Math.random });
+    if (!cola.length) { aviso('No hay especies con foto para esta selección', 4000); return; }
+    reiniciar(sesion);
+    sesion.modo = ajuste('modo', 'cuestionario') === 'repasar' ? 'repasar' : 'cuestionario';
     sesion.cola = cola;
-    sesion.indice = 0;
-    sesion.respuestas = [];
-    mostrarPregunta();
+    mostrar();
   }
 
-  function mostrarPregunta() {
-    if (sesion.indice >= sesion.cola.length) { pantallaFinal(); return; }
+  function mostrar() {
+    if (!enCurso(sesion)) { pantallaFinal(); return; }
     const e = sesion.cola[sesion.indice];
-    const i = sesion.indice + 1;
-    const N = sesion.cola.length;
-    if (sesion.modo === 'R') pantallaRepaso(e, i, N);
-    else if (sesion.modo === 'B') preguntaB(e, i, N);
-    else preguntaA(e, { i, N });
+    if (sesion.modo === 'repasar') pantallaRepaso(e, sesion.indice + 1, sesion.cola.length);
+    else tarjeta(sesion, e);
   }
 
-  async function preguntaA(e, { i, N, esFija = false }) {
+  // ---------- Tarjeta de cuestionario ----------
+
+  // s: sesión de módulo o, en #/estudio?especie=<id>, una sesión local de una sola especie (fija).
+  async function tarjeta(s, e, { fija = false } = {}) {
     const fotos = await fotosDe(db, e.id);
-    let respondido = false;
-    const galeria = el('div', { class: 'galeria galeria-estudio' },
-      ...fotos.map(f => el('img', { src: urlDe(`foto-${f.id}`, f.blob), alt: '' })));
-    const indicador = el('p', { class: 'indicador' }, fotos.length ? `1 de ${fotos.length}` : '');
-    galeria.addEventListener('scroll', () => {
-      if (!fotos.length) return;
-      const anchoFoto = galeria.firstElementChild?.getBoundingClientRect().width || 1;
-      const idx = Math.min(fotos.length - 1, Math.max(0, Math.round(galeria.scrollLeft / anchoFoto)));
-      indicador.textContent = `${idx + 1} de ${fotos.length}`;
-    });
-    const pista = el('p', { class: 'pista', hidden: true });
-    const botonPista = el('button', { class: 'btn', onclick: () => {
-      pista.textContent = `Familia: ${e.familia || 'sin dato'} · Hábito: ${e.habito || 'sin dato'}`
-        + (e.diagnostico ? '\n' + e.diagnostico : '');
-      pista.hidden = false;
-      botonPista.disabled = true;
-    } }, 'Pista');
-    const respuesta = el('p', { class: 'respuesta', hidden: true }, el('i', {}, e.nombre), ' ', el('small', {}, e.familia || ''));
-    const siguientePanel = el('div', { class: 'acciones', hidden: true });
-    const botones = el('div', { class: 'calificar', hidden: true },
-      ...[['se', 'La sé'], ['falta', 'Me falta'], ['no', 'No la sé']].map(([valor, texto]) =>
-        el('button', { class: `btn ${valor}`, onclick: async () => {
-          if (respondido) return;
-          respondido = true;
-          await db.especies.put(calificarA(e, valor, new Date().toISOString()));
-          if (esFija) { navegar(`#/ficha/${e.id}`); return; }
-          sesion.respuestas.push({ id: e.id, resultado: valor });
-          siguientePanel.replaceChildren(
-            el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'),
-            el('button', { class: 'btn primario', onclick: () => { sesion.indice++; mostrarPregunta(); } }, 'Siguiente'));
-          siguientePanel.hidden = false;
-        } }, texto)));
-    const mostrar = el('button', { class: 'btn primario', onclick: () => {
-      respuesta.hidden = false;
-      botones.hidden = false;
-      mostrar.hidden = true;
-    } }, 'Mostrar nombre');
-    const saltar = el('button', { class: 'btn', onclick: () => {
-      if (respondido) return;
-      respondido = true;
-      if (esFija) { navegar(`#/ficha/${e.id}`); return; }
-      sesion.respuestas.push({ id: e.id, resultado: 'saltada' });
-      sesion.indice++;
-      mostrarPregunta();
-    } }, 'Saltar');
+    if (!s.ronda) {
+      s.ronda = {
+        preguntas: armarRonda(e, todas, Math.random), resultados: [], elegidas: [], pos: 0, guardada: false,
+        foto: fotos.length ? Math.floor(Math.random() * fotos.length) : 0,
+      };
+    }
+    const r = s.ronda;
+    const N = s.cola.length;
+    const i = s.indice + 1;
+    const [galeria, indicador] = galeriaDe(fotos, r.foto);
+    const terminar = () => (fija ? navegar(`#/ficha/${e.id}`) : terminarSesion());
+
+    const cabecera = el('div', { class: 'avance' },
+      el('div', { class: 'avance-fila' },
+        el('p', {}, fija ? 'Una especie' : `Especie ${i} de ${N}`),
+        el('button', { type: 'button', class: 'btn chico terminar', onclick: terminar }, fija ? 'Salir' : 'Terminar sesión')),
+      fija ? null : el('progress', { max: N, value: i - 1 }),
+      el('div', { class: 'puntos-ronda', 'aria-hidden': 'true' },
+        ...r.preguntas.map((_, k) => el('span', { class: k < r.pos ? 'hecho' : k === r.pos ? 'actual' : null }))));
+    const nombreVisible = r.resultados.length > 0 || r.pos >= r.preguntas.length
+      ? el('p', { class: 'nombre-ronda' }, el('i', {}, e.nombre)) : null;
+
+    if (r.pos >= r.preguntas.length) {
+      finDeTarjeta(s, e, fija, [cabecera, galeria, indicador, nombreVisible]);
+      return;
+    }
+
+    const p = r.preguntas[r.pos];
+    const respondida = r.resultados.length > r.pos;
+    const anuncio = el('p', { class: 'resultado-ronda', 'aria-live': 'polite' });
+    const siguiente = el('button', { type: 'button', class: 'btn primario', hidden: !respondida, onclick: () => { r.pos++; tarjeta(s, e, { fija }); } },
+      r.pos === r.preguntas.length - 1 ? 'Ver resumen' : 'Siguiente pregunta');
+    const botones = p.alternativas.map(alt => el('button', {
+      type: 'button', class: 'alternativa', onclick: () => responder(alt),
+    }, nombreEn(alt, p.tipo)));
+
+    function marcar(elegida) {
+      botones.forEach((b, k) => {
+        const alt = p.alternativas[k];
+        b.disabled = true;
+        if (alt === p.correcta) b.classList.add('correcta');
+        else if (alt === elegida) b.classList.add('incorrecta');
+        else b.classList.add('atenuada');
+      });
+      const acierto = elegida === p.correcta;
+      anuncio.className = `resultado-ronda ${acierto ? 'ok' : 'mal'}`;
+      if (acierto) anuncio.replaceChildren('Correcto');
+      else anuncio.replaceChildren('Era: ', nombreEn(p.correcta, p.tipo));
+      siguiente.hidden = false;
+    }
+
+    async function responder(elegida) {
+      if (r.resultados.length > r.pos) return;
+      r.resultados.push({ tipo: p.tipo, acierto: elegida === p.correcta });
+      r.elegidas.push(elegida);
+      marcar(elegida);
+      botones.forEach(b => { b.disabled = true; });
+      if (r.pos === r.preguntas.length - 1) await guardarRonda(s, e);
+      siguiente.focus({ preventScroll: true });
+    }
+
     cont.replaceChildren(
-      cabeceraAvance(i, N, false),
-      galeria, indicador,
-      el('div', { class: 'acciones' }, botonPista),
-      pista,
-      el('div', { class: 'acciones' }, mostrar),
-      respuesta, botones, siguientePanel,
-      el('div', { class: 'acciones' }, saltar));
+      cabecera, galeria, indicador, nombreVisible,
+      el('h2', { class: 'enunciado' }, p.enunciado),
+      el('div', { class: 'alternativas' }, ...botones),
+      anuncio,
+      el('div', { class: 'acciones' }, siguiente));
+    if (respondida) marcar(r.elegidas[r.pos]);
   }
 
-  async function preguntaB(e, i, N) {
-    const todasCand = await candidatasActuales();
-    const opciones = barajar([e, ...distractores(todasCand, e, 3, Math.random)], Math.random);
-    const fotos = await Promise.all(opciones.map(o => fotoAlAzar(db, o.id)));
-    let respondido = false;
-    const cuadricula = el('div', { class: 'cuadricula' });
-    const siguientePanel = el('div', { class: 'acciones', hidden: true });
-    opciones.forEach((o, idx) => {
-      const nombre = el('small', { class: 'nombre-opcion', hidden: true }, el('i', {}, o.nombre));
-      const celda = el('div', { class: 'opcion', onclick: async () => {
-        if (respondido) { abrirFoto(fotos[idx]); return; }
-        respondido = true;
-        const acierto = o.id === e.id;
-        await db.especies.put(registrarB(e, acierto, new Date().toISOString()));
-        sesion.respuestas.push({ id: e.id, resultado: acierto ? 'acierto' : 'fallo' });
-        [...cuadricula.children].forEach((c, j) => {
-          c.classList.add(opciones[j].id === e.id ? 'correcta' : j === idx ? 'incorrecta' : 'neutra');
-          c.querySelector('.nombre-opcion').hidden = false;
-        });
-        aviso(acierto ? 'Correcto' : 'Incorrecto', 1500);
-        siguientePanel.replaceChildren(
-          el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'),
-          el('button', { class: 'btn primario', onclick: () => { sesion.indice++; mostrarPregunta(); } }, 'Siguiente'));
-        siguientePanel.hidden = false;
-      } }, el('img', { src: urlDe(`foto-${fotos[idx].id}`, fotos[idx].blob), alt: '' }), nombre);
-      cuadricula.append(celda);
+  async function guardarRonda(s, e) {
+    const r = s.ronda;
+    if (r.guardada) return;
+    r.guardada = true;
+    try {
+      const fresca = (await obtenerEspecie(db, e.id)) ?? e;
+      await db.especies.put(calificarRonda(fresca, r.resultados, ahora()));
+    } catch {
+      r.guardada = false;
+      aviso('No se pudo guardar el resultado de esta especie', 4000);
+      return;
+    }
+    s.respuestas.push({
+      id: e.id, resultado: resultadoRonda(r.resultados),
+      correctas: r.resultados.filter(x => x.acierto).length, preguntas: r.resultados.length,
+      fallados: r.resultados.filter(x => !x.acierto).map(x => x.tipo),
+    });
+  }
+
+  function finDeTarjeta(s, e, fija, previos) {
+    const r = s.ronda;
+    const aciertos = r.resultados.filter(x => x.acierto).length;
+    const esUltima = s.indice === s.cola.length - 1;
+    const filas = r.preguntas.map((p, k) => {
+      const bien = r.resultados[k]?.acierto;
+      return el('li', { class: bien ? 'ok' : 'mal' },
+        el('span', { class: 'marca', 'aria-label': bien ? 'Acertaste' : 'Fallaste' }, bien ? '✓' : '✗'),
+        el('div', {}, el('small', {}, p.enunciado), el('p', {}, nombreEn(p.correcta, p.tipo))));
     });
     cont.replaceChildren(
-      cabeceraAvance(i, N, false),
-      el('header', { class: 'cabecera' }, el('h1', {}, el('i', {}, e.nombre)), el('p', {}, '¿Cuál es su foto?')),
-      cuadricula,
-      siguientePanel);
+      ...previos,
+      el('div', { class: `marcador ${resultadoRonda(r.resultados)}` },
+        el('h2', {}, `${aciertos} de ${r.preguntas.length}`),
+        el('p', {}, resultadoRonda(r.resultados) === 'perfecta' ? 'Ronda perfecta' : 'Para repasar')),
+      el('ul', { class: 'resultado-lista' }, ...filas),
+      e.diagnostico ? el('div', { class: 'diagnostico' }, el('h2', {}, 'Rasgo para reconocerla'), el('p', {}, e.diagnostico)) : null,
+      el('div', { class: 'acciones' },
+        fija
+          ? el('a', { class: 'btn primario', href: `#/ficha/${e.id}` }, 'Volver a la ficha')
+          : [el('a', { class: 'btn', href: `#/ficha/${e.id}` }, 'Ver ficha'),
+            el('button', { type: 'button', class: 'btn primario', onclick: () => { s.indice++; s.ronda = null; mostrar(); } },
+              esUltima ? 'Ver resultado' : 'Siguiente especie')]));
   }
+
+  function terminarSesion() {
+    if (sesion.respuestas.length) { sesion.terminada = true; sesion.indice = sesion.cola.length; sesion.ronda = null; pantallaFinal(); }
+    else inicio();
+  }
+
+  // ---------- Repasar ----------
 
   async function pantallaRepaso(e, i, N) {
     const fotos = await fotosDe(db, e.id);
-    const galeria = el('div', { class: 'galeria galeria-estudio' },
-      ...fotos.map(f => el('img', { src: urlDe(`foto-${f.id}`, f.blob), alt: '' })));
-    const indicador = el('p', { class: 'indicador' }, fotos.length ? `1 de ${fotos.length}` : '');
-    galeria.addEventListener('scroll', () => {
-      if (!fotos.length) return;
-      const anchoFoto = galeria.firstElementChild?.getBoundingClientRect().width || 1;
-      const idx = Math.min(fotos.length - 1, Math.max(0, Math.round(galeria.scrollLeft / anchoFoto)));
-      indicador.textContent = `${idx + 1} de ${fotos.length}`;
-    });
+    const [galeria, indicador] = galeriaDe(fotos, 0);
     const esUltima = i === N;
     const anterior = el('button', { class: 'btn', disabled: i === 1, onclick: () => {
-      if (sesion.indice > 0) { sesion.indice--; mostrarPregunta(); }
+      if (sesion.indice > 0) { sesion.indice--; mostrar(); }
     } }, 'Anterior');
     const siguiente = el('button', { class: 'btn primario', onclick: () => {
       if (esUltima) inicio();
-      else { sesion.indice++; mostrarPregunta(); }
+      else { sesion.indice++; mostrar(); }
     } }, esUltima ? 'Terminar' : 'Siguiente');
     cont.replaceChildren(
-      cabeceraAvance(i, N, true),
+      el('div', { class: 'avance' }, el('p', {}, `Especie ${i} de ${N}`), el('progress', { max: N, value: i - 1 })),
       galeria, indicador,
       el('p', { class: 'respuesta' }, el('i', {}, e.nombre)),
       el('p', {}, `${e.familia || 'sin dato'} · ${e.habito || 'sin dato'}`),
       el('div', { class: 'acciones' }, anterior, siguiente));
   }
 
+  // ---------- Fin de sesión ----------
+
   async function repetirFalladas() {
     const r = resumenSesion(sesion.respuestas);
     const especies = (await Promise.all(r.falladas.map(id => obtenerEspecie(db, id)))).filter(Boolean);
+    reiniciar(sesion);
     sesion.cola = especies;
-    sesion.indice = 0;
-    sesion.respuestas = [];
-    mostrarPregunta();
+    mostrar();
   }
 
   async function pantallaFinal() {
     const r = resumenSesion(sesion.respuestas);
     const minis = await miniaturasPrimeras(db);
+    const tipos = tiposFalladosPorId(sesion.respuestas);
     const falladas = (await Promise.all(r.falladas.map(id => obtenerEspecie(db, id)))).filter(Boolean);
-    const listaFalladas = el('ul', { class: 'resumen', hidden: falladas.length === 0 },
+    const perfectas = r.aciertos;
+    const listaFalladas = el('ul', { class: 'resumen' },
       ...falladas.map(e => el('li', {},
         el('a', { href: `#/ficha/${e.id}` },
-          minis.has(e.id) ? el('img', { src: urlDe(`mini-${e.id}`, minis.get(e.id)), alt: '' }) : null,
-          el('i', {}, e.nombre)))));
-    const botonRepetir = el('button', { class: 'btn primario', hidden: falladas.length === 0, onclick: repetirFalladas }, 'Repetir las falladas');
+          minis.has(e.id) ? el('img', { src: urlDe(`mini-${e.id}`, minis.get(e.id)), alt: '' }) : el('span', { class: 'sin-mini' }),
+          el('div', { class: 'texto' }, el('i', {}, e.nombre),
+            el('small', {}, `Fallaste: ${(tipos.get(e.id) ?? []).map(t => ETIQUETAS_TIPO[t]).join(', ') || 'algo'}`))))));
     cont.replaceChildren(
-      el('header', { class: 'cabecera' }, el('h1', {}, 'Sesión terminada'),
-        el('p', {}, `Aciertos ${r.aciertos} · Fallos ${r.fallos} · Saltadas ${r.saltadas}`)),
-      listaFalladas,
-      el('div', { class: 'acciones' }, botonRepetir,
-        el('button', { class: 'btn', onclick: inicio }, 'Nueva sesión'),
-        el('a', { class: 'btn', href: '#/lista' }, 'Ir a la lista')));
+      el('header', { class: 'cabecera' }, el('h1', {}, 'Sesión terminada')),
+      el('div', { class: 'marcador' },
+        el('h2', {}, `Acertaste ${r.correctas} de ${r.preguntas} preguntas`),
+        el('p', {}, `${perfectas} de ${sesion.respuestas.length} especies perfectas`)),
+      falladas.length ? el('h2', { class: 'subtitulo' }, 'Para repasar') : null,
+      falladas.length ? listaFalladas : el('p', { class: 'contador' }, 'Sin errores en esta sesión.'),
+      el('div', { class: 'acciones' },
+        falladas.length ? el('button', { type: 'button', class: 'btn primario', onclick: repetirFalladas }, 'Repetir las falladas') : null,
+        el('button', { type: 'button', class: 'btn', onclick: inicio }, 'Volver')));
   }
+
+  // ---------- Entrada ----------
 
   if (especieFija) {
     const e = await obtenerEspecie(db, especieFija);
     if (!e) { navegar('#/lista'); return; }
-    await preguntaA(e, { i: 1, N: 1, esFija: true });
+    await tarjeta({ cola: [e], indice: 0, respuestas: [], ronda: null }, e, { fija: true });
+  } else if (sesion.terminada) {
+    await pantallaFinal();
+  } else if (enCurso(sesion)) {
+    mostrar();
   } else {
-    await inicio();
+    inicio();
   }
 }

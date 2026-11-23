@@ -11,6 +11,8 @@ export const TIPOS = {
   diagnostico: '¿Cuál es su rasgo para reconocerla?',
   habito: '¿Cuál es su hábito?',
 };
+// Nombre corto de cada tipo, para resúmenes.
+export const ETIQUETAS_TIPO = { nombre: 'Nombre', familia: 'Familia', categoria: 'Conservación', origen: 'Origen', diagnostico: 'Rasgo', habito: 'Hábito' };
 export const CAMPO_DE_TIPO = { nombre: 'nombre', familia: 'familia', categoria: 'categoriaMMA', origen: 'origen', diagnostico: 'diagnostico', habito: 'habito' };
 const EXTRAS = ['familia', 'categoria', 'origen', 'diagnostico', 'habito'];
 const OPCIONES = 4;

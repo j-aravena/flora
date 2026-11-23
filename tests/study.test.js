@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
-  peso, candidatas, elegirPonderado, siguienteEspecie, distractores, calificarA, registrarB,
-  actualizarRecientes, barajar, rngSemilla, armarSesion, resumenSesion,
+  peso, candidatas, elegirPonderado, siguienteEspecie, registrarB,
+  actualizarRecientes, barajar, rngSemilla, armarSesion, resumenSesion, tiposFalladosPorId,
 } from '../study.js';
 
 const esp = (id, extra = {}) => ({ id, nombre: id, familia: '', habito: '', sitios: ['STP'], aprendizaje: null, aciertos: 0, fallos: 0, rachaAciertos: 0, ...extra });
@@ -55,31 +55,7 @@ describe('pesos y selección', () => {
   });
 });
 
-describe('distractores', () => {
-  it('prefiere misma familia, luego mismo hábito, luego el resto', () => {
-    const correcta = esp('x', { familia: 'Asteraceae', habito: 'Arbusto' });
-    const lista = [correcta, esp('f1', { familia: 'Asteraceae' }), esp('h1', { habito: 'Arbusto' }), esp('h2', { habito: 'Arbusto' }), esp('r1'), esp('r2')];
-    const ids = distractores(lista, correcta, 3, rngSemilla(1)).map(e => e.id);
-    expect(ids).toHaveLength(3);
-    expect(ids[0]).toBe('f1');
-    expect(ids.slice(1).every(id => ['h1', 'h2'].includes(id))).toBe(true);
-    expect(new Set(ids).size).toBe(3);
-  });
-
-  it('nunca incluye la correcta ni repite, y devuelve menos si no alcanzan', () => {
-    const correcta = esp('x');
-    const lista = [correcta, esp('a'), esp('b')];
-    const ids = distractores(lista, correcta, 3, rngSemilla(1)).map(e => e.id);
-    expect(ids).toHaveLength(2);
-    expect(ids).not.toContain('x');
-  });
-});
-
 describe('registro de respuestas', () => {
-  it('calificarA fija el estado y las fechas', () => {
-    expect(calificarA(esp('a'), 'falta', 'T')).toMatchObject({ aprendizaje: 'falta', ultimoEstudio: 'T', modificadoEn: 'T' });
-  });
-
   it('dos aciertos seguidos suben un nivel y reinician la racha', () => {
     let e = esp('a', { aprendizaje: 'no' });
     e = registrarB(e, true, 'T1');
@@ -201,5 +177,20 @@ describe('candidatas con filtro y rondas', () => {
     expect(r.falladas).toEqual(['b', 'c']);
     expect(r.correctas).toBe(5);
     expect(r.preguntas).toBe(8);
+  });
+});
+
+describe('tiposFalladosPorId', () => {
+  it('reúne los tipos fallados por especie y omite perfectas y saltadas', () => {
+    const m = tiposFalladosPorId([
+      { id: 'a', resultado: 'perfecta', fallados: [] },
+      { id: 'b', resultado: 'parcial', fallados: ['familia'] },
+      { id: 'c', resultado: 'fallo', fallados: ['nombre', 'habito'] },
+      { id: 'b', resultado: 'parcial', fallados: ['familia', 'origen'] },
+      { id: 'd', resultado: 'saltada' },
+    ]);
+    expect([...m.keys()]).toEqual(['b', 'c']);
+    expect(m.get('b')).toEqual(['familia', 'origen']);
+    expect(m.get('c')).toEqual(['nombre', 'habito']);
   });
 });
