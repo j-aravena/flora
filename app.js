@@ -11,7 +11,10 @@ export const VERSION = globalThis.FLORA_VERSION;
 const RUTA_SEMILLA = 'semilla/semilla.zip';
 // Listados de sitio que llegan después del paquete inicial. Cada uno se aplica una sola vez y solo
 // agrega: no reemplaza especies, avance ni fotos que ya estén en el teléfono.
-const LISTADOS = [{ sitio: 'Nevado Tres Cruces', ruta: 'semilla/nevado-tres-cruces.zip' }];
+const LISTADOS = [
+  { sitio: 'Nevado Tres Cruces', ruta: 'semilla/nevado-tres-cruces.zip' },
+  { sitio: 'Chacao Chonchi', ruta: 'semilla/chacao-chonchi.zip' },
+];
 
 const db = crearDb();
 const ctx = {
@@ -104,7 +107,7 @@ export async function aplicarListados() {
     aplicados.push(sitio);
     await escribirMeta(db, 'listadosAplicados', aplicados);
     total += r.nuevas;
-    aviso(`Listado ${sitio} agregado: ${r.nuevas} especies nuevas y ${r.conSitio} ya existentes marcadas`, 5000);
+    aviso(`Listado ${sitio} agregado: ${r.nuevas} especies nuevas, ${r.conSitio} ya existentes completadas y ${r.fotos} fotos`, 5000);
   }
   return total;
 }

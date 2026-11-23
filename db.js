@@ -189,10 +189,24 @@ export async function importarRespaldo(db, JSZip, datos, modo = 'reemplazar', on
   return { especies: especies.length, fotos: fotosMeta.length };
 }
 
-// Aplica un paquete de listado de sitio sin reemplazar nada: a las especies que ya están en el
-// teléfono (mismo id, o mismo nombre sin distinguir tildes ni mayúsculas, como las creadas a mano)
-// solo les suma el sitio; las demás se agregan con sus fotos. Avance, notas, ediciones y fotos
-// propias quedan intactos, y aplicarlo dos veces no cambia nada.
+const CAMPOS_SI_VACIOS = ['familia', 'habito', 'habitoDetalle', 'categoriaMMA', 'decreto', 'diagnostico'];
+
+// Completa una especie existente con lo que trae el listado, sin tocar avance, notas ni lo que ya tiene.
+function completarExistente(existente, delPaquete, sitio) {
+  const e = { ...existente, sitios: existente.sitios.includes(sitio) ? existente.sitios : [...existente.sitios, sitio] };
+  for (const c of CAMPOS_SI_VACIOS) if (!e[c] && delPaquete[c]) e[c] = delPaquete[c];
+  if (delPaquete.registroAI) e.registroAI = delPaquete.registroAI;
+  e.hidrofila = Boolean(existente.hidrofila || delPaquete.hidrofila);
+  e.ordenListado = { ...(existente.ordenListado ?? {}), ...(delPaquete.ordenListado ?? {}) };
+  return e;
+}
+
+const cambio = (a, b) => JSON.stringify(a) !== JSON.stringify(b);
+
+// Aplica un paquete de listado de sitio sin reemplazar nada. Las especies que ya están en el teléfono (mismo id, o mismo
+// nombre sin distinguir tildes ni mayúsculas, como las creadas a mano) reciben el sitio, las fotos del paquete al final y
+// los datos que les falten. Las demás se agregan con sus fotos. Avance, notas, ediciones y fotos propias quedan intactos,
+// y aplicarlo dos veces no cambia nada.
 export async function agregarListado(db, JSZip, datos, sitio) {
   await leerManifest(JSZip, datos);
   const zip = await JSZip.loadAsync(datos);
@@ -202,30 +216,41 @@ export async function agregarListado(db, JSZip, datos, sitio) {
   const porId = new Map(actuales.map(e => [e.id, e]));
   const porNombre = new Map(actuales.map(e => [normalizar(e.nombre), e]));
   const nuevas = [];
-  const conSitio = [];
+  const actualizadas = [];
+  const destino = new Map(); // id en el paquete -> id en el teléfono
   for (const e of especies) {
     const existente = porId.get(e.id) ?? porNombre.get(normalizar(e.nombre));
     if (!existente) {
       nuevas.push(e);
       porNombre.set(normalizar(e.nombre), e);
-    } else if (!existente.sitios.includes(sitio)) {
-      conSitio.push({ ...existente, sitios: [...existente.sitios, sitio] });
+      destino.set(e.id, e.id);
+      continue;
     }
+    destino.set(e.id, existente.id);
+    const completada = completarExistente(existente, e, sitio);
+    if (cambio(completada, existente)) actualizadas.push(completada);
   }
-  const idsNuevas = new Set(nuevas.map(e => e.id));
+  const idsFotos = new Set(await db.fotos.toCollection().primaryKeys());
+  const siguienteOrden = new Map();
   const fotos = [];
-  for (const m of fotosMeta.filter(f => idsNuevas.has(f.especieId))) {
+  for (const m of [...fotosMeta].sort((a, b) => (a.orden ?? 0) - (b.orden ?? 0))) {
+    const especieId = destino.get(m.especieId);
+    if (!especieId || idsFotos.has(m.id)) continue;
+    if (!siguienteOrden.has(especieId)) siguienteOrden.set(especieId, await db.fotos.where('especieId').equals(especieId).count());
+    const orden = siguienteOrden.get(especieId);
+    siguienteOrden.set(especieId, orden + 1);
     const tipo = m.tipo || 'image/webp';
     const blob = new Blob([await zip.file(`fotos/${m.id}.webp`).async('arraybuffer')], { type: tipo });
     const miniatura = new Blob([await zip.file(`miniaturas/${m.id}.webp`).async('arraybuffer')], { type: tipo });
-    fotos.push({ ...m, tipo, blob, miniatura });
+    fotos.push({ ...m, especieId, orden, tipo, blob, miniatura });
   }
   await db.transaction('rw', db.especies, db.fotos, async () => {
     await db.especies.bulkAdd(nuevas);
-    await db.especies.bulkPut(conSitio);
+    await db.especies.bulkPut(actualizadas);
     await db.fotos.bulkAdd(fotos);
   });
-  return { nuevas: nuevas.length, conSitio: conSitio.length, fotos: fotos.length };
+  const conSitio = actualizadas.filter(e => !porId.get(e.id)?.sitios.includes(sitio)).length;
+  return { nuevas: nuevas.length, conSitio, fotos: fotos.length };
 }
 
 function ordenPetalos(v) {

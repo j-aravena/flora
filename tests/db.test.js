@@ -236,14 +236,14 @@ describe('agregarListado', () => {
     ]);
 
     const r = await agregarListado(db, JSZip, zip, 'Nevado Tres Cruces');
-    expect(r).toEqual({ nuevas: 1, conSitio: 2, fotos: 2 });
+    expect(r).toEqual({ nuevas: 1, conSitio: 2, fotos: 3 });
 
     const s = await obtenerEspecie(db, semilla.id);
     expect(s).toMatchObject({ sitios: ['STP', 'Nevado Tres Cruces'], aprendizaje: 'se', aciertos: 4, notas: 'mía', familia: 'Editada' });
     expect((await fotosDe(db, semilla.id)).length).toBe(1);
     const m = await obtenerEspecie(db, manual.id);
-    expect(m).toMatchObject({ nombre: 'Viola gelida', sitios: ['Nevado Tres Cruces'], aprendizaje: 'falta', fallos: 2, familia: '' });
-    expect((await fotosDe(db, manual.id)).length).toBe(0);
+    expect(m).toMatchObject({ nombre: 'Viola gelida', sitios: ['Nevado Tres Cruces'], aprendizaje: 'falta', fallos: 2, familia: 'Violaceae' });
+    expect((await fotosDe(db, manual.id)).length).toBe(1);
     expect(await obtenerEspecie(db, enPaquete[1].id)).toBeUndefined();
     const nueva = await obtenerEspecie(db, enPaquete[2].id);
     expect(nueva).toMatchObject({ nombre: 'Nueva especie', sitios: ['Nevado Tres Cruces'], familia: 'Asteraceae' });
@@ -251,7 +251,59 @@ describe('agregarListado', () => {
 
     // Aplicarlo de nuevo no cambia nada.
     expect(await agregarListado(db, JSZip, zip, 'Nevado Tres Cruces')).toEqual({ nuevas: 0, conSitio: 0, fotos: 0 });
-    expect(await contar(db)).toEqual({ especies: 3, fotos: 3 });
+    expect(await contar(db)).toEqual({ especies: 3, fotos: 4 });
     expect((await obtenerEspecie(db, semilla.id)).sitios).toEqual(['STP', 'Nevado Tres Cruces']);
+  });
+});
+
+async function zipListado(especies, fotos = []) {
+  const zip = new JSZip();
+  zip.file('manifest.json', JSON.stringify({ formato: 1, generado: 'x', especies: especies.length, fotos: fotos.length }));
+  zip.file('especies.json', JSON.stringify(especies));
+  zip.file('fotos.json', JSON.stringify(fotos));
+  for (const f of fotos) {
+    zip.file(`fotos/${f.id}.webp`, new Uint8Array([1, 2, 3]));
+    zip.file(`miniaturas/${f.id}.webp`, new Uint8Array([4]));
+  }
+  return zip.generateAsync({ type: 'uint8array' });
+}
+
+const fotoMeta = (id, especieId, orden) => ({ id, especieId, orden, ancho: 1, alto: 1, tipo: 'image/webp', fuente: 'presentacion', autor: 'A', licencia: '', url: '', creadoEn: 'x' });
+
+describe('agregarListado con existentes', () => {
+  it('suma fotos al final y completa solo campos vacíos, sin tocar avance ni notas', async () => {
+    const existente = await guardarEspecie(db, nuevaEspecie({
+      nombre: 'Acaena magellanica', familia: 'Rosaceae', categoriaMMA: '', notas: 'mía', aprendizaje: 'se', sitios: ['STP'],
+    }));
+    await agregarFoto(db, { especieId: existente.id, blob: new Blob(['a']), miniatura: new Blob(['a']) });
+    const delPaquete = nuevaEspecie({
+      id: 'otro-id', nombre: 'acaena magellanica', familia: 'Otra', categoriaMMA: 'Preocupación Menor', decreto: 'D.S. N° 1/2000',
+      diagnostico: 'Espinas ganchudas', registroAI: 'si', hidrofila: true, ordenListado: { 'Chacao Chonchi': 7 }, notas: 'del pdf',
+      sitios: ['Chacao Chonchi'],
+    });
+    const datos = await zipListado([delPaquete], [fotoMeta('f1', 'otro-id', 0), fotoMeta('f2', 'otro-id', 1)]);
+    const r = await agregarListado(db, JSZip, datos, 'Chacao Chonchi');
+    expect(r).toEqual({ nuevas: 0, conSitio: 1, fotos: 2 });
+    const e = await obtenerEspecie(db, existente.id);
+    expect(e.sitios).toEqual(['STP', 'Chacao Chonchi']);
+    expect(e.familia).toBe('Rosaceae');
+    expect(e.categoriaMMA).toBe('Preocupación Menor');
+    expect(e.decreto).toBe('D.S. N° 1/2000');
+    expect(e.diagnostico).toBe('Espinas ganchudas');
+    expect(e).toMatchObject({ registroAI: 'si', hidrofila: true, ordenListado: { 'Chacao Chonchi': 7 }, notas: 'mía', aprendizaje: 'se' });
+    const fotos = await fotosDe(db, existente.id);
+    expect(fotos.map(f => [f.id, f.orden])).toEqual([[fotos[0].id, 0], ['f1', 1], ['f2', 2]]);
+    expect(await db.especies.get('otro-id')).toBeUndefined();
+
+    const r2 = await agregarListado(db, JSZip, datos, 'Chacao Chonchi');
+    expect(r2).toEqual({ nuevas: 0, conSitio: 0, fotos: 0 });
+    expect(await fotosDe(db, existente.id)).toHaveLength(3);
+  });
+
+  it('las nuevas entran con sus fotos', async () => {
+    const nueva = nuevaEspecie({ nombre: 'Luma chequen', sitios: ['Chacao Chonchi'], ordenListado: { 'Chacao Chonchi': 1 } });
+    const r = await agregarListado(db, JSZip, await zipListado([nueva], [fotoMeta('g1', nueva.id, 0)]), 'Chacao Chonchi');
+    expect(r).toEqual({ nuevas: 1, conSitio: 0, fotos: 1 });
+    expect((await obtenerEspecie(db, nueva.id)).ordenListado).toEqual({ 'Chacao Chonchi': 1 });
   });
 });
