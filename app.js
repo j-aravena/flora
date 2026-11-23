@@ -25,6 +25,8 @@ const ctx = {
   cargarSemilla,
   aplicarListados,
   actualizacion: { lista: false },
+  desdeLista: false,
+  reemplazando: false,
 };
 
 const rutas = [
@@ -39,9 +41,16 @@ function marcarNav(seccion) {
   document.querySelectorAll('.barra a').forEach(a => a.classList.toggle('activa', a.dataset.ruta === seccion));
 }
 
+let rutaActual = '';
+
 async function enrutar() {
-  document.querySelectorAll('.capa').forEach(c => c.remove());
+  document.querySelectorAll('.capa, dialog.hoja').forEach(c => c.remove());
   const hash = location.hash || '#/lista';
+  // La ficha sabe si se llegó desde la lista para que "Volver" use history.back(). Un location.replace
+  // (anterior/siguiente en la ficha) conserva el origen.
+  if (!ctx.reemplazando) ctx.desdeLista = rutaActual.startsWith('#/lista');
+  ctx.reemplazando = false;
+  rutaActual = hash;
   const pantalla = document.getElementById('pantalla');
   for (const [patron, render, seccion] of rutas) {
     const m = hash.match(patron);
@@ -113,6 +122,7 @@ export async function aplicarListados() {
 }
 
 async function iniciar() {
+  history.scrollRestoration = 'manual';
   const pantalla = document.getElementById('pantalla');
   if (!(await leerMeta(db, 'semillaCargada'))) {
     try {
