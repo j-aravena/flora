@@ -2,11 +2,11 @@
 import Dexie from './vendor/dexie.mjs';
 
 export const FORMATO = 1;
-export const SITIOS = ['Las Tórtolas', 'STP', 'Prefactibilidad', 'Nevado Tres Cruces'];
+export const SITIOS = ['Las Tórtolas', 'STP', 'Prefactibilidad', 'Nevado Tres Cruces', 'Chacao Chonchi'];
 export const ORIGENES = ['Nativa', 'Endémica', 'Introducida'];
-export const HABITOS = ['Hierba anual', 'Hierba perenne', 'Arbusto', 'Árbol', 'Suculenta'];
+export const HABITOS = ['Hierba anual', 'Hierba perenne', 'Subarbusto', 'Arbusto', 'Árbol', 'Suculenta'];
 export const CICLOS = ['Anual', 'Perenne', 'Bienal', 'Anual o bienal'];
-export const CATEGORIAS = ['Preocupación Menor', 'Casi amenazada', 'Vulnerable', 'En peligro'];
+export const CATEGORIAS = ['Preocupación Menor', 'Casi amenazada', 'Vulnerable', 'En peligro', 'En peligro crítico', 'Datos insuficientes', 'Rara'];
 export const NIVELES = ['especie', 'genero', 'familia'];
 export const APRENDIZAJES = [['se', 'La sé'], ['falta', 'Me falta'], ['no', 'No la sé'], ['sin', 'Sin evaluar']];
 export const COLORES_FLOR = [
@@ -39,6 +39,7 @@ export function nuevaEspecie(datos = {}) {
     habitoDetalle: '', ciclo: '', categoriaMMA: '', decreto: '', ds68: false, distribucion: [],
     rangoAltitudinal: '', sitios: [], aprendizaje: null, aciertos: 0, fallos: 0, rachaAciertos: 0,
     ultimoEstudio: null, notas: '', colorFlor: [], petalos: '', petalosNota: '', rasgosFuente: '',
+    registroAI: '', hidrofila: false, diagnostico: '', ordenListado: {},
     creadoEn: t, modificadoEn: t, ...datos,
   };
 }
